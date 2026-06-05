@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-06-03T08:49:16.420Z",
+  "results": [
+    {
+      "name": "Empty State",
+      "status": "PASS",
+      "notes": "Empty dashboard message visible"
+    },
+    {
+      "name": "Validation Flow",
+      "status": "PASS",
+      "notes": "Required field errors displayed"
+    },
+    {
+      "name": "Navigation Flow (partial)",
+      "status": "PASS",
+      "notes": "Returned to list from create form"
+    },
+    {
+      "name": "Create Flow",
+      "status": "PASS",
+      "notes": "Redirect=true, Detail heading=true, id=cfc6b6d5-63e6-4dea-a00d-4bc57c13f3e4"
+    },
+    {
+      "name": "Edit Flow",
+      "status": "PASS",
+      "notes": "Save success=true, form values=true, header refresh=true"
+    },
+    {
+      "name": "Success State",
+      "status": "PASS",
+      "notes": "Edit success banner shown"
+    },
+    {
+      "name": "Navigation Flow",
+      "status": "PASS",
+      "notes": "Create back=true, Edit back=true, project in list=true"
+    },
+    {
+      "name": "Error State",
+      "status": "PASS",
+      "notes": "404 shown for missing project"
+    }
+  ],
+  "checks": {
+    "createRedirect": true,
+    "createInList": true,
+    "editSave": true,
+    "editValuesVisible": true,
+    "validationShown": true,
+    "navCreateBack": true,
+    "navEditBack": true,
+    "emptyState": true,
+    "errorState": true,
+    "successState": true
+  }
+}

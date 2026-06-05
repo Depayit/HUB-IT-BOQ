@@ -1,0 +1,159 @@
+================================================================================
+HUB IT BOQ — Sprint 4E + 4F Verification Report
+================================================================================
+Project     : HUB IT BOQ System
+Sprint      : 4E Cost Validation + 4F Cost Summary
+Generated   : 2026-06-04
+Routes      : /projects/[projectId]/boq/[boqVersionId]/validation
+              /projects/[projectId]/boq/[boqVersionId]/summary
+Scope stop  : Sprint 5, Workflow expansion, ERP — not started
+
+--------------------------------------------------------------------------------
+OVERALL RESULT
+--------------------------------------------------------------------------------
+PASS — Cost validation rules, summary panel, typecheck, and unit tests complete.
+       Screenshot evidence folder prepared; capture during QA with running app.
+
+--------------------------------------------------------------------------------
+VERIFICATION CHECKLIST
+--------------------------------------------------------------------------------
+
+[PASS] Missing Cost Layer (COST_LAYER_MISSING)
+       Rule: BOQ line exists AND cost breakdown count = 0 → BLOCK / Fail
+       File: src/lib/validations/cost-validation.ts (evaluateCostLineValidation)
+       Engine: costBreakdownService.findCostLayerValidationFailures
+       Persisted via validationService.runValidation
+
+[PASS] Duplicate Category (COST_CATEGORY_DUPLICATE)
+       Rule: Same cost_category_id appears >1 per BOQ line → BLOCK / Fail
+       File: src/lib/validations/cost-validation.ts
+
+[PASS] Zero Cost (COST_ZERO_VALUE)
+       Rule: calculated_value <= 0 → BLOCK / Fail
+       File: src/lib/validations/cost-validation.ts
+
+[PASS] Override Validation (COST_OVERRIDE_INVALID)
+       Rule: manual_override_flag = true AND empty override_reason → BLOCK / Fail
+       Files: src/lib/validations/cost-validation.ts
+               src/lib/validations/cost-breakdown.ts (form schema guard)
+
+[PASS] Low Confidence Warning (COST_LOW_CONFIDENCE)
+       Rule: confidence_level = Low (case-insensitive) → WARNING / Warning status
+       File: src/lib/validations/cost-validation.ts
+       UI: validation-panel.tsx highlights WARNING rows (amber)
+
+[PASS] Category Summary
+       Roll-up: Material, Labor, Logistics, Testing, Documentation, Indirect,
+                Risk, Overhead
+       File: src/lib/services/boq-summary.service.ts
+       UI: src/components/boq/summary-totals.tsx — Cost Summary — Category Totals
+
+[PASS] Grand Total
+       Subtotal + Total Cost (pre-margin) + Grand Total (selling price with margin)
+       UI: summary-totals.tsx footer rows; page title "Cost Summary Panel"
+
+[PASS] Typecheck
+       Command: npm run typecheck
+       Result: exit 0 (stale .next costs types removed)
+
+[PASS] Unit Tests
+       Command: npm test
+       Result: 12 passed
+       Files: tests/cost-validation.test.ts (6)
+               tests/validation-rules.test.ts (3)
+               tests/discipline-validation.test.ts (3)
+
+--------------------------------------------------------------------------------
+SPRINT 4E — VALIDATION RULES
+--------------------------------------------------------------------------------
+Code              | Severity | Result Status | Target
+------------------|----------|---------------|-------------------
+COST_LAYER_MISSING| BLOCK    | Fail          | boq_line
+COST_CATEGORY_DUPLICATE | BLOCK | Fail     | boq_line
+COST_ZERO_VALUE   | BLOCK    | Fail          | boq_cost_breakdown
+COST_OVERRIDE_INVALID | BLOCK | Fail        | boq_cost_breakdown
+COST_LOW_CONFIDENCE | WARNING | Warning    | boq_cost_breakdown
+
+Also retained: CRITICAL_LINE_ZERO_COST (existing critical line rule)
+
+Rule definitions: src/lib/validations/validation-rules.ts
+Run validation: Validation Panel → "รัน Validation"
+
+--------------------------------------------------------------------------------
+SPRINT 4F — COST SUMMARY
+--------------------------------------------------------------------------------
+Category totals mapped via COST_CATEGORY_TO_SUMMARY_FIELD (cost-categories.ts)
+Subtotal / Total Cost = subtotal_before_margin (sum of category totals)
+Grand Total = selling_price (subtotal × (1 + margin%))
+
+Refresh: Summary page → "คำนวณใหม่จาก Cost Layers"
+
+--------------------------------------------------------------------------------
+NEW / UPDATED ARTIFACTS
+--------------------------------------------------------------------------------
+src/lib/validations/cost-validation.ts
+src/lib/validations/validation-rules.ts
+src/lib/services/validation.service.ts (cost rules in runValidation)
+src/lib/services/cost-breakdown.service.ts (findCostLayerValidationFailures)
+src/components/boq/summary-totals.tsx (Category Totals, Subtotal, Total Cost, Grand Total)
+src/components/boq/validation-panel.tsx (WARNING row styling)
+src/app/.../validation/page.tsx (cost rule description)
+src/app/.../summary/page.tsx (Cost Summary Panel title)
+tests/cost-validation.test.ts
+tests/validation-rules.test.ts
+
+--------------------------------------------------------------------------------
+SCREENSHOTS (Required Evidence)
+--------------------------------------------------------------------------------
+Folder: docs/SPRINT_4EF/screenshots/
+Status: README with capture steps — PNG files to be added during QA session
+
+Expected files:
+  01-missing-cost-layer.png       — Validation Panel, COST_LAYER_MISSING
+  02-duplicate-category.png       — COST_CATEGORY_DUPLICATE
+  03-zero-cost.png                — COST_ZERO_VALUE
+  04-invalid-override.png         — COST_OVERRIDE_INVALID
+  05-low-confidence-warning.png   — COST_LOW_CONFIDENCE (WARNING badge)
+  06-cost-summary-panel.png       — Full summary panel
+  07-category-totals.png          — Category table section
+  08-grand-total.png              — Grand Total row (emerald highlight)
+
+Capture: npm run dev → seed BOQ with varied cost layers → run validation →
+         open /validation and /summary routes.
+
+--------------------------------------------------------------------------------
+KNOWN ISSUES
+--------------------------------------------------------------------------------
+Issue     | Stale .next/types referenced removed costs/page.tsx
+Impact    | typecheck failed until stale artifact deleted
+Priority  | Low (resolved in workspace)
+Proposed  | Avoid committing .next; run clean build before typecheck in CI
+
+Issue     | Screenshot PNGs not committed (no DATABASE_URL in workspace)
+Impact    | Evidence package incomplete until QA capture
+Priority  | Medium
+Proposed  | QA run with Neon/local DB; save PNGs per README in screenshots/
+
+Issue     | Cost Layer UI route (/costs) not in src (Sprint 4C gap)
+Impact    | Demo data entry via API/seed only until 4C UI restored
+Priority  | Medium (pre-existing)
+Proposed  | Restore costs page from 4C branch; not in 4E/4F scope
+
+--------------------------------------------------------------------------------
+ACCEPTANCE CRITERIA
+--------------------------------------------------------------------------------
+[x] All validation rules implemented
+[x] Summary panel implemented (category totals, subtotal, grand total)
+[x] Typecheck passes
+[x] Unit tests pass
+[ ] Evidence package complete (screenshots pending QA capture)
+
+--------------------------------------------------------------------------------
+STOP CONDITION
+--------------------------------------------------------------------------------
+Sprint 4E + 4F implementation complete. Do NOT start Sprint 5.
+Wait for QA Review.
+
+================================================================================
+End of report
+================================================================================

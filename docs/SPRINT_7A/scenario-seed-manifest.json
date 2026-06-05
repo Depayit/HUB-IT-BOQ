@@ -1,0 +1,16 @@
+﻿{
+  "schema": "HUB IT BOQ V3 Sprint 7B scenario seed manifest",
+  "version": "7A.1",
+  "generated": "2026-06-05",
+  "note": "Planning input only - not executed in Sprint 7A",
+  "profiles": {
+    "SIM-001": { "scenario_type": "Happy Path", "seed_profile": "happy", "design_basis": "Approved", "documents": ["TOR","SLD","Specification"], "discipline_lines": 3, "cost_confidence": "High", "expected_readiness": "Ready" },
+    "SIM-002": { "scenario_type": "Warning Path", "seed_profile": "warning", "extends": "SIM-001", "cost_confidence": "Low", "discipline_scope": null, "optional_doc_pending": ["Test"], "expected_rules": ["COST_LOW_CONFIDENCE","DISCIPLINE_MISSING_SCOPE"], "expected_readiness": "Warning" },
+    "SIM-003": { "scenario_type": "Blocked Path", "seed_profile": "blocked-core", "design_basis": "Draft", "omit_documents": ["TOR"], "expected_rules": ["DESIGN_BASIS_NOT_APPROVED","DOC_TOR_REQUIRED"], "expected_readiness": "Blocked" },
+    "SIM-004": { "scenario_type": "Cost Variance Warning", "seed_profile": "cost-warning", "extends": "SIM-001", "cost_confidence": "Low", "expected_rules": ["COST_LOW_CONFIDENCE"], "expected_readiness": "Warning" },
+    "SIM-005": { "scenario_type": "Missing Discipline Block", "seed_profile": "discipline-block", "extends": "SIM-001", "discipline_lines": 0, "expected_rules": ["DISCIPLINE_NO_LINES"], "expected_readiness": "Blocked" },
+    "SIM-006": { "scenario_type": "Approval Authority Conflict", "seed_profile": "authority-conflict", "extends": "SIM-001", "stage": "Manager Approval", "actor_role": "Engineer", "expected_error": "UNAUTHORIZED_ROLE", "expected_readiness": "Blocked" },
+    "SIM-007": { "scenario_type": "Handoff Payload Incomplete", "seed_profile": "handoff-incomplete", "extends": "SIM-001", "locked": true, "handoff_target": null, "expected_block": "missing handoff_target", "expected_readiness": "Blocked" },
+    "SIM-008": { "scenario_type": "Reporting Governance Warning", "seed_profile": "governance-warning", "extends": "SIM-001", "governance": { "GOV_REVISION_NUMBER": "warn", "GOV_READINESS_STATUS": "warn" }, "expected_readiness": "Warning" }
+  }
+}

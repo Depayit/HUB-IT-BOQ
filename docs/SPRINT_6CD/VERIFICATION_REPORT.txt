@@ -1,0 +1,78 @@
+SPRINT 6C + 6D — Verification Report
+Generated: 2026-06-04
+
+========================================
+OVERALL: PASS (automated checks)
+========================================
+
+Revision Comparison (6C) ................ PASS
+  - Route: /projects/[projectId]/boq/[boqVersionId]/comparison
+  - Revision selector, comparison tables, difference summary implemented
+
+Reporting Validation (6D) ............... PASS
+  - SSOT: src/lib/validations/reporting.ts
+  - Six rule codes implemented and wired to summary page
+
+Typecheck ............................... PASS (npm run typecheck)
+Unit Tests .............................. PASS (34 tests, npm test)
+
+========================================
+SECTION DETAIL
+========================================
+
+Revision Comparison
+  Revision Selector ..................... PASS
+  Document Changes (Added/Removed/Mod) .. PASS
+  Discipline Changes (Inc/Exc/Risk) ..... PASS
+  Cost Changes (Category/Grand/Margin) .. PASS
+  Workflow Changes (Status/Approval/Lock) PASS
+  Difference Summary .................... PASS
+
+Reporting Validation
+  REPORT_PROJECT_INCOMPLETE ........... PASS
+  REPORT_DOCUMENT_INCOMPLETE .......... PASS
+  REPORT_DISCIPLINE_INCOMPLETE ........ PASS
+  REPORT_COST_INCOMPLETE ................ PASS
+  REPORT_VALIDATION_INCOMPLETE ........ PASS
+  REPORT_EXPORT_NOT_READY ............. PASS
+  UI on BOQ Summary page .............. PASS
+
+========================================
+SCREENSHOTS (QA capture)
+========================================
+
+Capture locally after `npm run dev`:
+1. Revision Selector — comparison page
+2. Document Changes — comparison page sections
+3. Discipline Changes — comparison page sections
+4. Cost Changes — comparison page
+5. Workflow Changes — comparison page
+6. Difference Summary — blue summary card
+7. Report Validation PASS — summary page (complete BOQ)
+8. Report Validation FAIL — summary page (incomplete project/validation)
+
+========================================
+KNOWN ISSUES
+========================================
+
+Issue: Stale .next/types referenced removed export API route
+Impact: typecheck failed until .next/types cleared
+Priority: Low
+Proposed Fix: Run `npm run build` after restoring 6B export route, or delete .next before typecheck
+
+Issue: Sprint 6A/6B export route not in src (prior regression)
+Impact: REPORT_EXPORT_NOT_READY validates readiness only; no Excel/PDF export button in src
+Priority: Medium (out of 6C/6D scope — wait for QA)
+Proposed Fix: Restore export route when 6B re-validated
+
+Issue: documents hub link has no page.tsx
+Impact: Navigation 404 from BOQ hub
+Priority: Low (pre-existing)
+Proposed Fix: Add documents page or remove hub link
+
+========================================
+STOP CONDITION
+========================================
+
+Sprint 6C + 6D complete. Do NOT start Sprint 7, ERP, Procurement, or Quotation.
+Await QA Review.

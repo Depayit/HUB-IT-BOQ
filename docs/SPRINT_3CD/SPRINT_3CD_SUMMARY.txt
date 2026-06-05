@@ -1,0 +1,103 @@
+================================================================================
+HUB IT BOQ — Sprint 3C + 3D Summary
+Discipline Workflow + Discipline Validation
+Generated: 2026-06-03
+================================================================================
+
+PREREQUISITES
+-------------
+  Sprint 3A = PASS (discipline data layer, validations/discipline.ts)
+  Sprint 3B = PASS (Discipline Selection UI)
+
+STOP CONDITION
+--------------
+  Sprint 3C + 3D complete. Do NOT start Cost Layer Module — await QA review.
+
+
+================================================================================
+SPRINT 3C — Discipline Workflow
+================================================================================
+
+Objective
+  Enforce workflow dependency: Project → Discipline → BOQ
+
+Rule 1 — Included Discipline
+  included_flag = true AND BOQ line count = 0
+  → Validation FAIL, Approval BLOCKED
+  Rule code: DISCIPLINE_NO_LINES (BLOCK)
+
+Rule 2 — Excluded Discipline
+  included_flag = false → BOQ line NOT required
+
+Rule 3 — Discipline status visible
+  Included   = included + at least 1 BOQ line
+  Excluded   = not included + has exclusion note
+  Pending    = not included, no exclusion note yet
+  Blocked    = included + zero BOQ lines
+
+Required UI
+  - Discipline status badges (DisciplinePanel)
+  - Validation warnings (BLOCK + WARNING lists)
+  - Approval blocking message + links to Approval / Validation
+
+
+================================================================================
+SPRINT 3D — Discipline Validation
+================================================================================
+
+Rule A — Included without BOQ line     → BLOCK  (DISCIPLINE_NO_LINES)
+Rule B — Invalid risk level            → BLOCK  (DISCIPLINE_INVALID_RISK)
+Rule C — Duplicate discipline assign.  → BLOCK  (DISCIPLINE_DUPLICATE)
+Rule D — Missing scope description     → WARNING (DISCIPLINE_MISSING_SCOPE)
+Rule E — Critical without risk assess. → WARNING (DISCIPLINE_CRITICAL_NO_RISK)
+
+Single source of truth: src/lib/validations/
+  - discipline-rules.ts
+  - discipline-workflow.ts
+  - discipline.ts (zod — 3A/3B)
+
+Approval blocked by BLOCK rules above + CRITICAL_LINE_ZERO_COST.
+WARNING rules do NOT block approval.
+
+
+================================================================================
+VERIFICATION (PASS/FAIL)
+================================================================================
+
+  Workflow Validation     PASS
+  Approval Blocking       PASS
+  Risk Validation         PASS
+  Duplicate Validation    PASS
+  Warning Validation      PASS
+  Typecheck               PASS  → TYPECHECK_OUTPUT.txt
+  Unit tests              PASS  → npm test
+
+  Detail: verification-results.json, VERIFICATION_REPORT.md
+
+
+================================================================================
+EVIDENCE — Screenshots
+================================================================================
+
+  Folder: docs/SPRINT_3CD/screenshots/
+
+  01-included-discipline.png
+  02-excluded-discipline.png
+  03-included-without-boq-line.png
+  04-approval-blocked.png
+  05-duplicate-discipline.png
+  06-missing-scope-description.png
+  07-critical-discipline-warning.png
+
+  Capture:
+    npm run db:seed
+    node scripts/seed-sprint-3cd-demo.mjs
+    npm run dev
+    node scripts/capture-sprint-3cd-screenshots.mjs
+
+  See screenshots/README.md
+
+
+================================================================================
+END
+================================================================================

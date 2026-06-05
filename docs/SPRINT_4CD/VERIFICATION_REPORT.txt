@@ -1,0 +1,110 @@
+================================================================================
+HUB IT BOQ — Sprint 4C + 4D Verification Report
+================================================================================
+Project     : HUB IT BOQ System
+Sprint      : 4C Cost Layer UI + 4D Calculation Engine
+Generated   : 2026-06-04
+Route       : /projects/[projectId]/boq/[boqVersionId]/costs
+Scope stop  : 4E, 4F, approval workflow, ERP — not started
+
+--------------------------------------------------------------------------------
+OVERALL RESULT
+--------------------------------------------------------------------------------
+FAIL — UI และ evidence ยังไม่ครบใน workspace ปัจจุบัน
+       (มีเฉพาะ service + validation layer)
+
+--------------------------------------------------------------------------------
+VERIFICATION CHECKLIST
+--------------------------------------------------------------------------------
+
+[FAIL] Cost Layer UI
+       Missing: src/app/projects/[projectId]/boq/[boqVersionId]/costs/page.tsx
+       Missing: src/components/boq/cost-breakdown-panel.tsx
+       Missing: src/lib/actions/cost-breakdown.actions.ts
+       Missing: docs/SPRINT_4CD/screenshots/
+
+[FAIL] Add Cost
+       UI / server actions not present in src
+
+[FAIL] Edit Cost
+       UI / server actions not present in src
+
+[FAIL] Delete Cost
+       UI / server actions not present in src
+
+[PASS] Calculation Engine (validation layer)
+       File: src/lib/validations/cost-breakdown.ts
+       computeCalculatedValue(): base_value × rate × quantity_factor
+       resolveCalculatedValue(): manual override path
+       toPersistInput(): persists system calculated_value
+
+[PASS] Cost Breakdown Service (data layer)
+       File: src/lib/services/cost-breakdown.service.ts
+       CRUD: create, update, delete, listForBoqVersion, listByLine
+
+[PASS] Override Logic (schema)
+       costBreakdownFormSchema requires override_reason + override_calculated_value
+       when manual_override_flag = true
+
+[PASS] Validation
+       Single source: src/lib/validations/cost-breakdown.ts
+
+[FAIL] Typecheck
+       Blocked: stale .next types reference missing costs/page.tsx
+       Action: remove .next or restore costs page, then npm run typecheck
+
+[FAIL] Unit Tests
+       Missing: tests/cost-breakdown-validation.test.ts
+       Current: tests/discipline-validation.test.ts only (3 tests)
+
+--------------------------------------------------------------------------------
+CALCULATION RULES (Sprint 4D — implemented in validations)
+--------------------------------------------------------------------------------
+Rule 1  calculated_value system-generated via resolveCalculatedValue / toPersistInput
+Rule 2  base_value × rate × quantity_factor = calculated_value
+Rule 3  manual_override_flag = true → override_reason required
+Rule 4  Manual override visibility — requires Cost Layer UI (not in src)
+
+--------------------------------------------------------------------------------
+SCREENSHOTS (Required Evidence)
+--------------------------------------------------------------------------------
+Status: NOT CAPTURED — docs/SPRINT_4CD/screenshots/ does not exist
+
+Expected files after UI complete:
+  01-cost-breakdown-list.png
+  02-add-cost.png
+  03-edit-cost.png
+  04-delete-cost.png
+  05-manual-override.png
+  06-calculated-value.png
+  07-override-validation-error.png
+
+--------------------------------------------------------------------------------
+PRESENT IN WORKSPACE
+--------------------------------------------------------------------------------
+src/lib/validations/cost-breakdown.ts
+src/lib/services/cost-breakdown.service.ts
+src/lib/constants/cost-categories.ts
+
+--------------------------------------------------------------------------------
+KNOWN ISSUES
+--------------------------------------------------------------------------------
+Issue     | Sprint 4C UI files not committed / removed from workspace
+Impact    | Cannot demo or QA Cost Layer; report cannot be PASS
+Priority  | High
+Proposed  | Restore costs page, panel, actions, tests; capture screenshots
+
+Issue     | cost-breakdown.service ensureCategories() uses runtime upsert
+Impact    | May fail if Prisma client expects description column not in DB
+Priority  | Medium
+Proposed  | listCategories() + npm run db:seed
+
+--------------------------------------------------------------------------------
+STOP CONDITION
+--------------------------------------------------------------------------------
+Sprint 4C + 4D not closed until UI + evidence pass QA.
+Do not start 4E, 4F, Workflow, or ERP until this report is PASS.
+
+================================================================================
+End of report
+================================================================================

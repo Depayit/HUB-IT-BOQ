@@ -1,0 +1,121 @@
+================================================================================
+HUB IT BOQ — Sprint 4A Closure Verification Report
+================================================================================
+Project     : HUB IT BOQ System
+Sprint      : 4A Cost Category Foundation (closure)
+Generated   : 2026-06-04
+Scope stop  : 4C, 4D, 4E, 4F not started; Cost Breakdown module unchanged
+
+--------------------------------------------------------------------------------
+OVERALL RESULT
+--------------------------------------------------------------------------------
+PASS — Sprint 4A acceptance criteria met. Awaiting QA review.
+
+--------------------------------------------------------------------------------
+VERIFICATION CHECKLIST (Sprint 4A Closure)
+--------------------------------------------------------------------------------
+
+[PASS] Cost Category Service
+       File: src/lib/services/cost-category.service.ts
+       Methods:
+         - listCostCategories()
+         - getCostCategory(costCategoryId)
+         - validateInput() — uses validation layer for unique category_code
+
+[PASS] Cost Category Validation
+       File: src/lib/validations/cost-category.ts
+       Exports:
+         - costCategoryInputSchema (category_code required, category_name required)
+         - costCategoryBatchSchema (duplicate category_code rejected)
+         - parseCostCategoryInput(), assertUniqueCategoryCode()
+       Usable by service layer via costCategoryService.validateInput()
+
+[PASS] Seed Alignment (documented decision)
+       File: src/lib/constants/cost-categories.ts
+       Sprint spec (7): Material, Labor, Logistics, Testing, Documentation,
+                        Risk, Overhead
+       Current seed (8): above 7 + INDIRECT (sort_order 6)
+       Decision: B — KEEP INDIRECT with justification
+       Justification:
+         - COST_CATEGORY_TO_SUMMARY_FIELD maps INDIRECT → total_indirect_cost
+         - boq_summary schema and boq-summary.service.ts depend on this field
+         - Removing INDIRECT would require summary/breakdown alignment outside
+           4A scope (architecture and Cost Breakdown module not modified)
+       Seed list was NOT silently changed.
+
+[PASS] Cost Category Unit Tests
+       File: tests/cost-category-validation.test.ts
+       Coverage: required category code, required category name,
+                 duplicate category code
+
+[PASS] Typecheck
+       Command: npm run typecheck
+       Result: exit 0
+
+[PASS] Unit Test
+       Command: npm test
+       Result: 6 passed (cost-category-validation + discipline-validation)
+
+--------------------------------------------------------------------------------
+SEED CATEGORY LIST (current — unchanged)
+--------------------------------------------------------------------------------
+ 1  MATERIAL        Material
+ 2  LABOR           Labor
+ 3  LOGISTICS       Logistics
+ 4  TESTING         Testing
+ 5  DOCUMENTATION   Documentation
+ 6  INDIRECT        Indirect        <-- kept; see Seed Alignment above
+ 7  RISK            Risk
+ 8  OVERHEAD        Overhead
+
+--------------------------------------------------------------------------------
+NEW ARTIFACTS (Sprint 4A Closure)
+--------------------------------------------------------------------------------
+
+src/lib/services/cost-category.service.ts
+  listCostCategories()
+  getCostCategory(costCategoryId)
+  validateInput(input, existingCodes, excludeCode?)
+
+src/lib/validations/cost-category.ts
+  costCategoryInputSchema
+  costCategoryBatchSchema
+  parseCostCategoryInput()
+  assertUniqueCategoryCode()
+  findDuplicateCategoryCodes()
+
+tests/cost-category-validation.test.ts
+  requires category code
+  requires category name
+  rejects duplicate category code
+
+--------------------------------------------------------------------------------
+TYPECHECK OUTPUT
+--------------------------------------------------------------------------------
+> hub-it-boq@0.1.0 typecheck
+> tsc --noEmit
+
+(exit code 0)
+
+--------------------------------------------------------------------------------
+TEST OUTPUT
+--------------------------------------------------------------------------------
+> hub-it-boq@0.1.0 test
+> vitest run
+
+ Test Files  2 passed (2)
+      Tests  6 passed (6)
+   cost-category-validation.test.ts (3)
+   discipline-validation.test.ts (3)
+
+(exit code 0)
+
+--------------------------------------------------------------------------------
+STOP CONDITION
+--------------------------------------------------------------------------------
+Sprint 4A closure complete. STOP.
+Do not start 4C, 4D, 4E, 4F until QA review.
+
+================================================================================
+End of report
+================================================================================

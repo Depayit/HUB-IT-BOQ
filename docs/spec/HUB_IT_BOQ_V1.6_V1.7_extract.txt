@@ -1,0 +1,121 @@
+﻿=== HUB_IT_BOQ_Cursor_Prompt_Package_V1.7.docx ===
+HUB IT BOQ Cost Intelligence System
+Cursor Prompt Package V1.7 — Build-Ready
+1. Purpose
+• เอกสารนี้ปรับ Prompt Pack จาก Anti Gravity ให้เหมาะกับ Cursor
+• เป้าหมายคือให้ Cursor เข้าใจทั้งระบบก่อน แล้วค่อยสร้าง code ทีละ foundation/module
+• ใช้สำหรับเริ่ม build ระบบ BOQ Prototype/MVP บน codebase จริง
+2. Master Bootstrap Prompt
+You are acting as a senior full-stack engineer and system implementer for the HUB IT BOQ Cost Intelligence System V1.6. This is an ERP-ready BOQ module for data center projects. Before writing code, read the full specification and summarize: system role, data model, relationships, workflow, validation rules, versioning, document dependencies, and implementation risks. Do not generate code until I approve your summary.
+3. Recommended Stack Prompt
+Propose a practical stack for this MVP using Next.js, TypeScript, PostgreSQL/Supabase or Prisma, and a clean folder structure. Keep the implementation simple but scalable. Separate database schema, API/server actions, validation logic, and UI components. Do not add unrelated ERP modules.
+4. Foundation Prompt
+Create the initial project structure for the HUB IT BOQ system. Include folders for database/schema, app pages, components, validation logic, services, and types. Create placeholder files only if needed. Do not implement all screens yet. Provide a file tree and explain where each module will live.
+5. Database Schema Prompt
+Create the database schema for the core MVP tables: projects, design_basis_versions, documents, boq_versions, boq_version_documents, discipline_master, cost_category_master, project_disciplines, boq_lines, boq_cost_breakdowns, validation_rules, validation_results, approval_workflows, handoff_records, vendor_quotes, training_records, edit_locks. Use clear PK/FK relationships. Preserve naming exactly. Include status fields and lock_status where required.
+6. Module Prompts
+Project Setup + Dashboard
+Build Project Dashboard and Project Setup screens. Use projects table fields: project_id, client_id, opportunity_id, project_name, location, project_type, it_load_kw, rack_count, rack_density_kw_per_rack, tier_target, sla_target, currency, vat_option, project_status. Rack density must be calculated from it_load_kw / rack_count. Dashboard status should derive from boq_versions, validation_results, approval_workflows, and lock_status.
+Design Basis
+Build Design Basis screen using design_basis_versions fields: design_basis_version_id, project_id, design_version_no, it_load_assumption_kw, rack_count_assumption, rack_density_assumption, power_architecture, cooling_architecture, fire_protection_assumption, monitoring_assumption, redundancy_assumption, technical_compliance_basis, customer_requirement_reference, approval_status. BOQ approval must be blocked unless approval_status = Approved.
+Document Panel
+Build Document Link Panel using documents and boq_version_documents. documents fields include document_type, document_name, file_link, version_no, document_status, related_workflow_stage. boq_version_documents fields include boq_version_id, document_id, dependency_type, is_required, dependency_status. Validate TOR, SLD, Specification, Test, As-built, Handover, Training dependencies by workflow stage.
+Discipline Selection
+Build Discipline Selection using discipline_master and project_disciplines. project_disciplines must store project_id, boq_version_id, discipline_id, included_flag, scope_description, exclusion_note, risk_level. Included disciplines must have at least one BOQ line before approval.
+BOQ Line Builder
+Build BOQ Line Builder using boq_lines. Required fields: boq_version_id, project_discipline_id, item_id nullable, line_no, item_description, unit, quantity, cost_source, confidence_level, is_critical_line, notes. Do not allow missing unit or quantity. Critical lines cannot pass validation if cost layer total is zero.
+Cost Layer Input
+Build Cost Layer Input using boq_cost_breakdowns. Use cost_category_id dropdown from cost_category_master. Fields: calculation_method, base_value, rate, quantity_factor, calculated_value, cost_source, confidence_level, manual_override_flag, override_reason. calculated_value must be system-calculated, not manually typed, unless override is explicitly enabled with override_reason.
+BOQ Summary
+Build BOQ Summary roll-up from boq_cost_breakdowns into boq_summary. Show total_material_cost, total_labor_cost, total_logistics_cost, total_testing_cost, total_documentation_cost, total_indirect_cost, total_risk_cost, total_overhead_cost, subtotal_before_margin, margin_percent, selling_price, gross_profit, gross_margin_percent.
+Validation Panel
+Build Validation Panel using validation_results joined with validation_rules. Show rule_code, rule_group, severity, target_object_type, message, result_status, override_reason, resolved_flag, resolved_by, resolved_at. BLOCK results must disable approval and handoff buttons.
+Approval Workflow
+Build Approval Workflow using approval_workflows. Stages: Engineer Review, Manager Approval, Director Approval, Final Lock. Approval is blocked when validation_results contains unresolved BLOCK. Final lock updates boq_versions.status and lock_status.
+Handoff + Version + Lock
+Build Handoff Center, Version History, and Edit Lock behavior. Handoff requires BOQ Approved + Locked. Use handoff_records, boq_versions previous_boq_version_id/change_reason/delta_cost/delta_selling_price, and edit_locks with object_type=boq_version. Locked BOQ cannot be edited without creating a new revision.
+Vendor Quote + Training Record
+Build Vendor Quote and Training Record forms. vendor_quotes fields: vendor_quote_id, boq_line_id, vendor_name, price, currency, valid_until, reference_document_id, created_at. training_records fields: training_id, project_id, session_date, trainer, attendees, deliverables, linked_document_id, created_at.
+7. QA Prompt After Each Module
+Review the module you just created against the V1.6 specification. Check field names, table relationships, validation behavior, workflow dependencies, and lock behavior. List mismatches before making fixes. Do not introduce new tables or modules unless required by the V1.6 specification.
+8. What Not To Do
+• Do not create a full CRM, finance, inventory, or procurement system.
+• Do not rename database fields without explicit approval.
+• Do not allow approval before validation and design approval.
+• Do not allow handoff before BOQ is approved and locked.
+• Do not let users manually edit calculated_value unless override flag and reason exist.
+
+=== HUB_IT_BOQ_Cursor_Runbook_V1.0.docx ===
+HUB IT BOQ Cost Intelligence System
+Cursor Runbook & Execution Guide V1.0
+1. สถานะไฟล์ที่ตรวจสอบ
+• ไฟล์ HUB_IT_BOQ_V1.6_FULL_PACKAGE มี Prompt Pack และ Technical Spec แบบย่อที่ผ่าน Agent validation แล้ว
+• ไฟล์คำแนะนำ Cursor มีทิศทางถูกต้อง: ChatGPT = Architecture, Cursor = Build, Co-worker = Automation later
+• คำแนะนำสำคัญคือ ห้ามเริ่มจากการสั่งให้ Cursor build ทั้งระบบทันที ต้องเริ่มด้วย Bootstrap Context ก่อน
+2. หลักการทำงานกับ Cursor
+• Cursor ไม่ควรใช้เหมือน Anti Gravity ที่สั่งทีละ screen ทันที
+• Cursor ควรได้รับ context ใหญ่ก่อน ได้แก่ Architecture, Data Model, Workflow, Validation, Prompt Pack
+• ให้ Cursor สรุปความเข้าใจก่อนเขียน code เพื่อป้องกันการตีความผิด
+• หลังจากนั้นจึงให้ Cursor สร้าง foundation และค่อย build ทีละ module
+3. ลำดับการรัน Cursor ที่แนะนำ
+Step
+หัวข้อ
+สิ่งที่ต้องทำ
+0
+เตรียมเครื่องมือ
+ติดตั้ง Cursor, Node.js LTS, Git, VS Code-compatible extensions, PostgreSQL/Supabase ถ้าจะใช้จริง
+1
+Bootstrap Context
+ให้ Cursor อ่าน V1.6 Full Package และสรุป architecture ก่อนเขียน code
+2
+Generate Foundation
+สร้าง project structure, package, schema, env template, folder structure
+3
+Database Schema
+สร้าง PostgreSQL/Prisma/Supabase schema ตาม table หลัก
+4
+Build Module 1
+Project Setup + Dashboard
+5
+Build Module 2
+Design Basis + Document Panel
+6
+Build Module 3
+Discipline + BOQ Lines + Cost Layers
+7
+Build Module 4
+Summary + Validation + Approval
+8
+Build Module 5
+Handoff + Version History + Lock Control
+9
+QA Checkpoint
+ส่ง output ให้ ChatGPT ตรวจเป็นรอบ ๆ
+4. Prompt แรกที่ควรใช้ใน Cursor
+You are acting as a senior full-stack engineer. I will provide the HUB IT BOQ Cost Intelligence System V1.6 specification. First, read and understand the architecture, data model, workflow, validation rules, and prompt pack. Do NOT generate code yet. Summarize the system structure, core entities, relationships, workflow dependencies, validation blocks, and implementation risks. Wait for my confirmation before creating files.
+5. Cursor Checkpoint Plan
+Checkpoint
+หลังทำอะไรเสร็จ
+ส่งให้ ChatGPT ตรวจอะไร
+1
+Project Setup + Design Basis + Document Panel
+Schema mapping, required fields, basic workflow
+2
+Discipline + BOQ Lines + Cost Layers
+Cost ownership, duplicate category, manual override behavior
+3
+Summary + Validation + Approval
+Calculation roll-up, BLOCK/WARNING logic, approval lock
+4
+Handoff + Version + Lock
+Workflow integrity, handoff readiness, locked version behavior
+6. ข้อควรระวัง
+• อย่าให้ Cursor สร้างทั้งระบบในคำสั่งเดียว
+• อย่าแก้ schema แบบสุ่มหากยังไม่ได้เทียบกับ V1.6
+• หากเกิด error ให้ copy error + ชื่อไฟล์ + คำสั่งที่รัน ส่งกลับมาให้ตรวจ
+• Co-worker ไม่ควรใช้เป็น main tool ตอนเริ่ม build; ใช้หลัง MVP เริ่มนิ่งแล้วสำหรับ test, refactor, automation
+7. Co-worker ใช้เมื่อไหร่
+• ยังไม่จำเป็นต้องส่งให้ Co-worker ทันทีหลัง Cursor สร้าง code รอบแรก
+• ให้ Cursor build + ChatGPT review จน flow หลักเดินก่อน
+• ค่อยใช้ Co-worker ใน Phase Automation เช่น สร้าง tests, refactor ซ้ำ ๆ, ตรวจ lint, generate migration, หรือทำ regression checks
+

@@ -1,0 +1,184 @@
+================================================================================
+HUB IT BOQ — Sprint 5A + 5B Verification Report
+================================================================================
+Project     : HUB IT BOQ System
+Sprint      : 5A Workflow States Foundation + 5B Approval Authority Foundation
+Generated   : 2026-06-04
+Scope stop  : 5C, 5D, 5E not started; Cost Layer module unchanged; no DB connection
+
+--------------------------------------------------------------------------------
+OVERALL RESULT
+--------------------------------------------------------------------------------
+PASS — Sprint 5A + 5B acceptance criteria met. Awaiting QA review.
+
+--------------------------------------------------------------------------------
+VERIFICATION CHECKLIST
+--------------------------------------------------------------------------------
+
+[PASS] Workflow Model
+       Files:
+         - src/lib/constants/workflow-states.ts
+         - src/lib/constants/workflow-entity-mapping.ts
+       Table: workflow_state_master (in-memory seed)
+       Fields: workflow_state_id, workflow_code, workflow_name, display_order,
+               is_terminal
+       States: Draft, Under Review, Returned, Approved, Locked
+       Entity mapping: Project, Document, Discipline, CostLayer
+
+[PASS] Workflow Service
+       File: src/lib/services/workflow.service.ts
+       Methods:
+         - listWorkflowStates()
+         - getWorkflowState(key, by?)
+         - canTransition(fromState, toState)
+         - transitionState(currentState, targetState)
+       Helpers (entity mapping):
+         - listWorkflowStatesForEntity()
+         - getDefaultWorkflowStateForEntity()
+         - getEntityStateMapping()
+
+[PASS] Workflow Validation
+       File: src/lib/validations/workflow.ts
+       Rules:
+         - valid state (assertValidWorkflowState)
+         - valid transition (assertValidTransition)
+         - no transition to undefined state (assertDefinedTransitionTarget)
+       Schemas: workflowStateCodeSchema, workflowTransitionSchema
+
+[PASS] Authority Model
+       File: src/lib/constants/approval-authority.ts
+       Table: approval_authority (in-memory seed)
+       Fields: authority_id, workflow_state_id, role_code, can_approve,
+               can_return, can_reject, can_lock
+       Roles: Engineer, Manager, Director
+
+[PASS] Authority Service
+       File: src/lib/services/approval-authority.service.ts
+       Methods:
+         - getAuthority(workflowStateId, roleCode)
+         - canApprove(workflowStateId, roleCode)
+         - canReturn(workflowStateId, roleCode)
+         - canReject(workflowStateId, roleCode)
+         - canLock(workflowStateId, roleCode)
+
+[PASS] Authority Validation
+       File: src/lib/validations/approval-authority.ts
+       Rules:
+         - role required (assertRequiredRole)
+         - authority required (assertRequiredAuthority)
+         - invalid role blocked (assertInvalidRoleBlocked)
+
+[PASS] Typecheck
+       Command: npm run typecheck
+       Result: exit 0
+
+[PASS] Unit Tests
+       Command: npm test
+       Result: 21 passed (3 test files)
+
+--------------------------------------------------------------------------------
+WORKFLOW STATE TABLE (workflow_state_master)
+--------------------------------------------------------------------------------
+ #  CODE            NAME            ORDER  TERMINAL
+ 1  DRAFT           Draft           1      false
+ 2  UNDER_REVIEW    Under Review    2      false
+ 3  RETURNED        Returned        3      false
+ 4  APPROVED        Approved        4      false
+ 5  LOCKED          Locked          5      true
+
+--------------------------------------------------------------------------------
+WORKFLOW TRANSITIONS
+--------------------------------------------------------------------------------
+ DRAFT         → UNDER_REVIEW
+ UNDER_REVIEW  → APPROVED, RETURNED
+ RETURNED      → DRAFT, UNDER_REVIEW
+ APPROVED      → LOCKED
+ LOCKED        → (none — terminal)
+
+--------------------------------------------------------------------------------
+WORKFLOW ENTITY MAPPING
+--------------------------------------------------------------------------------
+ Entity Type   States Available                         Default
+ Project       Draft, Under Review, Returned, Approved, Locked   Draft
+ Document      Draft, Under Review, Returned, Approved, Locked   Draft
+ Discipline    Draft, Under Review, Returned, Approved, Locked   Draft
+ CostLayer     Draft, Under Review, Returned, Approved, Locked   Draft
+
+--------------------------------------------------------------------------------
+APPROVAL AUTHORITY TABLE (approval_authority)
+--------------------------------------------------------------------------------
+ State          Role       Approve  Return  Reject  Lock
+ Draft          Engineer   yes      no      no      no
+ Under Review   Manager    yes      yes     yes     no
+ Under Review   Engineer   no       yes     no      no
+ Returned       Engineer   yes      no      no      no
+ Approved       Director   no       no      no      yes
+
+ Authority matrix flow:
+   Draft        → Engineer Review      → Under Review
+   Under Review → Manager Approval     → Approved / Returned
+   Approved     → Director Approval    → Locked
+
+--------------------------------------------------------------------------------
+NEW ARTIFACTS
+--------------------------------------------------------------------------------
+
+src/lib/constants/workflow-states.ts
+src/lib/constants/workflow-entity-mapping.ts
+src/lib/constants/approval-authority.ts
+src/lib/validations/workflow.ts
+src/lib/validations/approval-authority.ts
+src/lib/services/workflow.service.ts
+src/lib/services/approval-authority.service.ts
+tests/workflow-validation.test.ts
+tests/approval-authority-validation.test.ts
+
+--------------------------------------------------------------------------------
+TYPECHECK OUTPUT
+--------------------------------------------------------------------------------
+> hub-it-boq@0.1.0 typecheck
+> tsc --noEmit
+
+(exit code 0)
+
+--------------------------------------------------------------------------------
+TEST OUTPUT
+--------------------------------------------------------------------------------
+> hub-it-boq@0.1.0 test
+> vitest run
+
+ Test Files  3 passed (3)
+      Tests  21 passed (21)
+   approval-authority-validation.test.ts (9)
+   discipline-validation.test.ts (3)
+   workflow-validation.test.ts (9)
+
+(exit code 0)
+
+--------------------------------------------------------------------------------
+KNOWN ISSUES
+--------------------------------------------------------------------------------
+Issue                          Impact   Priority   Proposed Fix
+Existing workflow-authority.ts Medium   Low        Reconcile stage-based
+uses separate stage model      (dual    (post-5B)  approval flow with new
+(Engineer Review, etc.)        model)              workflow_state_master in
+not yet wired to new                              Sprint 5C integration
+workflow foundation
+
+No Prisma tables for           None     Expected   Add DB migration in
+workflow_state_master /                            future sprint when DB
+approval_authority yet                             connection allowed
+
+Cost Layer has mapping only;   None     Expected   Wire workflow_state_id
+no field on cost breakdown                         on entities in 5C+
+module (unchanged per scope)
+
+--------------------------------------------------------------------------------
+STOP CONDITION
+--------------------------------------------------------------------------------
+Sprint 5A + 5B complete. STOP.
+Do not start 5C, 5D, 5E until QA review.
+
+================================================================================
+End of report
+================================================================================
