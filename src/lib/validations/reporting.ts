@@ -231,3 +231,34 @@ export function countUnresolvedBlocks(results: ValidationResultRow[]): number {
     }),
   ).length;
 }
+
+/** Reporting Governance facing rule codes (GOV_*) — 1:1 alias of REPORT_* engine codes. */
+export const GOV_REPORTING_RULE_CODES = [
+  "GOV_REPORT_PROJECT",
+  "GOV_REPORT_DOCUMENT",
+  "GOV_REPORT_DISCIPLINE",
+  "GOV_REPORT_COST",
+  "GOV_REPORT_VALIDATION",
+  "GOV_REPORT_EXPORT",
+] as const;
+
+export type GovReportingRuleCode = (typeof GOV_REPORTING_RULE_CODES)[number];
+
+/** SSOT mapping: engine REPORT_* code -> governance GOV_* code. */
+export const REPORT_TO_GOV: Record<ReportValidationCode, GovReportingRuleCode> = {
+  REPORT_PROJECT_INCOMPLETE: "GOV_REPORT_PROJECT",
+  REPORT_DOCUMENT_INCOMPLETE: "GOV_REPORT_DOCUMENT",
+  REPORT_DISCIPLINE_INCOMPLETE: "GOV_REPORT_DISCIPLINE",
+  REPORT_COST_INCOMPLETE: "GOV_REPORT_COST",
+  REPORT_VALIDATION_INCOMPLETE: "GOV_REPORT_VALIDATION",
+  REPORT_EXPORT_NOT_READY: "GOV_REPORT_EXPORT",
+};
+
+export function toGovCode(code: ReportValidationCode): GovReportingRuleCode {
+  return REPORT_TO_GOV[code];
+}
+
+/** Export BLOCK gate predicate — SSOT for "ห้าม export เมื่อมี unresolved BLOCK". */
+export function isReportExportBlocked(unresolvedBlockCount: number): boolean {
+  return unresolvedBlockCount > 0;
+}
