@@ -147,10 +147,10 @@ E5–E9 ต้องผลิตใน S7B-0 / S7B (รัน execute) — ป�
 | Reporting Governance active | `tests/reporting-governance.test.ts` (E8) — GOV_* SSOT mapping | **PASS** |
 | TD Register updated | TD-7A-001 to TD-7A-008 | **PASS** |
 
-### Overall Entry Gate Status: **S7B ENTRY READY (gates cleared)**
-ทั้ง 11 gate = **PASS** (typecheck/test green, SSOT validation + workflow governance, readiness 3-tier, audit wired, export BLOCK→400, handoff target schema, reporting GOV_* SSOT, TD register).
+### Overall Entry Gate Status: **S7B ENTRY READY — baseline/เอกสารเท่านั้น (ไม่ใช่ operational readiness PASS)**
+ทั้ง 11 gate = **PASS** (typecheck/test green, SSOT validation + workflow governance, readiness 3-tier, audit wired, export BLOCK→400, handoff target schema, reporting GOV_* SSOT, TD register) — เป็น **documentation + baseline readiness** ที่คุมความเสี่ยงก่อนเข้า S7B-0 ได้ ยังไม่ใช่การยืนยันว่า flow จริงทำงานครบ
 
-หมายเหตุ evidence: gate Audit (E5) และ Export 400 (E6) ใช้ **test-level evidence** (mocked unit/contract tests) ตามหลักไม่ execute end-to-end จริงใน scope นี้ — ระหว่าง SIM-001 ควรเก็บ **live runtime confirmation** (audit_logs rows จริง + HTTP 400 จริง) เป็น execution evidence อีกชั้น
+หมายเหตุ evidence: gate Audit (E5) และ Export 400 (E6) ใช้ **test-level evidence** (mocked unit/contract tests) ตามหลักไม่ execute end-to-end จริงใน scope นี้ — **Operational Readiness ยังไม่ผ่าน** จนกว่าจะเก็บ **live runtime evidence** (audit_logs rows จริง + HTTP 400 จริง) ระหว่าง execute SIM-001..008 ห้าม bypass Validation / Workflow / Approval / Audit Framework ทุกกรณี
 
 ---
 
@@ -172,10 +172,14 @@ E5–E9 ต้องผลิตใน S7B-0 / S7B (รัน execute) — ป�
 
 ## 10. Final Recommendation
 
+> **ขอบเขตของเอกสารนี้:** Sprint 7A Rev.1 เป็นการปรับปรุง **planning baseline + entry gate** สำหรับ Sprint 7B เท่านั้น — **ไม่ใช่ execution result** และ **ไม่ใช่ operational readiness PASS**
+
 - **Sprint 7A Rev.1 (เอกสาร/แผน): PASS** — เอกสารครบทุกหัวข้อ, gate ชัด, TD actionable
 - **S7B-0 Baseline Reconciliation: PASS** — ปลด FAIL ครบทั้ง 5 ข้อ (typecheck/test green 82 ผ่าน, readiness 3-tier, audit wired, export BLOCK→400, handoff target schema, reporting GOV_* SSOT) พร้อม evidence E3–E9
-- **Sprint 7B Entry Gate: READY** — 11/11 gate PASS; เริ่ม SIM-001 ได้ โดยระหว่าง execute ต้องเก็บ live runtime evidence (audit_logs rows จริง + HTTP 400 จริง) เพิ่มเป็น execution evidence
+- **Sprint 7B Entry Gate: READY (baseline/เอกสารเท่านั้น)** — 11/11 gate PASS เป็น **documentation + baseline readiness** ที่คุมความเสี่ยงก่อนเข้า S7B-0 ได้; ยังไม่ใช่การยืนยันว่า flow จริงทำงานครบ
+- **Operational Readiness: ❌ NOT PASS (ยังไม่ผ่าน)** — จะถือว่าผ่าน **ก็ต่อเมื่อ Sprint 7B execute scenario จริง (SIM-001..008) พร้อม evidence ครบ** เท่านั้น; gate Audit (E5) / Export 400 (E6) ในเอกสารนี้เป็น **test-level evidence** ต้องมี **live runtime evidence** (audit_logs rows จริง + HTTP 400 จริง) ตอน execute มาแทน/เสริม
 
 ### ข้อความปิดรายงาน
-Sprint 7A Rev.1 + S7B-0 Baseline Reconciliation ส่งมอบครบ: baseline reconciliation, scenario executability, TD register (ปิด TD-7A-001..008, 010, 011), SSOT clarification, readiness 3-tier, evidence plan E3–E9 และ Sprint 7B Entry Gate ผ่านทั้งหมด
-**Sprint 7B Entry Gate = READY** — เริ่ม SIM-001 ได้ภายใต้เงื่อนไขเก็บ live runtime evidence ระหว่าง execute ยึดหลัก No Evidence = Not Done และ Governance before Automation ตลอด
+Sprint 7A Rev.1 + S7B-0 Baseline Reconciliation ส่งมอบในฐานะ **planning baseline + entry gate** ที่คุมความเสี่ยงก่อนเข้า S7B-0: baseline reconciliation, scenario executability, TD register (ปิด TD-7A-001..008, 010, 011), validation rule SSOT, readiness warning tier (3-tier), evidence plan Rev.1 (E3–E9) และ Sprint 7B Entry Gate ครบทุกหัวข้อ
+สถานะนี้ **เปลี่ยนจาก "PASS WITH WARNING" → เอกสารที่คุมความเสี่ยงพร้อมเข้า S7B-0** — **ไม่ใช่การ claim operational readiness PASS**
+**Operational Readiness ยังไม่ผ่าน** จนกว่า Sprint 7B จะ execute scenario จริงพร้อม evidence ครบ ยึดหลัก **No Evidence = Not Done** และ **ห้าม bypass Validation / Workflow / Approval / Audit Framework ทุกกรณี**
