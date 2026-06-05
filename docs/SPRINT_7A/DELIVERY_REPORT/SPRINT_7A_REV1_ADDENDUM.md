@@ -1,4 +1,4 @@
-﻿# Sprint 7A Rev.1 — Operational Readiness Simulation Plan Addendum
+# Sprint 7A Rev.1 — Operational Readiness Simulation Plan Addendum
 
 Project: HUB IT BOQ V3 — ERP-ready BOQ Cost Intelligence System
 Type: **Planning / Readiness Addendum only** (ไม่ใช่ Sprint 7B execution, ไม่ claim operational readiness PASS)
@@ -30,7 +30,7 @@ Principle: **No Evidence = Not Done** · **Governance before Automation** · **W
 |------|-----------|------------------|-------|
 | Build / Typecheck | PASS | `npm run typecheck` → exit 0 | RECONCILED — true |
 | Unit Tests | 64+ PASS | `npm test` → **59 passed / 9 files**, exit 0 | RECONCILED — claim เกินจริง, จริง = 59 |
-| Test count vs master snapshot | implied stable | **ไม่มี VCS/master snapshot** (โปรเจกต์ไม่ใช่ git repo) | GAP — reconcile กับ snapshot ไม่ได้ |
+| Test count vs master snapshot | implied stable | git init + commit 128761b (9 test files / 59 tests) | RECONCILED — snapshot established |
 | Validation Rules SSOT | complete | restored `validation-rules.ts` full SSOT | RECONCILED — true |
 | Workflow Governance | present | restored `workflow-governance.ts` + import resolves | RECONCILED — true |
 | Audit Framework | wired | code wired; **ยังไม่มี audit_logs rows จาก run จริง** | PARTIAL — runtime evidence pending |
@@ -137,7 +137,7 @@ E5–E9 ต้องผลิตใน S7B-0 / S7B (รัน execute) — ป�
 |------|-------------------|--------|
 | npm run typecheck green | terminal output / log (exit 0) | **PASS** |
 | npm test green | test result summary (59 passed, exit 0) | **PASS** |
-| Test count reconciled | compare current vs master snapshot | **FAIL** (ไม่มี VCS/master snapshot) |
+| Test count reconciled | git snapshot 128761b (9 test files / 59 tests) | **PASS** |
 | Validation Rules SSOT restored | file path + unit tests | **PASS** |
 | Workflow Governance restored | file path + import check | **PASS** |
 | Readiness Warning tier available | test / screenshot / API result | **FAIL** (ยัง binary, TD-7A-006) |
@@ -150,13 +150,12 @@ E5–E9 ต้องผลิตใน S7B-0 / S7B (รัน execute) — ป�
 ### Overall Entry Gate Status: **S7B ENTRY BLOCKED**
 (มี gate FAIL — ตามกติกาให้สถานะรวมเป็น S7B ENTRY BLOCKED ไม่ใช่ PASS WITH WARNING)
 
-ก่อนเริ่ม SIM-001 ต้องปลด FAIL ทั้ง 6 ข้อใน S7B-0:
-1. สร้าง VCS baseline snapshot + reconcile test count
-2. เพิ่ม Readiness Warning tier
-3. เก็บ audit_logs runtime evidence
-4. เก็บ captured 400 ของ blocked export
-5. ระบุ handoff target schema + migration/test
-6. reconcile Reporting Governance (REPORT_* vs GOV_*) ให้เป็น SSOT เดียว
+ก่อนเริ่ม SIM-001 ต้องปลด FAIL ทั้ง 5 ข้อใน S7B-0:
+1. เพิ่ม Readiness Warning tier
+2. เก็บ audit_logs runtime evidence
+3. เก็บ captured 400 ของ blocked export
+4. ระบุ handoff target schema + migration/test
+5. reconcile Reporting Governance (REPORT_* vs GOV_*) ให้เป็น SSOT เดียว
 
 ---
 

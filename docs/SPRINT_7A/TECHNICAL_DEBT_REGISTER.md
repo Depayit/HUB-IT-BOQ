@@ -1,4 +1,4 @@
-﻿# Technical Debt Register — HUB IT BOQ V3
+# Technical Debt Register — HUB IT BOQ V3
 
 Last updated: Sprint 7A Rev.1 / S7B-0 Baseline Reconciliation
 Principle: **No Evidence = Not Done** · **Governance before Automation**
@@ -13,7 +13,7 @@ Status legend: `OPEN` · `IN PROGRESS` · `CLOSED` · `ACCEPTED (carry to S7B)`
 | TD-7A-004 | Audit Framework not wired | Backend | Wire `auditService.append` into approval/handoff/validation | **runtime `audit_logs` rows from executed flow** | **IN PROGRESS** (code wired; runtime evidence pending S7B) |
 | TD-7A-005 | Export BLOCK gate not enforced | Reporting | Block export on unresolved BLOCK; route → 400 | **captured 400 response for BLOCKed export** | **IN PROGRESS** (code wired; runtime evidence pending S7B) |
 | TD-7A-006 | Readiness Warning tier missing (binary Ready/Not Ready) | Readiness | Add 3-tier Ready/Warning/Blocked aggregate + surface | test/screenshot/API of Warning tier | **OPEN** (carry to S7B-0) |
-| TD-7A-007 | Test count claim (64+) unverified, no master snapshot | QA | Establish VCS baseline snapshot; reconcile count | git snapshot diff vs current | **OPEN** (measured = 59; no VCS/master snapshot exists to reconcile against) |
+| TD-7A-007 | Test count claim (64+) unverified | QA | Establish VCS baseline snapshot; reconcile count | git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" 128761b (9 test files / 59 tests) | **CLOSED** (snapshot established; count reconciled to 59) |
 | TD-7A-008 | Stale `.next` types + `_tmp` recovery cruft | Platform | Remove `_tmp`, clear `.next` cache | `_tmp` removed, typecheck clean | **CLOSED** |
 | TD-7A-009 | Dual workflow model drift (`workflow-authority` vs governance) | Architecture | Consolidate stage model; single source | design note + refactor + tests | **ACCEPTED (carry to S7B)** |
 | TD-7A-010 | Handoff target schema absent (`handoff_records` has no `handoff_target`) | Backend | Decide handoff target model; migration + test | schema/migration + test | **OPEN** (carry to S7B-0) |
