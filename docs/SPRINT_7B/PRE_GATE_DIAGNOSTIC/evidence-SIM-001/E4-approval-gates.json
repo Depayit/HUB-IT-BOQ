@@ -1,0 +1,102 @@
+{
+  "expected_stages": [
+    "Engineer Review",
+    "Manager Approval",
+    "Director Approval",
+    "Final Lock"
+  ],
+  "actual_results": [
+    {
+      "step": 1,
+      "actor": "engineer-001@sim001",
+      "role": "Engineer",
+      "expectedNext": "Engineer Review",
+      "result": {
+        "approval_workflow_id": "a71436bf-3a34-4292-93fe-1a73f1edb67d",
+        "boq_version_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+        "current_stage": "Engineer Review",
+        "workflow_status": "InProgress",
+        "engineer_reviewed_by": "engineer-001@sim001",
+        "engineer_reviewed_at": "2026-06-06T15:14:16.214Z",
+        "manager_approved_by": null,
+        "manager_approved_at": null,
+        "director_approved_by": null,
+        "director_approved_at": null,
+        "final_locked_by": null,
+        "final_locked_at": null,
+        "rejection_reason": null,
+        "created_at": "2026-06-06T15:14:16.215Z",
+        "updated_at": "2026-06-06T15:14:16.215Z"
+      }
+    },
+    {
+      "step": 2,
+      "actor": "engineer-001@sim001",
+      "role": "Engineer",
+      "expectedNext": "Manager Approval",
+      "result": {
+        "approval_workflow_id": "a71436bf-3a34-4292-93fe-1a73f1edb67d",
+        "boq_version_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+        "current_stage": "Manager Approval",
+        "workflow_status": "InProgress",
+        "engineer_reviewed_by": "engineer-001@sim001",
+        "engineer_reviewed_at": "2026-06-06T15:14:16.229Z",
+        "manager_approved_by": null,
+        "manager_approved_at": null,
+        "director_approved_by": null,
+        "director_approved_at": null,
+        "final_locked_by": null,
+        "final_locked_at": null,
+        "rejection_reason": null,
+        "created_at": "2026-06-06T15:14:16.215Z",
+        "updated_at": "2026-06-06T15:14:16.230Z"
+      }
+    },
+    {
+      "step": 3,
+      "actor": "manager-001@sim001",
+      "role": "Manager",
+      "expectedNext": "Director Approval",
+      "result": {
+        "approval_workflow_id": "a71436bf-3a34-4292-93fe-1a73f1edb67d",
+        "boq_version_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+        "current_stage": "Director Approval",
+        "workflow_status": "InProgress",
+        "engineer_reviewed_by": "engineer-001@sim001",
+        "engineer_reviewed_at": "2026-06-06T15:14:16.229Z",
+        "manager_approved_by": "manager-001@sim001",
+        "manager_approved_at": "2026-06-06T15:14:16.243Z",
+        "director_approved_by": null,
+        "director_approved_at": null,
+        "final_locked_by": null,
+        "final_locked_at": null,
+        "rejection_reason": null,
+        "created_at": "2026-06-06T15:14:16.215Z",
+        "updated_at": "2026-06-06T15:14:16.244Z"
+      }
+    },
+    {
+      "step": 4,
+      "actor": "director-001@sim001",
+      "role": "Director",
+      "expectedNext": "Final Lock",
+      "result": {
+        "approval_workflow_id": "a71436bf-3a34-4292-93fe-1a73f1edb67d",
+        "boq_version_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+        "current_stage": "Final Lock",
+        "workflow_status": "Completed",
+        "engineer_reviewed_by": "engineer-001@sim001",
+        "engineer_reviewed_at": "2026-06-06T15:14:16.229Z",
+        "manager_approved_by": "manager-001@sim001",
+        "manager_approved_at": "2026-06-06T15:14:16.243Z",
+        "director_approved_by": "director-001@sim001",
+        "director_approved_at": "2026-06-06T15:14:16.258Z",
+        "final_locked_by": "director-001@sim001",
+        "final_locked_at": "2026-06-06T15:14:16.258Z",
+        "rejection_reason": null,
+        "created_at": "2026-06-06T15:14:16.215Z",
+        "updated_at": "2026-06-06T15:14:16.263Z"
+      }
+    }
+  ]
+}

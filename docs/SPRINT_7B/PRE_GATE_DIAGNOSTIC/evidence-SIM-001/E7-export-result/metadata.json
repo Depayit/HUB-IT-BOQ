@@ -1,0 +1,15 @@
+{
+  "excel": {
+    "filename": "BOQ_Summary_SIM-001_Happy_Path_Project_v1_2026-06-06.xlsx",
+    "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "bytes": 10732,
+    "file": "docs\\SPRINT_7B\\evidence\\SIM-001\\E7-export-result\\BOQ_Summary_SIM-001_Happy_Path_Project_v1_2026-06-06.xlsx"
+  },
+  "pdf": {
+    "filename": "BOQ_Summary_SIM-001_Happy_Path_Project_v1_2026-06-06.pdf",
+    "mimeType": "application/pdf",
+    "bytes": 2422,
+    "file": "docs\\SPRINT_7B\\evidence\\SIM-001\\E7-export-result\\BOQ_Summary_SIM-001_Happy_Path_Project_v1_2026-06-06.pdf"
+  },
+  "note": "Happy Path exports return 200-equivalent (no throw). Export BLOCK gate is exercised by SIM-003/005/006/007 (out of scope for Phase 1)."
+}

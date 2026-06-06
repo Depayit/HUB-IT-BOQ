@@ -1,0 +1,22 @@
+{
+  "note": "Per TD-7A-006 the readiness aggregate is currently binary (Ready/Not Ready). 3-tier (Ready/Warning/Blocked) is target-state pending S7B-0.",
+  "readiness_status": "Ready",
+  "pre_lock_gate": {
+    "unresolved_block_count": 1,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 1,
+    "can_approve": true,
+    "can_handoff": false,
+    "block_reason": null,
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "post_lock_gate": {
+    "unresolved_block_count": 0,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 0,
+    "can_approve": true,
+    "can_handoff": true,
+    "block_reason": null,
+    "handoff_block_reason": null
+  }
+}

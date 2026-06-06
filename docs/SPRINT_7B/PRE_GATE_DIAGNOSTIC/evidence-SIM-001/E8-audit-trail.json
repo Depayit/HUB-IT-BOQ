@@ -1,0 +1,84 @@
+{
+  "object_type": "boq_version",
+  "object_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+  "row_count": 7,
+  "rows": [
+    {
+      "audit_log_id": "979979c4-6065-4d28-88a1-70ba3f3f09ae",
+      "object_type": "boq_version",
+      "object_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 1 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-06T15:14:16.179Z",
+      "change_reason": "Validation Engine re-run"
+    },
+    {
+      "audit_log_id": "f8d5eab6-858f-46d2-9b1f-62d038d8bf89",
+      "object_type": "boq_version",
+      "object_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+      "action_type": "approve",
+      "old_value": null,
+      "new_value": "Engineer Review",
+      "changed_by": "engineer-001@sim001",
+      "changed_at": "2026-06-06T15:14:16.220Z",
+      "change_reason": "Advance to Engineer Review by Engineer"
+    },
+    {
+      "audit_log_id": "eb3007fd-954d-45a8-b483-22ed755fe754",
+      "object_type": "boq_version",
+      "object_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+      "action_type": "approve",
+      "old_value": "Engineer Review",
+      "new_value": "Manager Approval",
+      "changed_by": "engineer-001@sim001",
+      "changed_at": "2026-06-06T15:14:16.234Z",
+      "change_reason": "Advance to Manager Approval by Engineer"
+    },
+    {
+      "audit_log_id": "9be5059f-50c6-479c-a53a-da78cdcd6cdf",
+      "object_type": "boq_version",
+      "object_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+      "action_type": "approve",
+      "old_value": "Manager Approval",
+      "new_value": "Director Approval",
+      "changed_by": "manager-001@sim001",
+      "changed_at": "2026-06-06T15:14:16.248Z",
+      "change_reason": "Advance to Director Approval by Manager"
+    },
+    {
+      "audit_log_id": "a72282ec-462f-4ea7-9147-3ab127afb71b",
+      "object_type": "boq_version",
+      "object_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+      "action_type": "lock",
+      "old_value": "Director Approval",
+      "new_value": "Final Lock",
+      "changed_by": "director-001@sim001",
+      "changed_at": "2026-06-06T15:14:16.268Z",
+      "change_reason": "Advance to Final Lock by Director"
+    },
+    {
+      "audit_log_id": "72dbfab1-75a8-4e17-b748-e262c60efed4",
+      "object_type": "boq_version",
+      "object_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 0 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-06T15:14:16.318Z",
+      "change_reason": "Validation Engine re-run"
+    },
+    {
+      "audit_log_id": "a2bdedd4-3b9f-46fb-a779-41c3f97f2ec2",
+      "object_type": "boq_version",
+      "object_id": "6a024f03-e0ea-4414-b636-b1113c3208ad",
+      "action_type": "handoff",
+      "old_value": null,
+      "new_value": "Completed",
+      "changed_by": "director-001@sim001",
+      "changed_at": "2026-06-06T15:14:16.354Z",
+      "change_reason": "SIM-001 Happy Path handoff (Sprint 7B Phase 1)"
+    }
+  ]
+}
