@@ -11,6 +11,7 @@ import {
 import type { BoqConsolidatedReport } from "@/lib/validations/reporting";
 import {
   deriveReadinessTier,
+  inferValidationRun,
   type ReadinessTier,
 } from "@/lib/validations/readiness";
 
@@ -205,17 +206,25 @@ export const boqSummaryReportService = {
             ? "Pending — required dependencies open"
             : "Pass";
 
+    const validationRun = inferValidationRun({
+      validation_result_count: validationResults.length,
+      lock_status: version.lock_status,
+      boq_status: version.status,
+      unresolved_block_count: validationGate.unresolved_block_count,
+      can_approve: validationGate.can_approve,
+    });
+
     const validationStatus =
       validationGate.unresolved_block_count > 0
         ? `Blocked (${validationGate.unresolved_block_count} unresolved)`
-        : validationResults.length === 0
+        : !validationRun
           ? "Not run"
           : "Clear";
 
     const openWarningCount = countOpenWarnings(validationResults);
 
     const readyStatus: ReadinessTier = deriveReadinessTier({
-      validation_run: validationResults.length > 0,
+      validation_run: validationRun,
       unresolved_block_count: validationGate.unresolved_block_count,
       open_warning_count: openWarningCount,
       can_approve: validationGate.can_approve,

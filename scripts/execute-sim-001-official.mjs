@@ -26,7 +26,10 @@ import { approvalService } from "../src/lib/services/approval.service.ts";
 import { handoffService } from "../src/lib/services/handoff.service.ts";
 import { exportService } from "../src/lib/services/export.service.ts";
 import { auditService } from "../src/lib/services/audit.service.ts";
-import { deriveReadinessTier } from "../src/lib/validations/readiness.ts";
+import {
+  deriveReadinessTier,
+  inferValidationRun,
+} from "../src/lib/validations/readiness.ts";
 
 const EVIDENCE_DIR = path.resolve("docs/SPRINT_7B/evidence/SIM-001");
 const EXPORT_DIR = path.join(EVIDENCE_DIR, "E7-export-result");
@@ -42,15 +45,22 @@ function countOpenWarnings(results) {
   ).length;
 }
 
-function buildReadinessSnapshot(gate, results) {
+function buildReadinessSnapshot(gate, results, version = {}) {
   const open_warning_count = countOpenWarnings(results);
+  const validation_run = inferValidationRun({
+    validation_result_count: results.length,
+    lock_status: version.lock_status ?? "",
+    boq_status: version.status,
+    unresolved_block_count: gate.unresolved_block_count,
+    can_approve: gate.can_approve,
+  });
   const tier = deriveReadinessTier({
-    validation_run: results.length > 0,
+    validation_run,
     unresolved_block_count: gate.unresolved_block_count,
     open_warning_count,
     can_approve: gate.can_approve,
   });
-  return { tier, open_warning_count, gate };
+  return { tier, open_warning_count, validation_run, gate };
 }
 
 function parseArgs() {
@@ -236,7 +246,11 @@ async function main() {
   // -------------------------------------------------------------------------
   // E6 — Readiness status (pre-lock; will re-capture post-lock at end)
   // -------------------------------------------------------------------------
-  const preLockReadiness = buildReadinessSnapshot(preLockGate, preLockResults);
+  const preLockReadiness = buildReadinessSnapshot(
+    preLockGate,
+    preLockResults,
+    seed.boqVersion,
+  );
   recordStep(`E6 (pre-lock): readiness ${preLockReadiness.tier}`, "PASS", {
     tier: preLockReadiness.tier,
     open_warning_count: preLockReadiness.open_warning_count,
@@ -320,11 +334,15 @@ async function main() {
     can_handoff: postLockGate.can_handoff,
   });
 
-  const postLockReadiness = buildReadinessSnapshot(postLockGate, postLockResults);
+  const postLockReadiness = buildReadinessSnapshot(
+    postLockGate,
+    postLockResults,
+    lockedVersion,
+  );
   const e6Path = await writeJson("E6-readiness-status.json", {
     note: "Official Sprint 7B Phase 1 — 3-tier readiness SSOT via deriveReadinessTier (TD-7A-006 CLOSED).",
     readiness_tier: postLockReadiness.tier,
-    pre_lock: buildReadinessSnapshot(preLockGate, preLockResults),
+    pre_lock: buildReadinessSnapshot(preLockGate, preLockResults, seed.boqVersion),
     post_lock: postLockReadiness,
     pre_lock_gate: preLockGate,
     post_lock_gate: postLockGate,

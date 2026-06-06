@@ -3,6 +3,7 @@ import { describe, it, expect } from "vitest";
 import {
   READINESS_TIERS,
   deriveReadinessTier,
+  inferValidationRun,
   isForwardableTier,
   isReadyTier,
   type ReadinessInput,
@@ -74,6 +75,30 @@ describe("readiness tier (TD-7A-006 — 3-tier aggregate)", () => {
     expect(isForwardableTier("Warning")).toBe(true);
     expect(isForwardableTier("Blocked")).toBe(false);
     expect(isForwardableTier("Not Ready")).toBe(false);
+  });
+
+  it("inferValidationRun — 0 failure rows after clean run on Locked BOQ counts as run", () => {
+    expect(
+      inferValidationRun({
+        validation_result_count: 0,
+        lock_status: "Locked",
+        boq_status: "Locked",
+        unresolved_block_count: 0,
+        can_approve: true,
+      }),
+    ).toBe(true);
+  });
+
+  it("inferValidationRun — 0 rows on Draft BOQ without lock is not run", () => {
+    expect(
+      inferValidationRun({
+        validation_result_count: 0,
+        lock_status: "Unlocked",
+        boq_status: "Draft",
+        unresolved_block_count: 0,
+        can_approve: true,
+      }),
+    ).toBe(false);
   });
 
   it("Truth table coverage (all combinations of inputs)", () => {

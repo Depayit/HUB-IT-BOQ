@@ -1,0 +1,50 @@
+{
+  "note": "Official Sprint 7B Phase 1 — 3-tier readiness SSOT via deriveReadinessTier (TD-7A-006 CLOSED).",
+  "readiness_tier": "Ready",
+  "pre_lock": {
+    "tier": "Blocked",
+    "open_warning_count": 0,
+    "validation_run": true,
+    "gate": {
+      "unresolved_block_count": 1,
+      "unresolved_approval_block_count": 0,
+      "unresolved_handoff_block_count": 1,
+      "can_approve": true,
+      "can_handoff": false,
+      "block_reason": null,
+      "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+    }
+  },
+  "post_lock": {
+    "tier": "Ready",
+    "open_warning_count": 0,
+    "validation_run": true,
+    "gate": {
+      "unresolved_block_count": 0,
+      "unresolved_approval_block_count": 0,
+      "unresolved_handoff_block_count": 0,
+      "can_approve": true,
+      "can_handoff": true,
+      "block_reason": null,
+      "handoff_block_reason": null
+    }
+  },
+  "pre_lock_gate": {
+    "unresolved_block_count": 1,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 1,
+    "can_approve": true,
+    "can_handoff": false,
+    "block_reason": null,
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "post_lock_gate": {
+    "unresolved_block_count": 0,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 0,
+    "can_approve": true,
+    "can_handoff": true,
+    "block_reason": null,
+    "handoff_block_reason": null
+  }
+}

@@ -19,8 +19,31 @@
 export const READINESS_TIERS = ["Ready", "Warning", "Blocked", "Not Ready"] as const;
 export type ReadinessTier = (typeof READINESS_TIERS)[number];
 
+export type ValidationRunContext = {
+  validation_result_count: number;
+  lock_status: string;
+  boq_status?: string;
+  unresolved_block_count: number;
+  can_approve: boolean;
+};
+
+/**
+ * The validation engine persists only failures. A clean post-run (0 rows) still
+ * means validation executed — infer that from Locked + clear gate when needed.
+ */
+export function inferValidationRun(ctx: ValidationRunContext): boolean {
+  if (ctx.validation_result_count > 0) return true;
+  const locked =
+    ctx.lock_status === "Locked" || ctx.boq_status === "Locked";
+  return (
+    locked &&
+    ctx.unresolved_block_count === 0 &&
+    ctx.can_approve
+  );
+}
+
 export type ReadinessInput = {
-  /** True if `validationService.runValidation` produced any rows for this BOQ version. */
+  /** True if validation has been run for this BOQ version (see inferValidationRun). */
   validation_run: boolean;
   /** Count of unresolved BLOCK validations from `getWorkflowGate`. */
   unresolved_block_count: number;
