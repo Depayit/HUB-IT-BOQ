@@ -1,0 +1,23 @@
+﻿
+ RUN  v3.2.4 C:/dev/HUB IT BOQ
+
+ ✓ tests/approval-authority-validation.test.ts (9 tests) 15ms
+ ✓ tests/audit-service.test.ts (6 tests) 25ms
+ ✓ tests/workflow-validation.test.ts (9 tests) 18ms
+ ✓ tests/revision-comparison.test.ts (5 tests) 15ms
+ ✓ tests/reporting-validation.test.ts (8 tests) 15ms
+ ✓ tests/reporting-governance.test.ts (10 tests) 92ms
+ ✓ tests/workflow-governance.test.ts (5 tests) 12ms
+ ✓ tests/discipline-workflow.test.ts (11 tests) 12ms
+ ✓ tests/discipline-validation.test.ts (3 tests) 12ms
+ ✓ tests/cost-validation.test.ts (6 tests) 11ms
+ ✓ tests/handoff.test.ts (7 tests) 17ms
+ ✓ tests/readiness.test.ts (10 tests) 12ms
+ ✓ tests/export-gate.test.ts (6 tests) 160ms
+ ✓ tests/validation-rules.test.ts (3 tests) 8ms
+
+ Test Files  14 passed (14)
+      Tests  98 passed (98)
+   Start at  23:15:23
+   Duration  3.41s (transform 1.87s, setup 0ms, collect 6.00s, tests 424ms, environment 8ms, prepare 4.49s)
+
