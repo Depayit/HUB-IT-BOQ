@@ -76,7 +76,6 @@ describe("auditService.append (TD-7A-004 contract)", () => {
   it("rejects malformed append payload via Zod (no DB call)", async () => {
     await expect(
       auditService.append({
-        // @ts-expect-error — runtime contract test
         object_type: "",
         object_id: "not-a-uuid",
         action_type: "approve",

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { exportService } from "@/lib/services/export.service";
 import { exportRequestSchema } from "@/lib/validations/export";
+import { AppError } from "@/lib/utils/errors";
 
 export const dynamic = "force-dynamic";
 
@@ -40,6 +41,12 @@ export async function GET(
       },
     });
   } catch (error) {
+    if (error instanceof AppError) {
+      return NextResponse.json(
+        { error: error.message, code: error.code },
+        { status: error.status },
+      );
+    }
     const message = error instanceof Error ? error.message : "Export failed";
     return NextResponse.json({ error: message }, { status: 400 });
   }

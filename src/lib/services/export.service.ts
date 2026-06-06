@@ -6,6 +6,10 @@ import {
 } from "@/lib/services/boq-summary-report.service";
 import { boqVersionService } from "@/lib/services/boq-version.service";
 import { assertSummaryExists } from "@/lib/validations/export";
+import { AppError } from "@/lib/utils/errors";
+
+/** Error code thrown when export attempted with unresolved BLOCK validations. */
+export const EXPORT_BLOCKED_CODE = "EXPORT_BLOCKED";
 
 export type ExportFileResult = {
   buffer: Buffer;
@@ -290,6 +294,7 @@ export const exportService = {
     if (report.validation.unresolved_blocks > 0) {
       return {
         ok: false as const,
+        blocked: true as const,
         error: `Export ถูกบล็อก — มี unresolved BLOCK ${report.validation.unresolved_blocks} รายการ ต้อง resolve ก่อน export`,
       };
     }
@@ -300,6 +305,9 @@ export const exportService = {
   async exportToExcel(projectId: string, boqVersionId: string): Promise<ExportFileResult> {
     const loaded = await this.loadReportForExport(projectId, boqVersionId);
     if (!loaded.ok) {
+      if ("blocked" in loaded && loaded.blocked) {
+        throw new AppError(loaded.error, EXPORT_BLOCKED_CODE, 400);
+      }
       throw new Error(loaded.error);
     }
 
@@ -318,6 +326,9 @@ export const exportService = {
   async exportToPdf(projectId: string, boqVersionId: string): Promise<ExportFileResult> {
     const loaded = await this.loadReportForExport(projectId, boqVersionId);
     if (!loaded.ok) {
+      if ("blocked" in loaded && loaded.blocked) {
+        throw new AppError(loaded.error, EXPORT_BLOCKED_CODE, 400);
+      }
       throw new Error(loaded.error);
     }
 

@@ -1,0 +1,21 @@
+﻿
+ RUN  v3.2.4 C:/dev/HUB IT BOQ
+
+ ✓ tests/audit-service.test.ts > auditService.append (TD-7A-004 contract) > appends a row with normalized payload (no fabricated columns) 11ms
+ ✓ tests/audit-service.test.ts > auditService.append (TD-7A-004 contract) > appends a correction as a new row with action_type=correction (no update) 2ms
+ ✓ tests/audit-service.test.ts > auditService.append (TD-7A-004 contract) > rejects malformed append payload via Zod (no DB call) 7ms
+ ✓ tests/audit-service.test.ts > audit immutability guard (TD-7A-004 contract) > blocks every mutation operation listed in BLOCKED_AUDIT_MUTATIONS 4ms
+ ✓ tests/audit-service.test.ts > audit immutability guard (TD-7A-004 contract) > allows non-mutation operations (findMany, count, create) through 2ms
+ ✓ tests/audit-service.test.ts > audit immutability guard (TD-7A-004 contract) > Prisma extension routes audit_logs operations through assertAuditMutationAllowed 2ms
+ ✓ tests/export-gate.test.ts > export BLOCK gate (TD-7A-005 contract) > loadReportForExport returns ok=false with blocked=true when unresolved_blocks > 0 4ms
+ ✓ tests/export-gate.test.ts > export BLOCK gate (TD-7A-005 contract) > loadReportForExport returns ok=true when unresolved_blocks = 0 0ms
+ ✓ tests/export-gate.test.ts > export BLOCK gate (TD-7A-005 contract) > exportToExcel throws AppError(EXPORT_BLOCKED, 400) when blocked 3ms
+ ✓ tests/export-gate.test.ts > export BLOCK gate (TD-7A-005 contract) > exportToPdf throws AppError(EXPORT_BLOCKED, 400) when blocked 1ms
+ ✓ tests/export-gate.test.ts > export BLOCK gate (TD-7A-005 contract) > exportToExcel throws plain Error (not EXPORT_BLOCKED) on non-block failure 1ms
+ ✓ tests/export-gate.test.ts > export route 400 mapping (TD-7A-005 captured 400 evidence) > AppError(EXPORT_BLOCKED, 400) flows to NextResponse status 400 + code EXPORT_BLOCKED 125ms
+
+ Test Files  2 passed (2)
+      Tests  12 passed (12)
+   Start at  23:00:15
+   Duration  2.20s (transform 411ms, setup 0ms, collect 1.42s, tests 167ms, environment 1ms, prepare 614ms)
+
