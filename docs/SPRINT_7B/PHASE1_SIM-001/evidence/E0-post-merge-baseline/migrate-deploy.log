@@ -1,0 +1,20 @@
+﻿Prisma schema loaded from prisma\schema.prisma
+node.exe : Error: Prisma schema validation - (get-config wasm)
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Error: Prisma s...et-config wasm):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error code: P1012
+error: Environment variable not found: DIRECT_URL.
+  -->  prisma\schema.prisma:11
+   | 
+10 |   url       = env("DATABASE_URL")
+11 |   directUrl = env("DIRECT_URL")
+   | 
+
+Validation Error Count: 1
+[Context: getConfig]
+
+Prisma CLI Version : 6.19.3
