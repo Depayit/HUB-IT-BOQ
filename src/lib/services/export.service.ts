@@ -6,6 +6,7 @@ import {
 } from "@/lib/services/boq-summary-report.service";
 import { boqVersionService } from "@/lib/services/boq-version.service";
 import { assertSummaryExists } from "@/lib/validations/export";
+import { isReportExportBlocked } from "@/lib/validations/reporting";
 import { AppError } from "@/lib/utils/errors";
 
 /** Error code thrown when export attempted with unresolved BLOCK validations. */
@@ -290,8 +291,9 @@ export const exportService = {
       };
     }
 
-    // Export BLOCK gate — never export a BOQ that has unresolved BLOCK validations.
-    if (report.validation.unresolved_blocks > 0) {
+    // Export BLOCK gate — SSOT predicate (isReportExportBlocked) — never export
+    // a BOQ that has unresolved BLOCK validations.
+    if (isReportExportBlocked(report.validation.unresolved_blocks)) {
       return {
         ok: false as const,
         blocked: true as const,

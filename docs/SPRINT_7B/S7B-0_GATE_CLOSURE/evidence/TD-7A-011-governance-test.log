@@ -1,0 +1,19 @@
+﻿
+ RUN  v3.2.4 C:/dev/HUB IT BOQ
+
+ ✓ tests/reporting-governance.test.ts > Reporting Governance SSOT (TD-7A-011) > declares all 6 GOV_* codes in canonical order 4ms
+ ✓ tests/reporting-governance.test.ts > Reporting Governance SSOT (TD-7A-011) > REPORT_TO_GOV covers every REPORT_* engine code (no missing keys) 5ms
+ ✓ tests/reporting-governance.test.ts > Reporting Governance SSOT (TD-7A-011) > GOV_TO_REPORT covers every GOV_* code (reverse coverage) 2ms
+ ✓ tests/reporting-governance.test.ts > Reporting Governance SSOT (TD-7A-011) > REPORT_TO_GOV and GOV_TO_REPORT are bijective inverses 1ms
+ ✓ tests/reporting-governance.test.ts > Reporting Governance SSOT (TD-7A-011) > toGovCode helper matches the SSOT mapping 1ms
+ ✓ tests/reporting-governance.test.ts > Reporting Governance SSOT (TD-7A-011) > toReportCode helper matches the SSOT mapping 1ms
+ ✓ tests/reporting-governance.test.ts > Reporting Governance SSOT (TD-7A-011) > type compatibility — GovReportingRuleCode and ReportValidationCode round-trip 0ms
+ ✓ tests/reporting-governance.test.ts > Export BLOCK gate predicate (SSOT) — TD-7A-011 + TD-7A-005 alignment > isReportExportBlocked returns true when unresolved_block_count > 0 0ms
+ ✓ tests/reporting-governance.test.ts > Export BLOCK gate predicate (SSOT) — TD-7A-011 + TD-7A-005 alignment > isReportExportBlocked returns false when unresolved_block_count = 0 0ms
+ ✓ tests/reporting-governance.test.ts > Export BLOCK gate predicate (SSOT) — TD-7A-011 + TD-7A-005 alignment > predicate is the single source the export service uses (no duplicate gate logic) 8ms
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  23:11:46
+   Duration  1.53s (transform 461ms, setup 0ms, collect 759ms, tests 27ms, environment 0ms, prepare 236ms)
+

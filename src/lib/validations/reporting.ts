@@ -231,3 +231,65 @@ export function countUnresolvedBlocks(results: ValidationResultRow[]): number {
     }),
   ).length;
 }
+
+// ---------------------------------------------------------------------------
+// TD-7A-011 — Reporting Governance SSOT (GOV_*)
+// ---------------------------------------------------------------------------
+
+/**
+ * Reporting Governance facing rule codes (`GOV_*`).
+ *
+ * These are 1:1 aliases of the `REPORT_*` engine completeness codes.
+ * The engine continues to emit `REPORT_*` codes (no rule duplication); the
+ * `GOV_*` namespace exists so governance / dashboard surfaces can present a
+ * stable governance vocabulary without bypassing the validation engine.
+ */
+export const GOV_REPORTING_RULE_CODES = [
+  "GOV_REPORT_PROJECT",
+  "GOV_REPORT_DOCUMENT",
+  "GOV_REPORT_DISCIPLINE",
+  "GOV_REPORT_COST",
+  "GOV_REPORT_VALIDATION",
+  "GOV_REPORT_EXPORT",
+] as const;
+
+export type GovReportingRuleCode = (typeof GOV_REPORTING_RULE_CODES)[number];
+
+/** SSOT mapping: engine `REPORT_*` code -> governance `GOV_*` code. */
+export const REPORT_TO_GOV: Record<ReportValidationCode, GovReportingRuleCode> = {
+  REPORT_PROJECT_INCOMPLETE: "GOV_REPORT_PROJECT",
+  REPORT_DOCUMENT_INCOMPLETE: "GOV_REPORT_DOCUMENT",
+  REPORT_DISCIPLINE_INCOMPLETE: "GOV_REPORT_DISCIPLINE",
+  REPORT_COST_INCOMPLETE: "GOV_REPORT_COST",
+  REPORT_VALIDATION_INCOMPLETE: "GOV_REPORT_VALIDATION",
+  REPORT_EXPORT_NOT_READY: "GOV_REPORT_EXPORT",
+};
+
+/** Reverse SSOT mapping: governance `GOV_*` code -> engine `REPORT_*` code. */
+export const GOV_TO_REPORT: Record<GovReportingRuleCode, ReportValidationCode> = {
+  GOV_REPORT_PROJECT: "REPORT_PROJECT_INCOMPLETE",
+  GOV_REPORT_DOCUMENT: "REPORT_DOCUMENT_INCOMPLETE",
+  GOV_REPORT_DISCIPLINE: "REPORT_DISCIPLINE_INCOMPLETE",
+  GOV_REPORT_COST: "REPORT_COST_INCOMPLETE",
+  GOV_REPORT_VALIDATION: "REPORT_VALIDATION_INCOMPLETE",
+  GOV_REPORT_EXPORT: "REPORT_EXPORT_NOT_READY",
+};
+
+export function toGovCode(code: ReportValidationCode): GovReportingRuleCode {
+  return REPORT_TO_GOV[code];
+}
+
+export function toReportCode(code: GovReportingRuleCode): ReportValidationCode {
+  return GOV_TO_REPORT[code];
+}
+
+/**
+ * Export BLOCK gate predicate (SSOT).
+ *
+ * Returns `true` when an export must be blocked because of unresolved
+ * BLOCK validations. Used by `exportService.loadReportForExport` (and any
+ * future governance surface) to keep the gate logic in one place.
+ */
+export function isReportExportBlocked(unresolvedBlockCount: number): boolean {
+  return unresolvedBlockCount > 0;
+}
