@@ -37,3 +37,7 @@ Status legend: `OPEN` · `IN PROGRESS` · `CLOSED` · `ACCEPTED (carry to S7B)`
 - Re-check (post-closure 11/11): `docs/SPRINT_7B/S7B-0_GATE_CLOSURE/RE-CHECK.md`
 - TD-7A-004/005/006/010/011 closed via contract tests + code/migration/SSOT (no SIM execution); evidence logs in `docs/SPRINT_7B/S7B-0_GATE_CLOSURE/evidence/`
 - TD-7A-009 still ACCEPTED carry to S7B (out of scope for Phase B)
+
+## Register summary (TD-7A-001..011)
+
+→ **10 CLOSED + 1 ACCEPTED + 0 OPEN / IN PROGRESS**

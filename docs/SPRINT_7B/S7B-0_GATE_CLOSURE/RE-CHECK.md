@@ -125,7 +125,7 @@ Captured in [evidence/C4-contamination-check.log](evidence/C4-contamination-chec
 | TD-7A-010 | **CLOSED** (S7B-0) | migration `0004_handoff_target` + `handoff.ts` + test + commit `5ade0be` |
 | TD-7A-011 | **CLOSED** (S7B-0) | `GOV_*` SSOT + `isReportExportBlocked` + test + commit `dd85db4` |
 
-→ **8 CLOSED + 1 ACCEPTED + 0 OPEN / IN PROGRESS**
+→ **10 CLOSED + 1 ACCEPTED + 0 OPEN / IN PROGRESS**
 
 ---
 
@@ -149,7 +149,7 @@ Captured in [evidence/C4-contamination-check.log](evidence/C4-contamination-chec
 
 ### ข้อความปิดรายงาน
 
-S7B-0 Gate Closure ส่งมอบครบทั้ง 5 FAIL gates ภายใต้ลำดับ governance ที่ถูกต้อง: ปิดด้วย contract tests + code/migration/SSOT (ไม่ใช่ SIM execution); typecheck/test ยัง green; ไม่มี architecture drift ใหม่; ไม่มี pre-gate artifact ปน; TD-7A-001..011 อยู่ในสถานะ 8 CLOSED + 1 ACCEPTED
+S7B-0 Gate Closure ส่งมอบครบทั้ง 5 FAIL gates ภายใต้ลำดับ governance ที่ถูกต้อง: ปิดด้วย contract tests + code/migration/SSOT (ไม่ใช่ SIM execution); typecheck/test ยัง green; ไม่มี architecture drift ใหม่; ไม่มี pre-gate artifact ปน; TD-7A-001..011 อยู่ในสถานะ 10 CLOSED + 1 ACCEPTED + 0 OPEN / IN PROGRESS
 
 **Sprint 7B Entry Gate = READY** (gate-first preserved)
 **Operational Readiness = ยังไม่ claim**

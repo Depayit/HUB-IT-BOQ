@@ -60,7 +60,7 @@
 - TD-7A-001/002/003/007/008 unchanged (already CLOSED before this branch)
 - TD-7A-009 unchanged (ACCEPTED carry to S7B)
 
-→ TD-7A-001 to TD-7A-011: **8 CLOSED + 1 ACCEPTED + 0 OPEN** (post-closure)
+→ TD-7A-001 to TD-7A-011: **10 CLOSED + 1 ACCEPTED + 0 OPEN / IN PROGRESS** (post-closure)
 
 ---
 
