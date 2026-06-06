@@ -3,6 +3,7 @@ import { describe, it, expect } from "vitest";
 import {
   READINESS_TIERS,
   deriveReadinessTier,
+  deriveValidationStatus,
   inferValidationRun,
   isForwardableTier,
   isReadyTier,
@@ -87,6 +88,18 @@ describe("readiness tier (TD-7A-006 — 3-tier aggregate)", () => {
         can_approve: true,
       }),
     ).toBe(true);
+  });
+
+  it("deriveValidationStatus — Pass when validation run with no blocks", () => {
+    expect(deriveValidationStatus(0, true)).toBe("Pass");
+  });
+
+  it("deriveValidationStatus — Not run when validation never executed", () => {
+    expect(deriveValidationStatus(0, false)).toBe("Not run");
+  });
+
+  it("deriveValidationStatus — Blocked when unresolved blocks present", () => {
+    expect(deriveValidationStatus(2, true)).toBe("Blocked (2 unresolved)");
   });
 
   it("inferValidationRun — 0 rows on Draft BOQ without lock is not run", () => {

@@ -1,15 +1,30 @@
 {
+  "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
+  "project_id": "3bc3433d-e0ca-4a6d-ab0a-1247b83a45fb",
   "excel": {
     "filename": "BOQ_Summary_SIM-001_Happy_Path_Project_v1_2026-06-06.xlsx",
     "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    "bytes": 10732,
+    "bytes": 10728,
     "file": "docs\\SPRINT_7B\\evidence\\SIM-001\\E7-export-result\\BOQ_Summary_SIM-001_Happy_Path_Project_v1_2026-06-06.xlsx"
   },
   "pdf": {
     "filename": "BOQ_Summary_SIM-001_Happy_Path_Project_v1_2026-06-06.pdf",
     "mimeType": "application/pdf",
-    "bytes": 2424,
+    "bytes": 2416,
     "file": "docs\\SPRINT_7B\\evidence\\SIM-001\\E7-export-result\\BOQ_Summary_SIM-001_Happy_Path_Project_v1_2026-06-06.pdf"
   },
-  "note": "Happy Path exports return 200-equivalent (no throw). Export BLOCK gate is exercised by SIM-003/005/006/007 (out of scope for Phase 1)."
+  "report_validation_snapshot": {
+    "validation_status": "Pass",
+    "ready_status": "Ready",
+    "unresolved_blocks": 0,
+    "total_results": 0,
+    "can_approve": true,
+    "can_handoff": true
+  },
+  "e2_consistency": {
+    "post_lock_validation_status": "Pass",
+    "matches_e2_post_lock": true,
+    "matches_export_report": true
+  },
+  "note": "S7B-1A: E7 Validation Summary status must match E2 post_lock validation_summary (Pass on Happy Path)."
 }

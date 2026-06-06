@@ -11,6 +11,7 @@ import {
 import type { BoqConsolidatedReport } from "@/lib/validations/reporting";
 import {
   deriveReadinessTier,
+  deriveValidationStatus,
   inferValidationRun,
   type ReadinessTier,
 } from "@/lib/validations/readiness";
@@ -214,12 +215,10 @@ export const boqSummaryReportService = {
       can_approve: validationGate.can_approve,
     });
 
-    const validationStatus =
-      validationGate.unresolved_block_count > 0
-        ? `Blocked (${validationGate.unresolved_block_count} unresolved)`
-        : !validationRun
-          ? "Not run"
-          : "Clear";
+    const validationStatus = deriveValidationStatus(
+      validationGate.unresolved_block_count,
+      validationRun,
+    );
 
     const openWarningCount = countOpenWarnings(validationResults);
 

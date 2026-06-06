@@ -26,8 +26,10 @@ import { approvalService } from "../src/lib/services/approval.service.ts";
 import { handoffService } from "../src/lib/services/handoff.service.ts";
 import { exportService } from "../src/lib/services/export.service.ts";
 import { auditService } from "../src/lib/services/audit.service.ts";
+import { boqSummaryReportService } from "../src/lib/services/boq-summary-report.service.ts";
 import {
   deriveReadinessTier,
+  deriveValidationStatus,
   inferValidationRun,
 } from "../src/lib/validations/readiness.ts";
 
@@ -45,8 +47,7 @@ function countOpenWarnings(results) {
   ).length;
 }
 
-function buildReadinessSnapshot(gate, results, version = {}) {
-  const open_warning_count = countOpenWarnings(results);
+function buildValidationSummary(gate, results, version = {}) {
   const validation_run = inferValidationRun({
     validation_result_count: results.length,
     lock_status: version.lock_status ?? "",
@@ -54,13 +55,36 @@ function buildReadinessSnapshot(gate, results, version = {}) {
     unresolved_block_count: gate.unresolved_block_count,
     can_approve: gate.can_approve,
   });
-  const tier = deriveReadinessTier({
+  const open_warning_count = countOpenWarnings(results);
+  return {
     validation_run,
+    validation_status: deriveValidationStatus(
+      gate.unresolved_block_count,
+      validation_run,
+    ),
+    finding_count: results.length,
     unresolved_block_count: gate.unresolved_block_count,
     open_warning_count,
     can_approve: gate.can_approve,
+    can_handoff: gate.can_handoff,
+  };
+}
+
+function buildReadinessSnapshot(gate, results, version = {}) {
+  const summary = buildValidationSummary(gate, results, version);
+  const tier = deriveReadinessTier({
+    validation_run: summary.validation_run,
+    unresolved_block_count: gate.unresolved_block_count,
+    open_warning_count: summary.open_warning_count,
+    can_approve: gate.can_approve,
   });
-  return { tier, open_warning_count, validation_run, gate };
+  return { tier, ...summary, gate };
+}
+
+function assertBoqVersionId(label, actual, expected) {
+  if (actual !== expected) {
+    throw new Error(`${label}: BOQ Version ID mismatch (expected ${expected}, got ${actual})`);
+  }
 }
 
 function parseArgs() {
@@ -181,7 +205,12 @@ async function main() {
   // -------------------------------------------------------------------------
   console.log("Step 1: capture seed payload");
   const seed = await captureSeedPayload(projectId, boqVersionId);
-  const e1Path = await writeJson("E1-seed-payload.json", seed);
+  assertBoqVersionId("E1 seed", seed.boqVersion.boq_version_id, boqVersionId);
+  const e1Path = await writeJson("E1-seed-payload.json", {
+    boq_version_id: boqVersionId,
+    project_id: projectId,
+    ...seed,
+  });
   recordStep("E1: seed payload captured", "PASS", {
     project: seed.project.project_name,
     boqVersion: `v${seed.boqVersion.version_no}`,
@@ -317,9 +346,29 @@ async function main() {
   const postLockResults = await captureValidationResults(boqVersionId);
   const postLockGate = await validationService.getWorkflowGate(boqVersionId);
 
+  const preLockValidationSummary = buildValidationSummary(
+    preLockGate,
+    preLockResults,
+    seed.boqVersion,
+  );
+  const postLockValidationSummary = buildValidationSummary(
+    postLockGate,
+    postLockResults,
+    lockedVersion,
+  );
+
   await writeJson("E2-validation-snapshot.json", {
-    pre_lock: { validation_results: preLockResults, workflow_gate: preLockGate },
-    post_lock: { validation_results: postLockResults, workflow_gate: postLockGate },
+    boq_version_id: boqVersionId,
+    pre_lock: {
+      validation_results: preLockResults,
+      workflow_gate: preLockGate,
+      validation_summary: preLockValidationSummary,
+    },
+    post_lock: {
+      validation_results: postLockResults,
+      workflow_gate: postLockGate,
+      validation_summary: postLockValidationSummary,
+    },
   });
 
   if (postLockGate.unresolved_block_count !== 0) {
@@ -328,8 +377,17 @@ async function main() {
       `Post-lock expected 0 unresolved BLOCK, got ${postLockGate.unresolved_block_count}`,
     );
   }
-  recordStep("E2 (post-lock): 0 unresolved BLOCK", "PASS", {
+  if (postLockValidationSummary.validation_status !== "Pass") {
+    recordStep("E2 (post-lock): expected validation_status=Pass", "FAIL", {
+      validation_summary: postLockValidationSummary,
+    });
+    throw new Error(
+      `Post-lock expected validation_status=Pass, got ${postLockValidationSummary.validation_status}`,
+    );
+  }
+  recordStep("E2 (post-lock): 0 unresolved BLOCK + validation_status Pass", "PASS", {
     findings_post_lock: postLockResults.length,
+    validation_status: postLockValidationSummary.validation_status,
     can_approve: postLockGate.can_approve,
     can_handoff: postLockGate.can_handoff,
   });
@@ -373,9 +431,28 @@ async function main() {
   timeline.push({ at: new Date().toISOString(), event: "E5 captured" });
 
   // -------------------------------------------------------------------------
-  // E7 — Export (Excel + PDF)
+  // E7 — Export (Excel + PDF) + report consistency vs E2
   // -------------------------------------------------------------------------
   console.log("Step 5: export Excel + PDF");
+  const exportReport = await boqSummaryReportService.getBoqSummaryReport(
+    projectId,
+    boqVersionId,
+  );
+  if (!exportReport) {
+    throw new Error("E7: BOQ Summary Report not found for export");
+  }
+  assertBoqVersionId("E7 report", exportReport.boq_version_id, boqVersionId);
+  if (exportReport.validation.validation_status !== postLockValidationSummary.validation_status) {
+    throw new Error(
+      `E2/E7 validation_status mismatch: E2=${postLockValidationSummary.validation_status} report=${exportReport.validation.validation_status}`,
+    );
+  }
+  if (exportReport.validation.validation_status !== "Pass") {
+    throw new Error(
+      `E7 report Validation Summary expected Pass, got ${exportReport.validation.validation_status}`,
+    );
+  }
+
   const excel = await exportService.exportToExcel(projectId, boqVersionId);
   const xlsxPath = path.join(EXPORT_DIR, excel.filename);
   await writeFile(xlsxPath, excel.buffer);
@@ -385,6 +462,8 @@ async function main() {
   await writeFile(pdfPath, pdf.buffer);
 
   const e7MetaPath = await writeJson("E7-export-result/metadata.json", {
+    boq_version_id: boqVersionId,
+    project_id: projectId,
     excel: {
       filename: excel.filename,
       mimeType: excel.mimeType,
@@ -397,7 +476,20 @@ async function main() {
       bytes: pdf.buffer.length,
       file: path.relative(process.cwd(), pdfPath),
     },
-    note: "Happy Path exports return 200-equivalent (no throw). Export BLOCK gate is exercised by SIM-003/005/006/007 (out of scope for Phase 1).",
+    report_validation_snapshot: {
+      validation_status: exportReport.validation.validation_status,
+      ready_status: exportReport.validation.ready_status,
+      unresolved_blocks: exportReport.validation.unresolved_blocks,
+      total_results: exportReport.validation.total_results,
+      can_approve: exportReport.validation.can_approve,
+      can_handoff: exportReport.validation.can_handoff,
+    },
+    e2_consistency: {
+      post_lock_validation_status: postLockValidationSummary.validation_status,
+      matches_e2_post_lock: true,
+      matches_export_report: true,
+    },
+    note: "S7B-1A: E7 Validation Summary status must match E2 post_lock validation_summary (Pass on Happy Path).",
   });
 
   if (excel.buffer.length === 0 || pdf.buffer.length === 0) {
@@ -405,9 +497,11 @@ async function main() {
       `Export buffers must be > 0 (got xlsx=${excel.buffer.length}, pdf=${pdf.buffer.length})`,
     );
   }
-  recordStep("E7: exports succeeded (xlsx + pdf)", "PASS", {
+  recordStep("E7: exports succeeded (xlsx + pdf) + validation_status Pass", "PASS", {
     xlsx_bytes: excel.buffer.length,
     pdf_bytes: pdf.buffer.length,
+    validation_status: exportReport.validation.validation_status,
+    boq_version_id: boqVersionId,
     metadata: path.relative(process.cwd(), e7MetaPath),
   });
   timeline.push({ at: new Date().toISOString(), event: "E7 captured" });
@@ -465,6 +559,9 @@ async function main() {
 | Validation findings (pre-lock) | ${preLockResults.length} |
 | Validation findings (post-lock) | ${postLockResults.length} |
 | Final readiness tier | ${readinessStatus} |
+| Post-lock validation status | ${postLockValidationSummary.validation_status} |
+| E7 report validation status | ${exportReport.validation.validation_status} |
+| BOQ Version ID (E1/E2/E7) | ${boqVersionId} (consistent) |
 | Handoff target | ClientHandover |
 
 ## Timeline
@@ -488,7 +585,9 @@ ${stepResults
 - Audit Framework: append-only, ${auditRows.length} rows captured
 - Export gate: isReportExportBlocked predicate respected (Happy Path -> 0 BLOCK -> exports succeed)
 - Readiness SSOT: deriveReadinessTier (3-tier Ready/Warning/Blocked/Not Ready)
+- Validation Summary SSOT: deriveValidationStatus — E2 post_lock and E7 export report both Pass
 - Handoff target: ClientHandover (TD-7A-010 schema)
+- Evidence consistency (S7B-1A): single BOQ Version ID across E1/E2/E5/E7/E8
 
 ## Operational readiness statement
 

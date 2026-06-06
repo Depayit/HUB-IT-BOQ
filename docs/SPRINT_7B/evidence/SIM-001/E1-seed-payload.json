@@ -1,6 +1,8 @@
 {
+  "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
+  "project_id": "3bc3433d-e0ca-4a6d-ab0a-1247b83a45fb",
   "project": {
-    "project_id": "596d01b3-1f00-4a98-93eb-4c69796ce59b",
+    "project_id": "3bc3433d-e0ca-4a6d-ab0a-1247b83a45fb",
     "client_id": "SIM-001-CLIENT",
     "opportunity_id": null,
     "project_name": "SIM-001 Happy Path Project",
@@ -14,12 +16,12 @@
     "currency": "THB",
     "vat_option": null,
     "project_status": "Active",
-    "created_at": "2026-06-06T17:56:06.716Z",
-    "updated_at": "2026-06-06T17:56:06.716Z"
+    "created_at": "2026-06-06T18:33:47.510Z",
+    "updated_at": "2026-06-06T18:33:47.510Z"
   },
   "boqVersion": {
-    "boq_version_id": "8a4f5454-b9ac-4e53-b6e2-b960a6418429",
-    "project_id": "596d01b3-1f00-4a98-93eb-4c69796ce59b",
+    "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
+    "project_id": "3bc3433d-e0ca-4a6d-ab0a-1247b83a45fb",
     "version_no": 1,
     "status": "Draft",
     "lock_status": "Unlocked",
@@ -27,13 +29,13 @@
     "change_reason": null,
     "delta_cost": null,
     "delta_selling_price": null,
-    "created_at": "2026-06-06T17:56:06.755Z",
-    "updated_at": "2026-06-06T17:56:06.755Z"
+    "created_at": "2026-06-06T18:33:47.560Z",
+    "updated_at": "2026-06-06T18:33:47.560Z"
   },
   "designBasis": [
     {
-      "design_basis_version_id": "c37d27c7-4483-461c-b722-057b6f357142",
-      "project_id": "596d01b3-1f00-4a98-93eb-4c69796ce59b",
+      "design_basis_version_id": "bc9d8c50-afb5-44cd-8b56-44e9e6f43fac",
+      "project_id": "3bc3433d-e0ca-4a6d-ab0a-1247b83a45fb",
       "design_version_no": 1,
       "it_load_assumption_kw": "1500",
       "rack_count_assumption": 100,
@@ -46,108 +48,108 @@
       "technical_compliance_basis": "Uptime Institute Tier III",
       "customer_requirement_reference": "RFP-2026-001",
       "approval_status": "Approved",
-      "created_at": "2026-06-06T17:56:06.722Z",
-      "updated_at": "2026-06-06T17:56:06.722Z"
+      "created_at": "2026-06-06T18:33:47.521Z",
+      "updated_at": "2026-06-06T18:33:47.521Z"
     }
   ],
   "documents": [
     {
-      "document_id": "5714a33d-690e-484c-8938-79c245372e2b",
-      "project_id": "596d01b3-1f00-4a98-93eb-4c69796ce59b",
+      "document_id": "f7c2cfcb-cdbb-416f-a37d-11d457e6e280",
+      "project_id": "3bc3433d-e0ca-4a6d-ab0a-1247b83a45fb",
       "document_type": "TOR",
       "document_name": "Terms of Reference v1.0",
       "file_link": null,
       "version_no": "1.0",
       "document_status": "Active",
       "related_workflow_stage": null,
-      "created_at": "2026-06-06T17:56:06.728Z",
-      "updated_at": "2026-06-06T17:56:06.728Z"
+      "created_at": "2026-06-06T18:33:47.530Z",
+      "updated_at": "2026-06-06T18:33:47.530Z"
     },
     {
-      "document_id": "68dfdb0c-273c-430f-820d-145897d9f853",
-      "project_id": "596d01b3-1f00-4a98-93eb-4c69796ce59b",
+      "document_id": "bd3b24ae-a3fb-4242-99dc-1c2fcf67b7f2",
+      "project_id": "3bc3433d-e0ca-4a6d-ab0a-1247b83a45fb",
       "document_type": "Specification",
       "document_name": "Technical Specification v1.0",
       "file_link": null,
       "version_no": "1.0",
       "document_status": "Active",
       "related_workflow_stage": null,
-      "created_at": "2026-06-06T17:56:06.728Z",
-      "updated_at": "2026-06-06T17:56:06.728Z"
+      "created_at": "2026-06-06T18:33:47.530Z",
+      "updated_at": "2026-06-06T18:33:47.530Z"
     },
     {
-      "document_id": "7e1ee480-18f5-49e9-940b-737ae284c721",
-      "project_id": "596d01b3-1f00-4a98-93eb-4c69796ce59b",
+      "document_id": "544202e2-33ba-4e6f-b9ce-ee82869bbe62",
+      "project_id": "3bc3433d-e0ca-4a6d-ab0a-1247b83a45fb",
       "document_type": "SLD",
       "document_name": "Single Line Diagram v1.0",
       "file_link": null,
       "version_no": "1.0",
       "document_status": "Active",
       "related_workflow_stage": null,
-      "created_at": "2026-06-06T17:56:06.728Z",
-      "updated_at": "2026-06-06T17:56:06.728Z"
+      "created_at": "2026-06-06T18:33:47.530Z",
+      "updated_at": "2026-06-06T18:33:47.530Z"
     }
   ],
   "boqDocLinks": [
     {
-      "boq_version_document_id": "6ad30292-aae2-4994-8bb9-7ac317f44974",
-      "boq_version_id": "8a4f5454-b9ac-4e53-b6e2-b960a6418429",
-      "document_id": "5714a33d-690e-484c-8938-79c245372e2b",
+      "boq_version_document_id": "52ee88ba-e146-4743-9d45-3b60d0eca6cc",
+      "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
+      "document_id": "f7c2cfcb-cdbb-416f-a37d-11d457e6e280",
       "dependency_type": "Engineer Review",
       "is_required": true,
       "dependency_status": "Satisfied",
-      "created_at": "2026-06-06T17:56:06.761Z",
-      "updated_at": "2026-06-06T17:56:06.761Z"
+      "created_at": "2026-06-06T18:33:47.567Z",
+      "updated_at": "2026-06-06T18:33:47.567Z"
     },
     {
-      "boq_version_document_id": "d931070e-660e-44b8-ae71-4bdbdfa96e32",
-      "boq_version_id": "8a4f5454-b9ac-4e53-b6e2-b960a6418429",
-      "document_id": "68dfdb0c-273c-430f-820d-145897d9f853",
+      "boq_version_document_id": "7fdd7359-c622-4588-b3ab-9f7a28fd537d",
+      "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
+      "document_id": "bd3b24ae-a3fb-4242-99dc-1c2fcf67b7f2",
       "dependency_type": "Handoff",
       "is_required": true,
       "dependency_status": "Satisfied",
-      "created_at": "2026-06-06T17:56:06.761Z",
-      "updated_at": "2026-06-06T17:56:06.761Z"
+      "created_at": "2026-06-06T18:33:47.567Z",
+      "updated_at": "2026-06-06T18:33:47.567Z"
     },
     {
-      "boq_version_document_id": "59cfaeb3-fa44-486c-8d89-d57a87b09594",
-      "boq_version_id": "8a4f5454-b9ac-4e53-b6e2-b960a6418429",
-      "document_id": "7e1ee480-18f5-49e9-940b-737ae284c721",
+      "boq_version_document_id": "b22744cc-8fd8-4fec-b10b-5222db820700",
+      "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
+      "document_id": "544202e2-33ba-4e6f-b9ce-ee82869bbe62",
       "dependency_type": "Engineer Review",
       "is_required": true,
       "dependency_status": "Satisfied",
-      "created_at": "2026-06-06T17:56:06.761Z",
-      "updated_at": "2026-06-06T17:56:06.761Z"
+      "created_at": "2026-06-06T18:33:47.567Z",
+      "updated_at": "2026-06-06T18:33:47.567Z"
     }
   ],
   "projectDisciplines": [
     {
-      "project_discipline_id": "1127320c-ba4b-461f-ab2c-265fd634cf27",
-      "project_id": "596d01b3-1f00-4a98-93eb-4c69796ce59b",
-      "boq_version_id": "8a4f5454-b9ac-4e53-b6e2-b960a6418429",
-      "discipline_id": "42f23aba-47db-4c77-a62f-e087b5cb557e",
+      "project_discipline_id": "86fb4a43-e134-49ad-9508-f570025b96b2",
+      "project_id": "3bc3433d-e0ca-4a6d-ab0a-1247b83a45fb",
+      "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
+      "discipline_id": "14e31a18-f607-4379-af73-0f7d6f0da1bc",
       "included_flag": true,
       "scope_description": "Electrical power distribution scope — UPS, PDU, switchgear, transformer for 1500kW IT load (2N).",
       "exclusion_note": null,
       "risk_level": "Medium",
-      "created_at": "2026-06-06T17:56:06.774Z",
-      "updated_at": "2026-06-06T17:56:06.774Z",
+      "created_at": "2026-06-06T18:33:47.583Z",
+      "updated_at": "2026-06-06T18:33:47.583Z",
       "discipline": {
-        "discipline_id": "42f23aba-47db-4c77-a62f-e087b5cb557e",
+        "discipline_id": "14e31a18-f607-4379-af73-0f7d6f0da1bc",
         "discipline_code": "PWR",
         "discipline_name": "Power",
         "description": "Electrical power distribution, UPS, PDU, and grounding",
         "is_active": true,
-        "created_at": "2026-06-06T17:56:06.666Z",
-        "updated_at": "2026-06-06T17:56:06.666Z"
+        "created_at": "2026-06-06T18:33:47.450Z",
+        "updated_at": "2026-06-06T18:33:47.450Z"
       }
     }
   ],
   "boqLines": [
     {
-      "boq_line_id": "524eb7dd-4346-4aba-9dea-83eaf67f4678",
-      "boq_version_id": "8a4f5454-b9ac-4e53-b6e2-b960a6418429",
-      "project_discipline_id": "1127320c-ba4b-461f-ab2c-265fd634cf27",
+      "boq_line_id": "d43d8886-147a-4fd8-b050-b1dd37379b29",
+      "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
+      "project_discipline_id": "86fb4a43-e134-49ad-9508-f570025b96b2",
       "item_id": "PWR-UPS-001",
       "line_no": 1,
       "item_description": "UPS module 500kVA (modular, 2N config) — supply & install",
@@ -157,13 +159,13 @@
       "confidence_level": "High",
       "is_critical_line": false,
       "notes": null,
-      "created_at": "2026-06-06T17:56:06.783Z",
-      "updated_at": "2026-06-06T17:56:06.783Z",
+      "created_at": "2026-06-06T18:33:47.597Z",
+      "updated_at": "2026-06-06T18:33:47.597Z",
       "boq_cost_breakdowns": [
         {
-          "boq_cost_breakdown_id": "ea2d7bea-d717-4ba7-a6e9-bc18f7a0d3fb",
-          "boq_line_id": "524eb7dd-4346-4aba-9dea-83eaf67f4678",
-          "cost_category_id": "052b8c14-06f1-49cd-81b1-873c70e3f3ff",
+          "boq_cost_breakdown_id": "b593c02b-b8fa-41c5-a33c-56091a991c14",
+          "boq_line_id": "d43d8886-147a-4fd8-b050-b1dd37379b29",
+          "cost_category_id": "dcb639d9-aa04-4500-bdfe-37e8dbf0b9e4",
           "calculation_method": "manual",
           "base_value": "8000000",
           "rate": "1",
@@ -173,13 +175,13 @@
           "confidence_level": "High",
           "manual_override_flag": false,
           "override_reason": null,
-          "created_at": "2026-06-06T17:56:06.790Z",
-          "updated_at": "2026-06-06T17:56:06.790Z"
+          "created_at": "2026-06-06T18:33:47.605Z",
+          "updated_at": "2026-06-06T18:33:47.605Z"
         },
         {
-          "boq_cost_breakdown_id": "b0538ac2-cbc6-4dd1-a018-e7412170b807",
-          "boq_line_id": "524eb7dd-4346-4aba-9dea-83eaf67f4678",
-          "cost_category_id": "f5a6d955-ecbe-4433-9806-e5b90c13691f",
+          "boq_cost_breakdown_id": "a4ac444c-20ee-4d5e-aef4-b2e59b3963f5",
+          "boq_line_id": "d43d8886-147a-4fd8-b050-b1dd37379b29",
+          "cost_category_id": "3889a49a-3bac-45e2-8c69-32df1098cff2",
           "calculation_method": "manual",
           "base_value": "600000",
           "rate": "1",
@@ -189,15 +191,15 @@
           "confidence_level": "High",
           "manual_override_flag": false,
           "override_reason": null,
-          "created_at": "2026-06-06T17:56:06.790Z",
-          "updated_at": "2026-06-06T17:56:06.790Z"
+          "created_at": "2026-06-06T18:33:47.605Z",
+          "updated_at": "2026-06-06T18:33:47.605Z"
         }
       ]
     },
     {
-      "boq_line_id": "f2721000-fb98-43e6-8ee6-a2faee86106c",
-      "boq_version_id": "8a4f5454-b9ac-4e53-b6e2-b960a6418429",
-      "project_discipline_id": "1127320c-ba4b-461f-ab2c-265fd634cf27",
+      "boq_line_id": "1e1550f8-dea2-40d0-8e09-079af029ab34",
+      "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
+      "project_discipline_id": "86fb4a43-e134-49ad-9508-f570025b96b2",
       "item_id": "PWR-PDU-001",
       "line_no": 2,
       "item_description": "Rack PDU intelligent, 32A 3-phase — supply & install",
@@ -207,13 +209,13 @@
       "confidence_level": "High",
       "is_critical_line": false,
       "notes": null,
-      "created_at": "2026-06-06T17:56:06.796Z",
-      "updated_at": "2026-06-06T17:56:06.796Z",
+      "created_at": "2026-06-06T18:33:47.617Z",
+      "updated_at": "2026-06-06T18:33:47.617Z",
       "boq_cost_breakdowns": [
         {
-          "boq_cost_breakdown_id": "846baea7-5f0f-48b8-b8c0-45a4d4fa22e4",
-          "boq_line_id": "f2721000-fb98-43e6-8ee6-a2faee86106c",
-          "cost_category_id": "052b8c14-06f1-49cd-81b1-873c70e3f3ff",
+          "boq_cost_breakdown_id": "9004e600-9072-4b82-bd3e-d4fff725c9ca",
+          "boq_line_id": "1e1550f8-dea2-40d0-8e09-079af029ab34",
+          "cost_category_id": "dcb639d9-aa04-4500-bdfe-37e8dbf0b9e4",
           "calculation_method": "manual",
           "base_value": "4500000",
           "rate": "1",
@@ -223,13 +225,13 @@
           "confidence_level": "High",
           "manual_override_flag": false,
           "override_reason": null,
-          "created_at": "2026-06-06T17:56:06.800Z",
-          "updated_at": "2026-06-06T17:56:06.800Z"
+          "created_at": "2026-06-06T18:33:47.620Z",
+          "updated_at": "2026-06-06T18:33:47.620Z"
         },
         {
-          "boq_cost_breakdown_id": "01907189-1657-4ff2-80d3-161ce16682dd",
-          "boq_line_id": "f2721000-fb98-43e6-8ee6-a2faee86106c",
-          "cost_category_id": "f5a6d955-ecbe-4433-9806-e5b90c13691f",
+          "boq_cost_breakdown_id": "41ab36be-57e2-45e2-bc9d-40734831d7c8",
+          "boq_line_id": "1e1550f8-dea2-40d0-8e09-079af029ab34",
+          "cost_category_id": "3889a49a-3bac-45e2-8c69-32df1098cff2",
           "calculation_method": "manual",
           "base_value": "350000",
           "rate": "1",
@@ -239,15 +241,15 @@
           "confidence_level": "High",
           "manual_override_flag": false,
           "override_reason": null,
-          "created_at": "2026-06-06T17:56:06.800Z",
-          "updated_at": "2026-06-06T17:56:06.800Z"
+          "created_at": "2026-06-06T18:33:47.620Z",
+          "updated_at": "2026-06-06T18:33:47.620Z"
         }
       ]
     },
     {
-      "boq_line_id": "f50207dd-9a60-48a0-876a-477f60efcde9",
-      "boq_version_id": "8a4f5454-b9ac-4e53-b6e2-b960a6418429",
-      "project_discipline_id": "1127320c-ba4b-461f-ab2c-265fd634cf27",
+      "boq_line_id": "60e0ef6f-a6b6-409b-a0fa-93b1bf920fcc",
+      "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
+      "project_discipline_id": "86fb4a43-e134-49ad-9508-f570025b96b2",
       "item_id": "PWR-SWG-001",
       "line_no": 3,
       "item_description": "MV switchgear 24kV 3-panel — supply, install, commissioning",
@@ -257,13 +259,13 @@
       "confidence_level": "High",
       "is_critical_line": false,
       "notes": null,
-      "created_at": "2026-06-06T17:56:06.804Z",
-      "updated_at": "2026-06-06T17:56:06.804Z",
+      "created_at": "2026-06-06T18:33:47.625Z",
+      "updated_at": "2026-06-06T18:33:47.625Z",
       "boq_cost_breakdowns": [
         {
-          "boq_cost_breakdown_id": "4c0624ce-4e75-4f22-9c3f-e58a099252e5",
-          "boq_line_id": "f50207dd-9a60-48a0-876a-477f60efcde9",
-          "cost_category_id": "052b8c14-06f1-49cd-81b1-873c70e3f3ff",
+          "boq_cost_breakdown_id": "abb3c2e5-af86-4640-96e5-09986f7d563f",
+          "boq_line_id": "60e0ef6f-a6b6-409b-a0fa-93b1bf920fcc",
+          "cost_category_id": "dcb639d9-aa04-4500-bdfe-37e8dbf0b9e4",
           "calculation_method": "manual",
           "base_value": "12000000",
           "rate": "1",
@@ -273,13 +275,13 @@
           "confidence_level": "High",
           "manual_override_flag": false,
           "override_reason": null,
-          "created_at": "2026-06-06T17:56:06.808Z",
-          "updated_at": "2026-06-06T17:56:06.808Z"
+          "created_at": "2026-06-06T18:33:47.629Z",
+          "updated_at": "2026-06-06T18:33:47.629Z"
         },
         {
-          "boq_cost_breakdown_id": "d6b9396b-3db1-4e45-8cf8-27aacd5c5faa",
-          "boq_line_id": "f50207dd-9a60-48a0-876a-477f60efcde9",
-          "cost_category_id": "f5a6d955-ecbe-4433-9806-e5b90c13691f",
+          "boq_cost_breakdown_id": "003b39f3-9b61-4e74-a607-0f25ded9d8cd",
+          "boq_line_id": "60e0ef6f-a6b6-409b-a0fa-93b1bf920fcc",
+          "cost_category_id": "3889a49a-3bac-45e2-8c69-32df1098cff2",
           "calculation_method": "manual",
           "base_value": "1200000",
           "rate": "1",
@@ -289,15 +291,15 @@
           "confidence_level": "High",
           "manual_override_flag": false,
           "override_reason": null,
-          "created_at": "2026-06-06T17:56:06.808Z",
-          "updated_at": "2026-06-06T17:56:06.808Z"
+          "created_at": "2026-06-06T18:33:47.629Z",
+          "updated_at": "2026-06-06T18:33:47.629Z"
         }
       ]
     }
   ],
   "boqSummary": {
-    "boq_summary_id": "963dfe9f-029f-4ec1-a7c2-5adfc0e50208",
-    "boq_version_id": "8a4f5454-b9ac-4e53-b6e2-b960a6418429",
+    "boq_summary_id": "b0c6c00d-43e3-4bdd-8974-7ee57ac05bea",
+    "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
     "total_material_cost": "24500000",
     "total_labor_cost": "2150000",
     "total_logistics_cost": "0",
@@ -311,7 +313,7 @@
     "selling_price": "30647500",
     "gross_profit": "3997500",
     "gross_margin_percent": "13.0435",
-    "created_at": "2026-06-06T17:56:06.812Z",
-    "updated_at": "2026-06-06T17:56:06.812Z"
+    "created_at": "2026-06-06T18:33:47.634Z",
+    "updated_at": "2026-06-06T18:33:47.634Z"
   }
 }

@@ -1,11 +1,11 @@
 {
-  "handoff_id": "ddd6e040-cda0-4413-bc0d-b70185356eee",
-  "boq_version_id": "8a4f5454-b9ac-4e53-b6e2-b960a6418429",
+  "handoff_id": "b2fe9ec2-2fc3-4622-9947-1d61e540e433",
+  "boq_version_id": "8f1376bb-092b-4250-b8d9-ef87fe739ca6",
   "handoff_status": "Completed",
   "handoff_target": "ClientHandover",
   "handed_off_by": "director-001@sim001",
-  "handoff_at": "2026-06-06T17:56:14.053Z",
+  "handoff_at": "2026-06-06T18:33:54.743Z",
   "notes": "SIM-001 Happy Path handoff (Official Sprint 7B Phase 1)",
-  "created_at": "2026-06-06T17:56:14.056Z",
-  "updated_at": "2026-06-06T17:56:14.056Z"
+  "created_at": "2026-06-06T18:33:54.745Z",
+  "updated_at": "2026-06-06T18:33:54.745Z"
 }

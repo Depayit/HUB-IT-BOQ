@@ -42,6 +42,18 @@ export function inferValidationRun(ctx: ValidationRunContext): boolean {
   );
 }
 
+/** SSOT label for BOQ Summary Report / export Validation Summary status. */
+export function deriveValidationStatus(
+  unresolved_block_count: number,
+  validationRun: boolean,
+): string {
+  if (unresolved_block_count > 0) {
+    return `Blocked (${unresolved_block_count} unresolved)`;
+  }
+  if (!validationRun) return "Not run";
+  return "Pass";
+}
+
 export type ReadinessInput = {
   /** True if validation has been run for this BOQ version (see inferValidationRun). */
   validation_run: boolean;

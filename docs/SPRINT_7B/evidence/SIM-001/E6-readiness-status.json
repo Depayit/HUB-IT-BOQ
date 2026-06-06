@@ -3,8 +3,13 @@
   "readiness_tier": "Ready",
   "pre_lock": {
     "tier": "Blocked",
-    "open_warning_count": 0,
     "validation_run": true,
+    "validation_status": "Blocked (1 unresolved)",
+    "finding_count": 1,
+    "unresolved_block_count": 1,
+    "open_warning_count": 0,
+    "can_approve": true,
+    "can_handoff": false,
     "gate": {
       "unresolved_block_count": 1,
       "unresolved_approval_block_count": 0,
@@ -17,8 +22,13 @@
   },
   "post_lock": {
     "tier": "Ready",
-    "open_warning_count": 0,
     "validation_run": true,
+    "validation_status": "Pass",
+    "finding_count": 0,
+    "unresolved_block_count": 0,
+    "open_warning_count": 0,
+    "can_approve": true,
+    "can_handoff": true,
     "gate": {
       "unresolved_block_count": 0,
       "unresolved_approval_block_count": 0,
