@@ -1,0 +1,15 @@
+﻿
+ RUN  v3.2.4 C:/dev/HUB IT BOQ
+
+ ✓ tests/audit-service.test.ts > auditService.append (TD-7A-004 contract) > appends a row with normalized payload (no fabricated columns) 5ms
+ ✓ tests/audit-service.test.ts > auditService.append (TD-7A-004 contract) > appends a correction as a new row with action_type=correction (no update) 2ms
+ ✓ tests/audit-service.test.ts > auditService.append (TD-7A-004 contract) > rejects malformed append payload via Zod (no DB call) 3ms
+ ✓ tests/audit-service.test.ts > audit immutability guard (TD-7A-004 contract) > blocks every mutation operation listed in BLOCKED_AUDIT_MUTATIONS 3ms
+ ✓ tests/audit-service.test.ts > audit immutability guard (TD-7A-004 contract) > allows non-mutation operations (findMany, count, create) through 1ms
+ ✓ tests/audit-service.test.ts > audit immutability guard (TD-7A-004 contract) > Prisma extension routes audit_logs operations through assertAuditMutationAllowed 1ms
+
+ Test Files  1 passed (1)
+      Tests  6 passed (6)
+   Start at  22:56:44
+   Duration  1.08s (transform 116ms, setup 0ms, collect 166ms, tests 16ms, environment 0ms, prepare 239ms)
+
