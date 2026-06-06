@@ -1,0 +1,16 @@
+﻿
+ RUN  v3.2.4 C:/dev/HUB IT BOQ
+
+ ✓ tests/handoff.test.ts > handoff target schema (TD-7A-010 SSOT) > declares the canonical 3 targets in fixed order 2ms
+ ✓ tests/handoff.test.ts > handoff target schema (TD-7A-010 SSOT) > accepts each canonical target via Zod 1ms
+ ✓ tests/handoff.test.ts > handoff target schema (TD-7A-010 SSOT) > rejects unknown targets 1ms
+ ✓ tests/handoff.test.ts > handoff target schema (TD-7A-010 SSOT) > optional schema permits null and undefined (back-compat) 1ms
+ ✓ tests/handoff.test.ts > handoff target schema (TD-7A-010 SSOT) > isHandoffTarget type guard recognizes only canonical strings 1ms
+ ✓ tests/handoff.test.ts > handoff target schema (TD-7A-010 SSOT) > handoffPayloadSchema enforces uuid + actor + optional target 2ms
+ ✓ tests/handoff.test.ts > handoff target schema (TD-7A-010 SSOT) > matches the Prisma enum 1:1 (exhaustive switch) 0ms
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  23:09:00
+   Duration  965ms (transform 71ms, setup 0ms, collect 88ms, tests 10ms, environment 0ms, prepare 183ms)
+

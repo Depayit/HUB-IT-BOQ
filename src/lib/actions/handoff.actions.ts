@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { handoffService } from "@/lib/services/handoff.service";
+import type { HandoffTarget } from "@/lib/validations/handoff";
 import { toUserMessage } from "@/lib/utils/errors";
 
 function revalidateBoqPaths(projectId: string, boqVersionId: string) {
@@ -28,9 +29,10 @@ export async function executeHandoff(
   boqVersionId: string,
   handedOffBy: string = "user",
   notes?: string,
+  handoffTarget?: HandoffTarget,
 ) {
   try {
-    await handoffService.createHandoff(boqVersionId, handedOffBy, notes);
+    await handoffService.createHandoff(boqVersionId, handedOffBy, notes, handoffTarget);
     revalidateBoqPaths(projectId, boqVersionId);
     const data = await handoffService.getPageData(projectId, boqVersionId);
     if (!data) {
