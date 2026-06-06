@@ -88,12 +88,6 @@ enum handoff_status {
   Cancelled
 }
 
-enum handoff_target {
-  Procurement
-  Construction
-  ClientHandover
-}
-
 enum edit_lock_object_type {
   boq_version
 }
@@ -470,9 +464,8 @@ model approval_workflows {
 model handoff_records {
   handoff_id     String         @id @default(uuid()) @db.Uuid
   boq_version_id String         @db.Uuid
-  handoff_status handoff_status  @default(Pending)
-  handoff_target handoff_target?
-  handed_off_by  String?         @db.VarChar(128)
+  handoff_status handoff_status @default(Pending)
+  handed_off_by  String?        @db.VarChar(128)
   handoff_at     DateTime?      @db.Timestamptz(6)
   notes          String?        @db.Text
   created_at     DateTime       @default(now()) @db.Timestamptz(6)

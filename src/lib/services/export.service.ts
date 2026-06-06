@@ -6,7 +6,6 @@ import {
 } from "@/lib/services/boq-summary-report.service";
 import { boqVersionService } from "@/lib/services/boq-version.service";
 import { assertSummaryExists } from "@/lib/validations/export";
-import { isReportExportBlocked } from "@/lib/validations/reporting";
 
 export type ExportFileResult = {
   buffer: Buffer;
@@ -288,7 +287,7 @@ export const exportService = {
     }
 
     // Export BLOCK gate — never export a BOQ that has unresolved BLOCK validations.
-    if (isReportExportBlocked(report.validation.unresolved_blocks)) {
+    if (report.validation.unresolved_blocks > 0) {
       return {
         ok: false as const,
         error: `Export ถูกบล็อก — มี unresolved BLOCK ${report.validation.unresolved_blocks} รายการ ต้อง resolve ก่อน export`,

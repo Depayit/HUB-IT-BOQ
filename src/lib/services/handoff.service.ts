@@ -3,7 +3,6 @@ import { AppError } from "@/lib/utils/errors";
 import { validationService } from "@/lib/services/validation.service";
 import { boqVersionService } from "@/lib/services/boq-version.service";
 import { auditService } from "@/lib/services/audit.service";
-import type { HandoffTarget } from "@/lib/validations/handoff";
 
 export const handoffService = {
   async getPageData(projectId: string, boqVersionId: string) {
@@ -63,7 +62,6 @@ export const handoffService = {
     boqVersionId: string,
     handedOffBy: string,
     notes?: string,
-    handoffTarget?: HandoffTarget,
   ) {
     await this.assertCanHandoff(boqVersionId);
 
@@ -71,7 +69,6 @@ export const handoffService = {
       data: {
         boq_version_id: boqVersionId,
         handoff_status: "Completed",
-        handoff_target: handoffTarget ?? null,
         handed_off_by: handedOffBy,
         handoff_at: new Date(),
         notes: notes?.trim() || null,
