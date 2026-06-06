@@ -9,6 +9,10 @@ import {
   type ValidationResultRow,
 } from "@/lib/services/validation.service";
 import type { BoqConsolidatedReport } from "@/lib/validations/reporting";
+import {
+  deriveReadinessTier,
+  type ReadinessTier,
+} from "@/lib/validations/readiness";
 
 export type BoqSummaryReportProject = {
   project_name: string;
@@ -59,7 +63,8 @@ export type BoqSummaryReportValidation = {
   warning_count: number;
   block_count: number;
   unresolved_blocks: number;
-  ready_status: "Ready" | "Not Ready";
+  open_warning_count: number;
+  ready_status: ReadinessTier;
   can_approve: boolean;
   can_handoff: boolean;
   block_reason: string | null;
@@ -207,10 +212,14 @@ export const boqSummaryReportService = {
           ? "Not run"
           : "Clear";
 
-    const readyStatus: "Ready" | "Not Ready" =
-      validationGate.can_approve && validationGate.unresolved_block_count === 0
-        ? "Ready"
-        : "Not Ready";
+    const openWarningCount = countOpenWarnings(validationResults);
+
+    const readyStatus: ReadinessTier = deriveReadinessTier({
+      validation_run: validationResults.length > 0,
+      unresolved_block_count: validationGate.unresolved_block_count,
+      open_warning_count: openWarningCount,
+      can_approve: validationGate.can_approve,
+    });
 
     return {
       boq_version_id: boqVersionId,
@@ -248,9 +257,10 @@ export const boqSummaryReportService = {
         validation_status: validationStatus,
         total_validation_rules: activeRuleCount,
         total_results: validationResults.length,
-        warning_count: countOpenWarnings(validationResults),
+        warning_count: openWarningCount,
         block_count: validationGate.unresolved_block_count,
         unresolved_blocks: validationGate.unresolved_block_count,
+        open_warning_count: openWarningCount,
         ready_status: readyStatus,
         can_approve: validationGate.can_approve,
         can_handoff: validationGate.can_handoff,

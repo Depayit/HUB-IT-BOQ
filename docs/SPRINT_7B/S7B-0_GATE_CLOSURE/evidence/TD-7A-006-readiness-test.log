@@ -1,0 +1,19 @@
+﻿
+ RUN  v3.2.4 C:/dev/HUB IT BOQ
+
+ ✓ tests/readiness.test.ts > readiness tier (TD-7A-006 — 3-tier aggregate) > exports four tiers in canonical order (Ready, Warning, Blocked, Not Ready) 2ms
+ ✓ tests/readiness.test.ts > readiness tier (TD-7A-006 — 3-tier aggregate) > Ready when no BLOCK, no WARNING, validation run, approval allowed 0ms
+ ✓ tests/readiness.test.ts > readiness tier (TD-7A-006 — 3-tier aggregate) > Warning when no BLOCK but at least one open WARNING 0ms
+ ✓ tests/readiness.test.ts > readiness tier (TD-7A-006 — 3-tier aggregate) > Blocked when unresolved_block_count > 0 (regardless of warnings) 0ms
+ ✓ tests/readiness.test.ts > readiness tier (TD-7A-006 — 3-tier aggregate) > Blocked when can_approve=false even with no BLOCK count (engine veto) 0ms
+ ✓ tests/readiness.test.ts > readiness tier (TD-7A-006 — 3-tier aggregate) > Not Ready when validation has never been run (no rows yet) 0ms
+ ✓ tests/readiness.test.ts > readiness tier (TD-7A-006 — 3-tier aggregate) > Not Ready takes precedence over Ready but not over Blocked 0ms
+ ✓ tests/readiness.test.ts > readiness tier (TD-7A-006 — 3-tier aggregate) > isReadyTier strict — only Ready returns true 1ms
+ ✓ tests/readiness.test.ts > readiness tier (TD-7A-006 — 3-tier aggregate) > isForwardableTier — Ready and Warning permit forward action; Blocked/Not Ready do not 1ms
+ ✓ tests/readiness.test.ts > readiness tier (TD-7A-006 — 3-tier aggregate) > Truth table coverage (all combinations of inputs) 1ms
+
+ Test Files  1 passed (1)
+      Tests  10 passed (10)
+   Start at  23:03:44
+   Duration  862ms (transform 80ms, setup 0ms, collect 78ms, tests 9ms, environment 0ms, prepare 234ms)
+
