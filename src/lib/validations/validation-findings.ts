@@ -16,6 +16,10 @@ import {
 } from "@/lib/validations/discipline-validation";
 import { DISCIPLINE_RULE_DEFINITIONS } from "@/lib/validations/discipline-rules";
 import {
+  evaluateReportingGovernanceWarnings,
+  type ReportingGovernanceMetadata,
+} from "@/lib/validations/reporting-governance";
+import {
   resultStatusForRule,
   VALIDATION_RULE_DEFINITIONS,
   type ValidationRuleCode,
@@ -98,13 +102,36 @@ export function toPersistableFinding(
   };
 }
 
+export function collectReportingGovernanceWarnings(
+  metadata: ReportingGovernanceMetadata,
+  options?: { contentComplete?: boolean },
+): EngineValidationFinding[] {
+  return evaluateReportingGovernanceWarnings(metadata, options).map((finding) => ({
+    rule_code: finding.rule_code,
+    target_object_type: finding.target_object_type,
+    target_object_id: finding.target_object_id,
+    message: finding.message,
+    severity: finding.severity,
+  }));
+}
+
 export function aggregateWarningFindings(input: {
   costLines: CostLineValidateInput[];
   disciplines: DisciplineValidationInput[];
+  reportingGovernance?: ReportingGovernanceMetadata | null;
+  reportingGovernanceContentComplete?: boolean;
 }): PersistableValidationFinding[] {
+  const governanceWarnings =
+    input.reportingGovernance != null
+      ? collectReportingGovernanceWarnings(input.reportingGovernance, {
+          contentComplete: input.reportingGovernanceContentComplete ?? true,
+        })
+      : [];
+
   return [
     ...collectCostValidationWarnings(input.costLines),
     ...collectDisciplineValidationFindings(input.disciplines),
+    ...governanceWarnings,
   ]
     .filter((finding) => finding.severity === "WARNING")
     .map(toPersistableFinding);

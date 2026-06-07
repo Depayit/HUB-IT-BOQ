@@ -24,12 +24,18 @@ export const GOVERNANCE_RULE_CODES = [
   "HANDOFF_WITHOUT_LOCK",
 ] as const;
 
+export const REPORTING_GOVERNANCE_WARNING_CODES = [
+  "GOV_REVISION_NUMBER",
+  "GOV_READINESS_STATUS",
+] as const;
+
 export const VALIDATION_RULE_CODES = [
   "CRITICAL_LINE_ZERO_COST",
   ...DOC_RULE_CODES,
   ...DISCIPLINE_RULE_CODES,
   ...COST_VALIDATION_RULE_CODES,
   ...GOVERNANCE_RULE_CODES,
+  ...REPORTING_GOVERNANCE_WARNING_CODES,
 ] as const;
 
 export type ValidationRuleCode = (typeof VALIDATION_RULE_CODES)[number];
@@ -124,6 +130,20 @@ export const VALIDATION_RULE_DEFINITIONS: Record<
     rule_group: "Governance",
     severity: "BLOCK",
     message: "BOQ must be Locked before handoff",
+    target_object_type: "boq_version",
+  },
+  GOV_REVISION_NUMBER: {
+    rule_group: "Reporting Governance",
+    severity: "WARNING",
+    message:
+      "Report/export governance metadata lacks revision number or revision reference",
+    target_object_type: "boq_version",
+  },
+  GOV_READINESS_STATUS: {
+    rule_group: "Reporting Governance",
+    severity: "WARNING",
+    message:
+      "Report/export governance metadata lacks readiness status or readiness governance marker",
     target_object_type: "boq_version",
   },
 };

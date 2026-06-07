@@ -23,6 +23,11 @@ import {
   resultStatusForRule,
   type ValidationRuleCode,
 } from "@/lib/validations/validation-rules";
+import { deriveReadinessTier } from "@/lib/validations/readiness";
+import {
+  buildReportingGovernanceMetadata,
+  type ReportingGovernanceMetadata,
+} from "@/lib/validations/reporting-governance";
 import {
   aggregateDisciplineBlockFindings,
   aggregateWarningFindings,
@@ -214,12 +219,18 @@ export const validationService = {
   },
 
   /** Re-run engine checks and refresh validation_results for this BOQ version. */
-  async runValidation(boqVersionId: string) {
+  async runValidation(
+    boqVersionId: string,
+    options?: {
+      governanceMetadataOverrides?: Partial<ReportingGovernanceMetadata>;
+    },
+  ) {
     const version = await prisma.boq_versions.findUnique({
       where: { boq_version_id: boqVersionId },
       select: {
         boq_version_id: true,
         project_id: true,
+        version_no: true,
         lock_status: true,
         project: { select: { project_type: true } },
       },
@@ -346,9 +357,33 @@ export const validationService = {
       });
     }
 
+    const unresolvedBlockCount = failures.filter(
+      (f) => VALIDATION_RULE_DEFINITIONS[f.rule_code].severity === "BLOCK",
+    ).length;
+    const approvalBlocked = failures.some((f) =>
+      (APPROVAL_BLOCK_RULES as readonly string[]).includes(f.rule_code),
+    );
+    const costDisciplineWarnings = aggregateWarningFindings({
+      costLines: costLineValidationInput,
+      disciplines: disciplineValidationInput,
+    });
+    const readinessMarker = deriveReadinessTier({
+      validation_run: true,
+      unresolved_block_count: unresolvedBlockCount,
+      open_warning_count: costDisciplineWarnings.length,
+      can_approve: !approvalBlocked,
+    });
+    const reportingGovernance = buildReportingGovernanceMetadata({
+      version_no: version.version_no,
+      readiness_governance_marker: readinessMarker,
+      overrides: options?.governanceMetadataOverrides,
+    });
+
     for (const warningFinding of aggregateWarningFindings({
       costLines: costLineValidationInput,
       disciplines: disciplineValidationInput,
+      reportingGovernance,
+      reportingGovernanceContentComplete: unresolvedBlockCount === 0,
     })) {
       failures.push(toFailureEntry(warningFinding));
     }

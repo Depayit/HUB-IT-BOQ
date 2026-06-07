@@ -293,3 +293,13 @@ export function toReportCode(code: GovReportingRuleCode): ReportValidationCode {
 export function isReportExportBlocked(unresolvedBlockCount: number): boolean {
   return unresolvedBlockCount > 0;
 }
+
+// ---------------------------------------------------------------------------
+// S7B-2B — Reporting Governance WARNING codes (separate from GOV_REPORT_* BLOCK aliases)
+// ---------------------------------------------------------------------------
+
+export {
+  REPORTING_GOVERNANCE_WARNING_CODES,
+  type ReportingGovernanceMetadata,
+  type ReportingGovernanceWarningCode,
+} from "@/lib/validations/reporting-governance";

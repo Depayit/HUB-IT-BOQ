@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   COST_VALIDATION_RULE_CODES,
   DISCIPLINE_RULE_CODES,
+  REPORTING_GOVERNANCE_WARNING_CODES,
   resultStatusForRule,
   VALIDATION_RULE_CODES,
   VALIDATION_RULE_DEFINITIONS,
@@ -37,5 +38,13 @@ describe("validation rules", () => {
 
   it("maps block rules to Fail result status", () => {
     expect(resultStatusForRule("COST_ZERO_VALUE")).toBe("Fail");
+  });
+
+  it("includes reporting governance WARNING codes in engine registry (S7B-2B)", () => {
+    for (const code of REPORTING_GOVERNANCE_WARNING_CODES) {
+      expect(VALIDATION_RULE_CODES).toContain(code);
+      expect(VALIDATION_RULE_DEFINITIONS[code].severity).toBe("WARNING");
+      expect(resultStatusForRule(code)).toBe("Warning");
+    }
   });
 });
