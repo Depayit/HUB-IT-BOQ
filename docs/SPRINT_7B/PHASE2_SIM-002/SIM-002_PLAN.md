@@ -4,7 +4,7 @@
 |-------|-------|
 | Scenario | SIM-002 — Warning Path |
 | Sprint | 7B Phase 2 (first Warning scenario) |
-| Status | **S7B-2A implemented — SIM-002 execution blocked until merge + E0** |
+| Status | **SIM-002 Official Run = PASS (closed)** — [FINAL_GREEN_CHECK.md](FINAL_GREEN_CHECK.md) |
 | S7B-2A closure | [S7B-2A_WARNING_PERSISTENCE/CLOSURE.md](../S7B-2A_WARNING_PERSISTENCE/CLOSURE.md) |
 | Prerequisite | SIM-001 Official Run = PASS (closed) — [FINAL_GREEN_CHECK.md](../PHASE1_SIM-001/FINAL_GREEN_CHECK.md) |
 | Planning input | [scenario-seed-manifest.json](../../SPRINT_7A/scenario-seed-manifest.json) |
@@ -18,7 +18,7 @@
 
 - Validation มี open WARNING (ไม่มี unresolved BLOCK)
 - Workflow / Approval / Handoff / Export **ดำเนินต่อได้** (forwardable tier)
-- Readiness aggregate = **Warning** (ไม่ใช่ Ready)
+- Readiness aggregate = **Warning** post-lock/final (ไม่ใช่ Ready)
 - Evidence E1–E9 ครบใน namespace ทางการ `docs/SPRINT_7B/evidence/SIM-002/`
 
 ---
@@ -33,7 +33,7 @@
 | Workflow | Review Required (proceed allowed) |
 | Approval | 4-stage success (WARNING ไม่ block approval) |
 | Handoff | Success with Warning tier |
-| Readiness | **Warning** (pre-lock และ post-lock) |
+| Readiness | **Warning** post-lock/final (pre-lock อาจ Blocked จาก `HANDOFF_WITHOUT_LOCK`) |
 | Export | xlsx + pdf succeed; report shows `ready_status=Warning`, `warning_count > 0` |
 | Rules (engine) | `COST_LOW_CONFIDENCE`, `DISCIPLINE_MISSING_SCOPE` |
 | Optional (informational) | Pending optional doc type `Test` — ไม่บังคับสำหรับ tier Warning หาก engine rules ครบ |
@@ -88,7 +88,7 @@ Script change: `scripts/seed-sprint-7b-scenarios.mjs --scenario=SIM-002`
 | E2 pre-lock | `can_approve=true`; only `HANDOFF_WITHOUT_LOCK` BLOCK OK | เหมือน SIM-001 + ต้องมี WARNING rows |
 | E2 post-lock | `unresolved_block_count=0`; `validation_status=Pass` | เหมือน SIM-001 (Pass = no BLOCK, ไม่หมายถึง no WARNING) |
 | E2 rules | none expected | ต้องพบ `COST_LOW_CONFIDENCE` และ `DISCIPLINE_MISSING_SCOPE` |
-| E6 readiness | tier = **Ready** | tier = **Warning**; `open_warning_count >= 2` |
+| E6 readiness | tier = **Warning** post-lock (pre-lock Blocked OK — `HANDOFF_WITHOUT_LOCK`) | tier = **Warning**; `open_warning_count >= 2` |
 | E3/E4 approval | 4-stage → Locked | เหมือน SIM-001 |
 | E5 handoff | success | success (Warning tier forwardable) |
 | E7 export | `ready_status=Ready`; files > 0 | `ready_status=Warning`; `warning_count > 0`; E2/E7 consistency |
@@ -114,7 +114,7 @@ Output paths:
 | E3 | Workflow state | Final Lock reached |
 | E4 | Approval gates | 4 stages PASS |
 | E5 | Handoff record | Created with `handoff_target` |
-| E6 | Readiness status | tier = **Warning** pre/post lock |
+| E6 | Readiness status | post-lock tier = **Warning**; pre-lock Blocked OK (workflow gate) |
 | E7 | Export xlsx/pdf + metadata | `ready_status=Warning`, warning_count > 0 |
 | E8 | Audit trail | Actions for validation, approval, handoff |
 | E9 | Execution note | Governance disclaimer; SIM-003..008 pending |

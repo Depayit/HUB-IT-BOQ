@@ -1,0 +1,31 @@
+{
+  "boq_version_id": "8c1ad9f7-7d10-4ce8-bf4d-cee967d5a650",
+  "project_id": "31406d81-7524-4d89-9e17-37a7586d6112",
+  "excel": {
+    "filename": "BOQ_Summary_SIM-002_Warning_Path_Project_v1_2026-06-07.xlsx",
+    "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "bytes": 10928,
+    "file": "docs\\SPRINT_7B\\evidence\\SIM-002\\E7-export-result\\BOQ_Summary_SIM-002_Warning_Path_Project_v1_2026-06-07.xlsx"
+  },
+  "pdf": {
+    "filename": "BOQ_Summary_SIM-002_Warning_Path_Project_v1_2026-06-07.pdf",
+    "mimeType": "application/pdf",
+    "bytes": 2423,
+    "file": "docs\\SPRINT_7B\\evidence\\SIM-002\\E7-export-result\\BOQ_Summary_SIM-002_Warning_Path_Project_v1_2026-06-07.pdf"
+  },
+  "report_validation_snapshot": {
+    "validation_status": "Pass",
+    "ready_status": "Warning",
+    "warning_count": 2,
+    "unresolved_blocks": 0,
+    "total_results": 2,
+    "can_approve": true,
+    "can_handoff": true
+  },
+  "e2_consistency": {
+    "post_lock_validation_status": "Pass",
+    "matches_e2_post_lock": true,
+    "matches_export_report": true
+  },
+  "note": "S7B-2A/SIM-002: E7 ready_status=Warning, validation_status=Pass (no BLOCK); warning_count > 0."
+}

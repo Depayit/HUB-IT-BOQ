@@ -1,0 +1,137 @@
+{
+  "boq_version_id": "8c1ad9f7-7d10-4ce8-bf4d-cee967d5a650",
+  "pre_lock": {
+    "validation_results": [
+      {
+        "validation_result_id": "a75377d3-3096-4aca-849b-2c92d12e17a5",
+        "boq_version_id": "8c1ad9f7-7d10-4ce8-bf4d-cee967d5a650",
+        "validation_rule_id": "25780a96-381f-4319-ac92-e6336b9e0bde",
+        "rule_code": "HANDOFF_WITHOUT_LOCK",
+        "rule_group": "Governance",
+        "severity": "BLOCK",
+        "target_object_type": "boq_version",
+        "target_object_id": "8c1ad9f7-7d10-4ce8-bf4d-cee967d5a650",
+        "message": "BOQ ต้อง Locked ก่อน handoff",
+        "result_status": "Fail",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-07T14:46:47.180Z",
+        "updated_at": "2026-06-07T14:46:47.180Z"
+      },
+      {
+        "validation_result_id": "e615c549-5f1a-42d5-bf8d-4d59fab9c769",
+        "boq_version_id": "8c1ad9f7-7d10-4ce8-bf4d-cee967d5a650",
+        "validation_rule_id": "6a546e74-ba7c-4cc5-96ee-6a58b64d7812",
+        "rule_code": "COST_LOW_CONFIDENCE",
+        "rule_group": "Cost",
+        "severity": "WARNING",
+        "target_object_type": "boq_cost_breakdown",
+        "target_object_id": "e458d5d3-2cc3-4029-b2d8-a89f95b575bf",
+        "message": "Line 1 [MATERIAL]: confidence level is Low",
+        "result_status": "Warning",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-07T14:46:47.180Z",
+        "updated_at": "2026-06-07T14:46:47.180Z"
+      },
+      {
+        "validation_result_id": "1b6da3e4-95a1-4476-a21c-a29ef422dc6d",
+        "boq_version_id": "8c1ad9f7-7d10-4ce8-bf4d-cee967d5a650",
+        "validation_rule_id": "ec6ae5a1-b7cc-4d7a-80ee-ff7e10d263b0",
+        "rule_code": "DISCIPLINE_MISSING_SCOPE",
+        "rule_group": "Discipline",
+        "severity": "WARNING",
+        "target_object_type": "project_discipline",
+        "target_object_id": "8f7e0adb-5fbc-43b5-96bc-bd12e7364a3f",
+        "message": "PWR: missing scope description",
+        "result_status": "Warning",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-07T14:46:47.180Z",
+        "updated_at": "2026-06-07T14:46:47.180Z"
+      }
+    ],
+    "workflow_gate": {
+      "unresolved_block_count": 1,
+      "unresolved_approval_block_count": 0,
+      "unresolved_handoff_block_count": 1,
+      "can_approve": true,
+      "can_handoff": false,
+      "block_reason": null,
+      "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+    },
+    "validation_summary": {
+      "validation_run": true,
+      "validation_status": "Blocked (1 unresolved)",
+      "finding_count": 3,
+      "unresolved_block_count": 1,
+      "open_warning_count": 2,
+      "can_approve": true,
+      "can_handoff": false
+    }
+  },
+  "post_lock": {
+    "validation_results": [
+      {
+        "validation_result_id": "54b33cb8-30f9-45d0-97bb-ec0875f7a1a2",
+        "boq_version_id": "8c1ad9f7-7d10-4ce8-bf4d-cee967d5a650",
+        "validation_rule_id": "6a546e74-ba7c-4cc5-96ee-6a58b64d7812",
+        "rule_code": "COST_LOW_CONFIDENCE",
+        "rule_group": "Cost",
+        "severity": "WARNING",
+        "target_object_type": "boq_cost_breakdown",
+        "target_object_id": "e458d5d3-2cc3-4029-b2d8-a89f95b575bf",
+        "message": "Line 1 [MATERIAL]: confidence level is Low",
+        "result_status": "Warning",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-07T14:47:09.079Z",
+        "updated_at": "2026-06-07T14:47:09.079Z"
+      },
+      {
+        "validation_result_id": "1837e2d2-e0c7-44ae-b05b-6a8840b8207e",
+        "boq_version_id": "8c1ad9f7-7d10-4ce8-bf4d-cee967d5a650",
+        "validation_rule_id": "ec6ae5a1-b7cc-4d7a-80ee-ff7e10d263b0",
+        "rule_code": "DISCIPLINE_MISSING_SCOPE",
+        "rule_group": "Discipline",
+        "severity": "WARNING",
+        "target_object_type": "project_discipline",
+        "target_object_id": "8f7e0adb-5fbc-43b5-96bc-bd12e7364a3f",
+        "message": "PWR: missing scope description",
+        "result_status": "Warning",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-07T14:47:09.079Z",
+        "updated_at": "2026-06-07T14:47:09.079Z"
+      }
+    ],
+    "workflow_gate": {
+      "unresolved_block_count": 0,
+      "unresolved_approval_block_count": 0,
+      "unresolved_handoff_block_count": 0,
+      "can_approve": true,
+      "can_handoff": true,
+      "block_reason": null,
+      "handoff_block_reason": null
+    },
+    "validation_summary": {
+      "validation_run": true,
+      "validation_status": "Pass",
+      "finding_count": 2,
+      "unresolved_block_count": 0,
+      "open_warning_count": 2,
+      "can_approve": true,
+      "can_handoff": true
+    }
+  }
+}
