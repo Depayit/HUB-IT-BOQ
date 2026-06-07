@@ -4,6 +4,7 @@
 |-------|-------|
 | Scope | Add WARNING-tier reporting governance metadata rules for SIM-008 prep |
 | Branch | `s7b-2b-reporting-governance-warning` |
+| Commit | `e854759` |
 | Generated | 2026-06-08 |
 
 ---
