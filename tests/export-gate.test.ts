@@ -41,15 +41,15 @@ function buildVersion() {
   };
 }
 
-function buildReport(unresolvedBlocks: number) {
+function buildReport(unresolvedBlocks: number, warningCount = 0) {
   return {
     summary: { boq_summary_id: "summary-1" },
     validation: {
       unresolved_blocks: unresolvedBlocks,
-      ready_status: unresolvedBlocks > 0 ? "Not Ready" : "Ready",
+      ready_status: unresolvedBlocks > 0 ? "Blocked" : warningCount > 0 ? "Warning" : "Ready",
       validation_status: unresolvedBlocks > 0 ? "Blocked" : "Pass",
       total_validation_rules: 0,
-      warning_count: 0,
+      warning_count: warningCount,
       block_count: unresolvedBlocks,
     },
   };
@@ -77,6 +77,15 @@ describe("export BLOCK gate (TD-7A-005 contract)", () => {
   it("loadReportForExport returns ok=true when unresolved_blocks = 0", async () => {
     getVersionMock.mockResolvedValueOnce(buildVersion());
     getReportMock.mockResolvedValueOnce(buildReport(0));
+
+    const loaded = await exportService.loadReportForExport(PROJECT_ID, BOQ_VERSION_ID);
+
+    expect(loaded.ok).toBe(true);
+  });
+
+  it("loadReportForExport returns ok=true when warnings present but unresolved_blocks = 0 (S7B-2A)", async () => {
+    getVersionMock.mockResolvedValueOnce(buildVersion());
+    getReportMock.mockResolvedValueOnce(buildReport(0, 2));
 
     const loaded = await exportService.loadReportForExport(PROJECT_ID, BOQ_VERSION_ID);
 

@@ -1,0 +1,28 @@
+﻿
+> hub-it-boq@0.1.0 test
+> vitest run
+
+
+ RUN  v3.2.4 C:/dev/HUB IT BOQ
+
+ ✓ tests/handoff.test.ts (7 tests) 9ms
+ ✓ tests/audit-service.test.ts (6 tests) 14ms
+ ✓ tests/workflow-validation.test.ts (9 tests) 10ms
+ ✓ tests/revision-comparison.test.ts (5 tests) 8ms
+ ✓ tests/reporting-governance.test.ts (10 tests) 15ms
+ ✓ tests/validation-warning-persistence.test.ts (9 tests) 9ms
+ ✓ tests/discipline-validation.test.ts (3 tests) 7ms
+ ✓ tests/readiness.test.ts (15 tests) 10ms
+ ✓ tests/approval-authority-validation.test.ts (9 tests) 8ms
+ ✓ tests/discipline-workflow.test.ts (12 tests) 8ms
+ ✓ tests/workflow-governance.test.ts (5 tests) 7ms
+ ✓ tests/reporting-validation.test.ts (8 tests) 7ms
+ ✓ tests/export-gate.test.ts (7 tests) 88ms
+ ✓ tests/validation-rules.test.ts (5 tests) 7ms
+ ✓ tests/cost-validation.test.ts (6 tests) 6ms
+
+ Test Files  15 passed (15)
+      Tests  116 passed (116)
+   Start at  20:37:54
+   Duration  1.53s (transform 1.03s, setup 0ms, collect 3.00s, tests 213ms, environment 4ms, prepare 2.08s)
+

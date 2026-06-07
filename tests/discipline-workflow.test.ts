@@ -70,11 +70,19 @@ describe("discipline integrity validation", () => {
     expect(findings.filter((f) => f.rule_code === "DISCIPLINE_DUPLICATE")).toHaveLength(2);
   });
 
-  it("Rule D: WARNING missing scope", () => {
+  it("Rule D: WARNING missing scope when lines exist", () => {
     const findings = evaluateDisciplineValidation([
       { ...baseRow, included_flag: true, boq_line_count: 1 },
     ]);
     expect(findings.some((f) => f.rule_code === "DISCIPLINE_MISSING_SCOPE")).toBe(true);
+  });
+
+  it("Rule D2: no MISSING_SCOPE when mandatory line mapping is absent (BLOCK instead)", () => {
+    const findings = evaluateDisciplineValidation([
+      { ...baseRow, included_flag: true, boq_line_count: 0 },
+    ]);
+    expect(findings.some((f) => f.rule_code === "DISCIPLINE_NO_LINES")).toBe(true);
+    expect(findings.some((f) => f.rule_code === "DISCIPLINE_MISSING_SCOPE")).toBe(false);
   });
 
   it("Rule E: WARNING critical without risk assessment", () => {

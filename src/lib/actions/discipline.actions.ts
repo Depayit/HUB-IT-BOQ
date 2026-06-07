@@ -7,7 +7,7 @@ import {
 } from "@/lib/services/discipline.service";
 import { boqVersionService } from "@/lib/services/boq-version.service";
 import { validationService } from "@/lib/services/validation.service";
-import { evaluateDisciplineValidation } from "@/lib/validations/discipline-workflow";
+import { evaluateDisciplineValidation } from "@/lib/validations/discipline-validation";
 import { toUserMessage } from "@/lib/utils/errors";
 import {
   RISK_LEVELS,

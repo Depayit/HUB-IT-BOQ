@@ -20,8 +20,14 @@ import {
   VALIDATION_RULE_CODES,
   VALIDATION_RULE_DEFINITIONS,
   projectRequiresSld,
+  resultStatusForRule,
   type ValidationRuleCode,
 } from "@/lib/validations/validation-rules";
+import {
+  aggregateDisciplineBlockFindings,
+  aggregateWarningFindings,
+  type PersistableValidationFinding,
+} from "@/lib/validations/validation-findings";
 
 export type ValidationResultRow = {
   validation_result_id: string;
@@ -101,6 +107,16 @@ type FailureEntry = {
   message: string;
   result_status: validation_result_status;
 };
+
+function toFailureEntry(finding: PersistableValidationFinding): FailureEntry {
+  return {
+    rule_code: finding.rule_code,
+    target_object_type: finding.target_object_type,
+    target_object_id: finding.target_object_id,
+    message: finding.message,
+    result_status: finding.result_status ?? resultStatusForRule(finding.rule_code),
+  };
+}
 
 export const validationService = {
   async listResultsWithRules(boqVersionId: string): Promise<ValidationResultRow[]> {
@@ -219,14 +235,16 @@ export const validationService = {
     const [
       criticalFailures,
       missingDocs,
-      disciplinesWithoutLines,
+      costLines,
       costLayerFailures,
+      projectDisciplines,
       latestDesignBasis,
     ] = await Promise.all([
       boqLineService.findCriticalLineValidationFailures(boqVersionId),
       documentService.findMissingRequiredDocs(version.project_id, boqVersionId),
-      disciplineService.findIncludedWithoutLines(boqVersionId),
+      costBreakdownService.listForBoqVersion(boqVersionId),
       costBreakdownService.findCostLayerValidationFailures(boqVersionId),
+      disciplineService.getProjectDisciplines(version.project_id, boqVersionId),
       prisma.design_basis_versions.findFirst({
         where: { project_id: version.project_id },
         orderBy: { design_version_no: "desc" },
@@ -237,6 +255,33 @@ export const validationService = {
         },
       }),
     ]);
+
+    const disciplineValidationInput = projectDisciplines.map((d) => ({
+      project_discipline_id: d.project_discipline_id,
+      discipline_id: d.discipline_id,
+      discipline_code: d.discipline_code,
+      discipline_name: d.discipline_name,
+      included_flag: d.included_flag,
+      scope_description: d.scope_description,
+      exclusion_note: d.exclusion_note,
+      risk_level: d.risk_level,
+      boq_line_count: d.boq_line_count,
+    }));
+
+    const costLineValidationInput = costLines.map((line) => ({
+      boq_line_id: line.boq_line_id,
+      line_no: line.line_no,
+      item_description: line.item_description,
+      breakdowns: line.breakdowns.map((b) => ({
+        boq_cost_breakdown_id: b.boq_cost_breakdown_id,
+        cost_category_id: b.cost_category_id,
+        category_code: b.category_code,
+        calculated_value: b.calculated_value,
+        confidence_level: b.confidence_level,
+        manual_override_flag: b.manual_override_flag,
+        override_reason: b.override_reason,
+      })),
+    }));
 
     const requiresSld = projectRequiresSld(version.project.project_type);
     const failures: FailureEntry[] = [];
@@ -262,14 +307,8 @@ export const validationService = {
       });
     }
 
-    for (const disc of disciplinesWithoutLines) {
-      failures.push({
-        rule_code: "DISCIPLINE_NO_LINES",
-        target_object_type: "project_discipline",
-        target_object_id: disc.project_discipline_id,
-        message: `${disc.discipline.discipline_code} (${disc.discipline.discipline_name}): discipline ที่ include ต้องมี BOQ line อย่างน้อย 1 รายการ`,
-        result_status: "Fail",
-      });
+    for (const discFinding of aggregateDisciplineBlockFindings(disciplineValidationInput)) {
+      failures.push(toFailureEntry(discFinding));
     }
 
     for (const costFailure of costLayerFailures) {
@@ -305,6 +344,13 @@ export const validationService = {
         message: lockCheck.message ?? VALIDATION_RULE_DEFINITIONS.HANDOFF_WITHOUT_LOCK.message,
         result_status: "Fail",
       });
+    }
+
+    for (const warningFinding of aggregateWarningFindings({
+      costLines: costLineValidationInput,
+      disciplines: disciplineValidationInput,
+    })) {
+      failures.push(toFailureEntry(warningFinding));
     }
 
     const ruleMap = Object.fromEntries(rules.map((r) => [r.rule_code, r]));

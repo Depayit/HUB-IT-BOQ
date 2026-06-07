@@ -3,16 +3,21 @@ import {
   COST_VALIDATION_RULE_CODES,
   type CostValidationRuleCode,
 } from "@/lib/validations/cost-validation";
+import {
+  DISCIPLINE_RULE_CODES,
+  DISCIPLINE_RULE_DEFINITIONS,
+  DISCIPLINE_APPROVAL_BLOCK_RULES,
+  type DisciplineRuleCode,
+} from "@/lib/validations/discipline-rules";
 
 export { COST_VALIDATION_RULE_CODES, type CostValidationRuleCode };
+export { DISCIPLINE_RULE_CODES, type DisciplineRuleCode };
 
 export const DOC_RULE_CODES = [
   "DOC_TOR_REQUIRED",
   "DOC_SLD_REQUIRED",
   "DOC_SPEC_HANDOFF",
 ] as const;
-
-export const DISCIPLINE_RULE_CODES = ["DISCIPLINE_NO_LINES"] as const;
 
 export const GOVERNANCE_RULE_CODES = [
   "DESIGN_BASIS_NOT_APPROVED",
@@ -35,6 +40,16 @@ type ValidationRuleDefinition = {
   message: string;
   target_object_type: string;
 };
+
+function disciplineRuleDefinition(code: DisciplineRuleCode): ValidationRuleDefinition {
+  const def = DISCIPLINE_RULE_DEFINITIONS[code];
+  return {
+    rule_group: def.rule_group,
+    severity: def.severity,
+    message: def.message,
+    target_object_type: def.target_object_type,
+  };
+}
 
 export const VALIDATION_RULE_DEFINITIONS: Record<
   ValidationRuleCode,
@@ -64,12 +79,11 @@ export const VALIDATION_RULE_DEFINITIONS: Record<
     message: "Specification (Handoff) is required",
     target_object_type: "document",
   },
-  DISCIPLINE_NO_LINES: {
-    rule_group: "Discipline",
-    severity: "BLOCK",
-    message: "Included discipline must have at least one BOQ line",
-    target_object_type: "project_discipline",
-  },
+  DISCIPLINE_NO_LINES: disciplineRuleDefinition("DISCIPLINE_NO_LINES"),
+  DISCIPLINE_INVALID_RISK: disciplineRuleDefinition("DISCIPLINE_INVALID_RISK"),
+  DISCIPLINE_DUPLICATE: disciplineRuleDefinition("DISCIPLINE_DUPLICATE"),
+  DISCIPLINE_MISSING_SCOPE: disciplineRuleDefinition("DISCIPLINE_MISSING_SCOPE"),
+  DISCIPLINE_CRITICAL_NO_RISK: disciplineRuleDefinition("DISCIPLINE_CRITICAL_NO_RISK"),
   COST_LAYER_MISSING: {
     rule_group: "Cost",
     severity: "BLOCK",
@@ -119,7 +133,7 @@ export const APPROVAL_BLOCK_RULES: readonly ValidationRuleCode[] = [
   "DOC_TOR_REQUIRED",
   "DOC_SLD_REQUIRED",
   "DOC_SPEC_HANDOFF",
-  "DISCIPLINE_NO_LINES",
+  ...DISCIPLINE_APPROVAL_BLOCK_RULES,
   "COST_LAYER_MISSING",
   "COST_CATEGORY_DUPLICATE",
   "COST_ZERO_VALUE",
