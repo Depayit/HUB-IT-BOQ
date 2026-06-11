@@ -1,0 +1,17 @@
+{
+  "approval_workflow_id": "74adc498-1b8a-4d8f-b651-05da4ede9882",
+  "boq_version_id": "1cf53bc3-e914-4b99-9926-83d2d9051980",
+  "current_stage": "Final Lock",
+  "workflow_status": "Completed",
+  "engineer_reviewed_by": "engineer-001@sim008",
+  "engineer_reviewed_at": "2026-06-08T14:05:41.687Z",
+  "manager_approved_by": "manager-001@sim008",
+  "manager_approved_at": "2026-06-08T14:05:43.917Z",
+  "director_approved_by": "director-001@sim008",
+  "director_approved_at": "2026-06-08T14:05:46.427Z",
+  "final_locked_by": "director-001@sim008",
+  "final_locked_at": "2026-06-08T14:05:46.427Z",
+  "rejection_reason": null,
+  "created_at": "2026-06-08T14:05:39.459Z",
+  "updated_at": "2026-06-08T14:05:46.985Z"
+}

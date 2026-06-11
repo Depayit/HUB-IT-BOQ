@@ -1,0 +1,11 @@
+{
+  "handoff_id": "98cf3dbd-9a14-4706-8e0c-b662260890a4",
+  "boq_version_id": "1cf53bc3-e914-4b99-9926-83d2d9051980",
+  "handoff_status": "Completed",
+  "handoff_target": "ClientHandover",
+  "handed_off_by": "director-001@sim008",
+  "handoff_at": "2026-06-08T14:05:58.740Z",
+  "notes": "SIM-008 Reporting Governance Warning handoff (Official Sprint 7B Phase 2C)",
+  "created_at": "2026-06-08T14:05:58.741Z",
+  "updated_at": "2026-06-08T14:05:58.741Z"
+}

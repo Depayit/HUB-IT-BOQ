@@ -1,0 +1,84 @@
+{
+  "object_type": "boq_version",
+  "object_id": "6ed88f77-3211-454c-bfc0-fa5a71ff388c",
+  "row_count": 7,
+  "rows": [
+    {
+      "audit_log_id": "08677dd7-d66b-4094-84fa-7d68669ae44a",
+      "object_type": "boq_version",
+      "object_id": "6ed88f77-3211-454c-bfc0-fa5a71ff388c",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 2 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-07T15:47:15.249Z",
+      "change_reason": "Validation Engine re-run"
+    },
+    {
+      "audit_log_id": "7abb2402-d57a-4171-bddc-a2302881f656",
+      "object_type": "boq_version",
+      "object_id": "6ed88f77-3211-454c-bfc0-fa5a71ff388c",
+      "action_type": "approve",
+      "old_value": null,
+      "new_value": "Engineer Review",
+      "changed_by": "engineer-001@sim004",
+      "changed_at": "2026-06-07T15:47:20.592Z",
+      "change_reason": "Advance to Engineer Review by Engineer"
+    },
+    {
+      "audit_log_id": "5bf0c6c2-0e25-436d-9b59-1979a434cc8a",
+      "object_type": "boq_version",
+      "object_id": "6ed88f77-3211-454c-bfc0-fa5a71ff388c",
+      "action_type": "approve",
+      "old_value": "Engineer Review",
+      "new_value": "Manager Approval",
+      "changed_by": "engineer-001@sim004",
+      "changed_at": "2026-06-07T15:47:22.839Z",
+      "change_reason": "Advance to Manager Approval by Engineer"
+    },
+    {
+      "audit_log_id": "8e6a9ebe-217f-48c3-b551-8442ca1f8f40",
+      "object_type": "boq_version",
+      "object_id": "6ed88f77-3211-454c-bfc0-fa5a71ff388c",
+      "action_type": "approve",
+      "old_value": "Manager Approval",
+      "new_value": "Director Approval",
+      "changed_by": "manager-001@sim004",
+      "changed_at": "2026-06-07T15:47:25.077Z",
+      "change_reason": "Advance to Director Approval by Manager"
+    },
+    {
+      "audit_log_id": "ca04a507-430c-4aa0-9c3a-1a103395cdf6",
+      "object_type": "boq_version",
+      "object_id": "6ed88f77-3211-454c-bfc0-fa5a71ff388c",
+      "action_type": "lock",
+      "old_value": "Director Approval",
+      "new_value": "Final Lock",
+      "changed_by": "director-001@sim004",
+      "changed_at": "2026-06-07T15:47:28.157Z",
+      "change_reason": "Advance to Final Lock by Director"
+    },
+    {
+      "audit_log_id": "3923153f-87c5-4587-a74c-9f4d68ac2002",
+      "object_type": "boq_version",
+      "object_id": "6ed88f77-3211-454c-bfc0-fa5a71ff388c",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 1 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-07T15:47:35.349Z",
+      "change_reason": "Validation Engine re-run"
+    },
+    {
+      "audit_log_id": "1013ceec-3c6b-4a84-b59e-795ea5356728",
+      "object_type": "boq_version",
+      "object_id": "6ed88f77-3211-454c-bfc0-fa5a71ff388c",
+      "action_type": "handoff",
+      "old_value": null,
+      "new_value": "Completed -> ClientHandover",
+      "changed_by": "director-001@sim004",
+      "changed_at": "2026-06-07T15:47:40.119Z",
+      "change_reason": "SIM-004 Cost Variance Warning handoff (Official Sprint 7B Phase 2)"
+    }
+  ]
+}

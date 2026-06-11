@@ -1,0 +1,60 @@
+{
+  "note": "Official Sprint 7B Phase 2 — post_lock tier=Warning; pre_lock tier=Blocked while HANDOFF_WITHOUT_LOCK pending (same pattern as SIM-001/SIM-002).",
+  "readiness_tier": "Warning",
+  "pre_lock": {
+    "tier": "Blocked",
+    "validation_run": true,
+    "validation_status": "Blocked (1 unresolved)",
+    "finding_count": 2,
+    "unresolved_block_count": 1,
+    "open_warning_count": 1,
+    "can_approve": true,
+    "can_handoff": false,
+    "gate": {
+      "unresolved_block_count": 1,
+      "unresolved_approval_block_count": 0,
+      "unresolved_handoff_block_count": 1,
+      "can_approve": true,
+      "can_handoff": false,
+      "block_reason": null,
+      "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+    }
+  },
+  "post_lock": {
+    "tier": "Warning",
+    "validation_run": true,
+    "validation_status": "Pass",
+    "finding_count": 1,
+    "unresolved_block_count": 0,
+    "open_warning_count": 1,
+    "can_approve": true,
+    "can_handoff": true,
+    "gate": {
+      "unresolved_block_count": 0,
+      "unresolved_approval_block_count": 0,
+      "unresolved_handoff_block_count": 0,
+      "can_approve": true,
+      "can_handoff": true,
+      "block_reason": null,
+      "handoff_block_reason": null
+    }
+  },
+  "pre_lock_gate": {
+    "unresolved_block_count": 1,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 1,
+    "can_approve": true,
+    "can_handoff": false,
+    "block_reason": null,
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "post_lock_gate": {
+    "unresolved_block_count": 0,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 0,
+    "can_approve": true,
+    "can_handoff": true,
+    "block_reason": null,
+    "handoff_block_reason": null
+  }
+}

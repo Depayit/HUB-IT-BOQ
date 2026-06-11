@@ -1,0 +1,107 @@
+{
+  "boq_version_id": "1cf53bc3-e914-4b99-9926-83d2d9051980",
+  "governance_metadata_overrides": {
+    "revision_number": null,
+    "readiness_governance_marker": null
+  },
+  "governance_overrides_scope": "simulation/test runner only — not production default path for runValidation",
+  "pre_lock_note": "Governance WARNING rules suppressed while HANDOFF_WITHOUT_LOCK BLOCK is open (reportingGovernanceContentComplete=false per S7B-2B).",
+  "pre_lock": {
+    "validation_results": [
+      {
+        "validation_result_id": "10a9c2d3-68f9-4e35-9706-abd2a580ec88",
+        "boq_version_id": "1cf53bc3-e914-4b99-9926-83d2d9051980",
+        "validation_rule_id": "25780a96-381f-4319-ac92-e6336b9e0bde",
+        "rule_code": "HANDOFF_WITHOUT_LOCK",
+        "rule_group": "Governance",
+        "severity": "BLOCK",
+        "target_object_type": "boq_version",
+        "target_object_id": "1cf53bc3-e914-4b99-9926-83d2d9051980",
+        "message": "BOQ ต้อง Locked ก่อน handoff",
+        "result_status": "Fail",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-08T14:05:33.348Z",
+        "updated_at": "2026-06-08T14:05:33.348Z"
+      }
+    ],
+    "workflow_gate": {
+      "unresolved_block_count": 1,
+      "unresolved_approval_block_count": 0,
+      "unresolved_handoff_block_count": 1,
+      "can_approve": true,
+      "can_handoff": false,
+      "block_reason": null,
+      "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+    },
+    "validation_summary": {
+      "validation_run": true,
+      "validation_status": "Blocked (1 unresolved)",
+      "finding_count": 1,
+      "unresolved_block_count": 1,
+      "open_warning_count": 0,
+      "can_approve": true,
+      "can_handoff": false
+    }
+  },
+  "post_lock": {
+    "validation_results": [
+      {
+        "validation_result_id": "62f1589b-5168-4257-9567-1a0ef95181a1",
+        "boq_version_id": "1cf53bc3-e914-4b99-9926-83d2d9051980",
+        "validation_rule_id": "aa63e74b-dcc1-4b62-80cd-320d704aeea4",
+        "rule_code": "GOV_REVISION_NUMBER",
+        "rule_group": "Reporting Governance",
+        "severity": "WARNING",
+        "target_object_type": "boq_version",
+        "target_object_id": null,
+        "message": "Report/export governance metadata lacks revision number or revision reference",
+        "result_status": "Warning",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-08T14:05:53.849Z",
+        "updated_at": "2026-06-08T14:05:53.849Z"
+      },
+      {
+        "validation_result_id": "23089e4f-732f-4bd1-a189-6f99bf4c3f64",
+        "boq_version_id": "1cf53bc3-e914-4b99-9926-83d2d9051980",
+        "validation_rule_id": "958ce816-b0e2-4856-a2bf-60f36d4eb072",
+        "rule_code": "GOV_READINESS_STATUS",
+        "rule_group": "Reporting Governance",
+        "severity": "WARNING",
+        "target_object_type": "boq_version",
+        "target_object_id": null,
+        "message": "Report/export governance metadata lacks readiness status or readiness governance marker",
+        "result_status": "Warning",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-08T14:05:53.849Z",
+        "updated_at": "2026-06-08T14:05:53.849Z"
+      }
+    ],
+    "workflow_gate": {
+      "unresolved_block_count": 0,
+      "unresolved_approval_block_count": 0,
+      "unresolved_handoff_block_count": 0,
+      "can_approve": true,
+      "can_handoff": true,
+      "block_reason": null,
+      "handoff_block_reason": null
+    },
+    "validation_summary": {
+      "validation_run": true,
+      "validation_status": "Pass",
+      "finding_count": 2,
+      "unresolved_block_count": 0,
+      "open_warning_count": 2,
+      "can_approve": true,
+      "can_handoff": true
+    }
+  }
+}

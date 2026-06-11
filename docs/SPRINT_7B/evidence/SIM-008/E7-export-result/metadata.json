@@ -1,0 +1,31 @@
+{
+  "boq_version_id": "1cf53bc3-e914-4b99-9926-83d2d9051980",
+  "project_id": "51d36bb7-7cf9-4741-9c32-511831adca1e",
+  "excel": {
+    "filename": "BOQ_Summary_SIM-008_Reporting_Governance_Warning_Pro_v1_2026-06-08.xlsx",
+    "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "bytes": 10945,
+    "file": "docs\\SPRINT_7B\\evidence\\SIM-008\\E7-export-result\\BOQ_Summary_SIM-008_Reporting_Governance_Warning_Pro_v1_2026-06-08.xlsx"
+  },
+  "pdf": {
+    "filename": "BOQ_Summary_SIM-008_Reporting_Governance_Warning_Pro_v1_2026-06-08.pdf",
+    "mimeType": "application/pdf",
+    "bytes": 2434,
+    "file": "docs\\SPRINT_7B\\evidence\\SIM-008\\E7-export-result\\BOQ_Summary_SIM-008_Reporting_Governance_Warning_Pro_v1_2026-06-08.pdf"
+  },
+  "report_validation_snapshot": {
+    "validation_status": "Pass",
+    "ready_status": "Warning",
+    "warning_count": 2,
+    "unresolved_blocks": 0,
+    "total_results": 2,
+    "can_approve": true,
+    "can_handoff": true
+  },
+  "e2_consistency": {
+    "post_lock_validation_status": "Pass",
+    "matches_e2_post_lock": true,
+    "matches_export_report": true
+  },
+  "note": "S7B-2B/SIM-008: E7 ready_status=Warning, validation_status=Pass (no BLOCK); warning_count=2 (GOV_REVISION_NUMBER + GOV_READINESS_STATUS)."
+}
