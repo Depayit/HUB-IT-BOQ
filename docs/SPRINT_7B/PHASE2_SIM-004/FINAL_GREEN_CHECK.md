@@ -18,7 +18,7 @@
 |------|--------|-------|
 | SIM-002 closure (prerequisite) | `ec98f12` | Warning Path official run PASS (closed) |
 | **Official run code baseline** | **`ec98f12`** | Master HEAD at SIM-004 E0 baseline (15 files / 116 tests) |
-| **SIM-004 evidence closure (S10 bundle)** | **`PENDING`** | Recorded in 4A-CLEAN follow-up commit |
+| **SIM-004 evidence closure (S10 bundle)** | **`9b8e8e7`** | Full SHA: `9b8e8e7fa6d4f7fd760841d222ee2197e3853942` — committed to `master` (2026-06-11, 4A-CLEAN) |
 
 ---
 

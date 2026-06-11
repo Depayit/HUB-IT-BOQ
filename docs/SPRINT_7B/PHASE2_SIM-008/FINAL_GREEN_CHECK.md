@@ -18,7 +18,7 @@
 |------|--------|-------|
 | S7B-2B micro-fix (prerequisite) | `e854759` | Governance WARNING rules + `governanceMetadataOverrides` hook |
 | **Official run code baseline** | **`7337fef`** | Full SHA: `7337fefb7a68755d2e2568c57d6961921323094b` — master HEAD when SIM-008 executed (2026-06-08) |
-| **SIM-008 evidence closure (S10 bundle)** | **`PENDING`** | Replace with full git SHA when this evidence bundle is committed to `master` |
+| **SIM-008 evidence closure (S10 bundle)** | **`9b8e8e7`** | Full SHA: `9b8e8e7fa6d4f7fd760841d222ee2197e3853942` — committed to `master` (2026-06-11, 4A-CLEAN) |
 
 > **SIM-008 Official Run = PASS (closed)** at execution time on baseline `7337fef`. The S10 evidence closure commit SHA is recorded separately when the bundle lands on `master`.
 
