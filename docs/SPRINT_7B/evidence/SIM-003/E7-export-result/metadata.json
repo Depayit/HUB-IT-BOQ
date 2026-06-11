@@ -1,0 +1,39 @@
+{
+  "boq_version_id": "514dfb95-9fea-4db3-8f82-8977735908ed",
+  "project_id": "f2afb6ab-b9d7-4ec4-9331-aebab8f31829",
+  "expected_outcome": "blocked",
+  "no_official_export_artifacts": true,
+  "xlsx_generated": false,
+  "pdf_generated": false,
+  "blocked_export_response": {
+    "excel": {
+      "blocked": true,
+      "code": "EXPORT_BLOCKED",
+      "status": 400,
+      "message": "Export ถูกบล็อก — มี unresolved BLOCK 3 รายการ ต้อง resolve ก่อน export",
+      "timestamp": "2026-06-11T17:27:18.517Z"
+    },
+    "pdf": {
+      "blocked": true,
+      "code": "EXPORT_BLOCKED",
+      "status": 400,
+      "message": "Export ถูกบล็อก — มี unresolved BLOCK 3 รายการ ต้อง resolve ก่อน export",
+      "timestamp": "2026-06-11T17:27:22.102Z"
+    }
+  },
+  "report_validation_snapshot": {
+    "validation_status": "Blocked (3 unresolved)",
+    "ready_status": "Blocked",
+    "unresolved_blocks": 3,
+    "can_approve": false,
+    "can_handoff": false
+  },
+  "e2_consistency": {
+    "e2_unresolved_block_count": 3,
+    "e7_unresolved_blocks": 3,
+    "export_message_block_count": 3,
+    "matches": true
+  },
+  "requestId_traceId_note": "Not supported on AppError — deferred M-07 (S9/S10/V2)",
+  "note": "Blocked Path — no xlsx/pdf files generated; EXPORT_BLOCKED 400 captured."
+}

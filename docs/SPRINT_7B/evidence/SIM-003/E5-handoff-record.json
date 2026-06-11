@@ -1,0 +1,15 @@
+{
+  "boq_version_id": "514dfb95-9fea-4db3-8f82-8977735908ed",
+  "expected_outcome": "blocked_or_not_created",
+  "blocked_handoff_evidence": {
+    "blocked": true,
+    "code": "BOQ_NOT_LOCKED",
+    "status": 403,
+    "message": "Handoff ต้องการ BOQ ที่ Locked แล้ว",
+    "timestamp": "2026-06-11T17:27:08.417Z"
+  },
+  "handoff_records_before": [],
+  "handoff_records_after": [],
+  "handoff_created": false,
+  "proof_no_handoff_created": true
+}

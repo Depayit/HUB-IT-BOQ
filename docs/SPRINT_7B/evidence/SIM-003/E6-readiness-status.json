@@ -1,0 +1,22 @@
+{
+  "boq_version_id": "514dfb95-9fea-4db3-8f82-8977735908ed",
+  "readiness_tier": "Blocked",
+  "validation_summary": {
+    "validation_run": true,
+    "validation_status": "Blocked (3 unresolved)",
+    "finding_count": 3,
+    "unresolved_block_count": 3,
+    "can_approve": false,
+    "can_handoff": false
+  },
+  "gate": {
+    "unresolved_block_count": 3,
+    "unresolved_approval_block_count": 2,
+    "unresolved_handoff_block_count": 3,
+    "can_approve": false,
+    "can_handoff": false,
+    "block_reason": "มี unresolved BLOCK (approval) 2 รายการ — ต้องแก้ไขหรือ resolve ก่อนอนุมัติ",
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 3 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "note": "Blocked Path — readiness must remain Blocked while unresolved BLOCK persists."
+}

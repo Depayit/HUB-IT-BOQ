@@ -1,0 +1,24 @@
+{
+  "object_type": "boq_version",
+  "object_id": "514dfb95-9fea-4db3-8f82-8977735908ed",
+  "row_count": 1,
+  "rows": [
+    {
+      "audit_log_id": "11112502-60ac-498b-a3ff-fae888ce0bc9",
+      "object_type": "boq_version",
+      "object_id": "514dfb95-9fea-4db3-8f82-8977735908ed",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 3 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-11T17:27:00.382Z",
+      "change_reason": "Validation Engine re-run"
+    }
+  ],
+  "block_evidence_summary": {
+    "validation_run_rows": 1,
+    "approve_rows": 0,
+    "handoff_rows": 0,
+    "note": "Rejected approval/handoff attempts do not produce approve/handoff audit rows (M-03)."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "boq_version_id": "514dfb95-9fea-4db3-8f82-8977735908ed",
+  "expected_outcome": "blocked",
+  "no_false_approval": true,
+  "approval_rejection_evidence": {
+    "attempt_1": {
+      "blocked": true,
+      "code": "DESIGN_BASIS_NOT_APPROVED",
+      "status": 403,
+      "message": "ไม่สามารถอนุมัติ BOQ ได้ — Design Basis ล่าสุดต้องมีสถานะ Approved ก่อน",
+      "timestamp": "2026-06-11T17:27:03.870Z"
+    },
+    "attempt_2": {
+      "blocked": true,
+      "code": "DESIGN_BASIS_NOT_APPROVED",
+      "status": 403,
+      "message": "ไม่สามารถอนุมัติ BOQ ได้ — Design Basis ล่าสุดต้องมีสถานะ Approved ก่อน",
+      "timestamp": "2026-06-11T17:27:04.154Z"
+    }
+  },
+  "acceptable_codes": [
+    "DESIGN_BASIS_NOT_APPROVED",
+    "VALIDATION_BLOCK"
+  ],
+  "workflow_after_attempts": null,
+  "can_approve_from_page": false,
+  "requestId_traceId_note": "Not supported on AppError — deferred M-07 (S9/S10/V2)"
+}
