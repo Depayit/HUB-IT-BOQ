@@ -1,18 +1,20 @@
-# Sprint 7B Phase 3A — Prior Work Assurance Sweep
+# Sprint 7B Phase 3 — Prior Work Assurance Sweep
 
 | Field | Value |
 |-------|-------|
 | Document type | Governance assurance sweep (not rerun, not re-approval) |
-| Sprint / Phase | Sprint 7B · Phase 3A — Blocked Path Governance Preflight |
+| Sprint / Phase | Sprint 7B · Phase 3A/3C — Blocked Path Governance Preflight |
 | Branch | `master` |
-| HEAD at sweep | `9b8e8e7fa6d4f7fd760841d222ee2197e3853942` |
+| HEAD at sweep (4A) | `9b8e8e7fa6d4f7fd760841d222ee2197e3853942` |
+| HEAD at re-sweep (4C) | `b991a879beaaeaaa6a8611bcf973f6e4dc786c32` |
 | Swept at | 2026-06-11 |
 | Re-swept (4A-CLEAN) | 2026-06-11 |
+| Re-swept (4C Final Review) | 2026-06-11 |
 | Sweeper scope | SIM-001, SIM-002, SIM-004, SIM-008 (closed scenarios only) |
 
 ## Purpose
 
-ยืนยันว่า SIM ที่ปิดไปแล้วสะอาดพอ และไม่ต้อง reopen ก่อนเข้า Blocked Path (Phase 3).
+ยืนยันว่า SIM ที่ปิดไปแล้วสะอาดพอ และไม่ต้อง reopen ก่อนเสนออนุมัติ SIM-003 execution (Phase 3C).
 
 ---
 
@@ -24,6 +26,22 @@
 | PWAS-Y02 | Evidence closure SHA pending | SIM-004/008 committed at **`9b8e8e7`** | **RESOLVED** |
 | PWAS-Y03 | Untracked SIM-004/008 bundles | 37 files committed to `master` (`9b8e8e7`) | **RESOLVED** |
 | PWAS-Y04 | Modified S7B-2B `test-summary.log` | Restored from HEAD `7337fef` — CRLF drift only; 129 tests PASS unchanged | **RESOLVED** |
+
+---
+
+## 4C Re-Sweep Addendum
+
+| Check | Expected | Actual (4C) | Result |
+|-------|----------|-------------|--------|
+| Closed SIMs unchanged | No reopen | SIM-001/002/004/008 still PASS / CLOSED | **PASS** |
+| Blocked SIM execution | None | SIM-003/005/006/007 **not executed** | **PASS** |
+| Blocked E1–E9 | None created | No `docs/SPRINT_7B/evidence/SIM-003`..`007` | **PASS** |
+| Phase 3B plan | Present | [SIM_BLOCKED_PLAN.md](SIM_BLOCKED_PLAN.md) in 4B/4C package | **PASS** |
+| Operational Readiness PASS | NOT CLAIMED | Confirmed | **PASS** |
+| Sprint 8 | NOT STARTED | Confirmed | **PASS** |
+| Code changes (blocked path) | None without approval | No blocked runners / seed / execution code | **PASS** |
+
+No new PWAS findings. No RED items.
 
 ---
 
@@ -51,8 +69,10 @@
 
 ## Decision
 
-| Result | **GREEN** — proceed to Phase 3B planning (Prompt 4B) |
-|--------|------------------------------------------------------|
+| Phase | Result |
+|-------|--------|
+| 4A / 4A-CLEAN | **GREEN** — proceed to 4B planning |
+| 4C Final Review | **GREEN** — closed SIMs remain clean; proceed to SIM-003 **plan approval** gate |
 
 All PWAS-Y01..Y04 **resolved**. No reopen required. No RED findings.
 
@@ -65,4 +85,4 @@ All PWAS-Y01..Y04 **resolved**. No reopen required. No RED findings.
 
 ---
 
-End of Prior Work Assurance Sweep (4A-CLEAN complete).
+End of Prior Work Assurance Sweep (4C final review complete).
