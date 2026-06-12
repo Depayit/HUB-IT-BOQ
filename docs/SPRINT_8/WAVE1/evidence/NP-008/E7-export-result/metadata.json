@@ -1,0 +1,14 @@
+{
+  "boq_version_id": "bf815e97-88f4-4b01-b7cf-56cb0eeb48d9",
+  "export_blocked": true,
+  "blocked_attempt": {
+    "blocked": true,
+    "code": "EXPORT_BLOCKED",
+    "status": 400,
+    "message": "Export ถูกบล็อก — มี unresolved BLOCK 3 รายการ ต้อง resolve ก่อน export",
+    "timestamp": "2026-06-12T10:44:37.238Z"
+  },
+  "report_unresolved_blocks": 3,
+  "e2_unresolved_blocks": 3,
+  "artifacts": []
+}

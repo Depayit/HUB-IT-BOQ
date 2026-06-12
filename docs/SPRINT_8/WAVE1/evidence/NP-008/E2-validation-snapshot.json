@@ -1,0 +1,74 @@
+{
+  "boq_version_id": "bf815e97-88f4-4b01-b7cf-56cb0eeb48d9",
+  "validation_results": [
+    {
+      "validation_result_id": "c22bdcf8-eace-452c-bbe6-eddbca39e5e4",
+      "boq_version_id": "bf815e97-88f4-4b01-b7cf-56cb0eeb48d9",
+      "validation_rule_id": "134e2a24-7c54-4d0d-ba9f-360ec7eccbfb",
+      "rule_code": "DOC_TOR_REQUIRED",
+      "rule_group": "Document",
+      "severity": "BLOCK",
+      "target_object_type": "document",
+      "target_object_id": null,
+      "message": "Missing Terms of Reference (TOR) — upload Active document or mark dependency Satisfied/Waived",
+      "result_status": "Fail",
+      "override_reason": null,
+      "resolved_flag": false,
+      "resolved_by": null,
+      "resolved_at": null,
+      "created_at": "2026-06-12T10:44:26.261Z",
+      "updated_at": "2026-06-12T10:44:26.261Z"
+    },
+    {
+      "validation_result_id": "ad89faa7-dcdf-4aee-884f-a3a1568fec49",
+      "boq_version_id": "bf815e97-88f4-4b01-b7cf-56cb0eeb48d9",
+      "validation_rule_id": "3b674bbd-3925-4cd3-9b3b-cbc33beb8ac5",
+      "rule_code": "DESIGN_BASIS_NOT_APPROVED",
+      "rule_group": "Governance",
+      "severity": "BLOCK",
+      "target_object_type": "design_basis_version",
+      "target_object_id": "e9be55b6-f25a-4e66-9b0f-5e2236a323e9",
+      "message": "Design Basis v1: Design Basis สถานะ Draft — ต้อง Approved ก่อนอนุมัติ BOQ",
+      "result_status": "Fail",
+      "override_reason": null,
+      "resolved_flag": false,
+      "resolved_by": null,
+      "resolved_at": null,
+      "created_at": "2026-06-12T10:44:26.261Z",
+      "updated_at": "2026-06-12T10:44:26.261Z"
+    },
+    {
+      "validation_result_id": "d533a0b3-c8c7-447e-86d2-7626947bfd60",
+      "boq_version_id": "bf815e97-88f4-4b01-b7cf-56cb0eeb48d9",
+      "validation_rule_id": "25780a96-381f-4319-ac92-e6336b9e0bde",
+      "rule_code": "HANDOFF_WITHOUT_LOCK",
+      "rule_group": "Governance",
+      "severity": "BLOCK",
+      "target_object_type": "boq_version",
+      "target_object_id": "bf815e97-88f4-4b01-b7cf-56cb0eeb48d9",
+      "message": "BOQ ต้อง Locked ก่อน handoff",
+      "result_status": "Fail",
+      "override_reason": null,
+      "resolved_flag": false,
+      "resolved_by": null,
+      "resolved_at": null,
+      "created_at": "2026-06-12T10:44:26.261Z",
+      "updated_at": "2026-06-12T10:44:26.261Z"
+    }
+  ],
+  "workflow_gate": {
+    "unresolved_block_count": 3,
+    "unresolved_approval_block_count": 2,
+    "unresolved_handoff_block_count": 3,
+    "can_approve": false,
+    "can_handoff": false,
+    "block_reason": "มี unresolved BLOCK (approval) 2 รายการ — ต้องแก้ไขหรือ resolve ก่อนอนุมัติ",
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 3 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "open_block_rule_codes": [
+    "DOC_TOR_REQUIRED",
+    "DESIGN_BASIS_NOT_APPROVED",
+    "HANDOFF_WITHOUT_LOCK"
+  ],
+  "all_expected_blocks_present": true
+}

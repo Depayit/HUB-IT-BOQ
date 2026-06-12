@@ -1,0 +1,17 @@
+{
+  "boq_version_id": "5b4a3f95-23de-4bce-a197-93e4bb842381",
+  "persona": "Manager",
+  "expected_outcome": "403 UNAUTHORIZED_ROLE",
+  "wrong_role_attempt": {
+    "blocked": true,
+    "code": "UNAUTHORIZED_ROLE",
+    "status": 403,
+    "message": "Role Manager ไม่มีสิทธิ์ดำเนินการขั้น Director Approval — ต้องใช้ Director",
+    "timestamp": "2026-06-12T10:43:19.057Z"
+  },
+  "setup_steps": [
+    "Engineer x2",
+    "Manager x1"
+  ],
+  "workflow_stage_unchanged": true
+}

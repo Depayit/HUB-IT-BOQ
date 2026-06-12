@@ -1,0 +1,16 @@
+{
+  "boq_version_id": "9ed994d5-0d83-4fe3-8db5-d9412eb80f8a",
+  "persona": "Manager",
+  "attempt_1": {
+    "success": true,
+    "resulting_stage": "Director Approval"
+  },
+  "attempt_2": {
+    "blocked": true,
+    "code": "UNAUTHORIZED_ROLE",
+    "status": 403,
+    "message": "Role Manager ไม่มีสิทธิ์ดำเนินการขั้น Director Approval — ต้องใช้ Director",
+    "timestamp": "2026-06-12T10:44:01.552Z"
+  },
+  "duplicate_advance_prevented": true
+}

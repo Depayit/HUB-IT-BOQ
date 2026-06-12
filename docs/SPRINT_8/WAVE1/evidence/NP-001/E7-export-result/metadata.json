@@ -1,0 +1,11 @@
+{
+  "export_blocked": true,
+  "blocked_attempt": {
+    "blocked": true,
+    "code": "EXPORT_BLOCKED",
+    "status": 400,
+    "message": "Export ถูกบล็อก — มี unresolved BLOCK 1 รายการ ต้อง resolve ก่อน export",
+    "timestamp": "2026-06-12T10:44:07.737Z"
+  },
+  "artifacts": []
+}

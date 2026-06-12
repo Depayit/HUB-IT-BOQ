@@ -1,0 +1,11 @@
+{
+  "persona": "Engineer",
+  "blocked_attempt": {
+    "blocked": true,
+    "code": "DESIGN_BASIS_NOT_APPROVED",
+    "status": 403,
+    "message": "ไม่สามารถอนุมัติ BOQ ได้ — Design Basis ล่าสุดต้องมีสถานะ Approved ก่อน",
+    "timestamp": "2026-06-12T10:44:30.464Z"
+  },
+  "workflow_created": false
+}
