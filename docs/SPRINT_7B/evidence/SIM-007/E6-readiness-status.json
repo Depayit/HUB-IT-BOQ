@@ -1,0 +1,33 @@
+{
+  "boq_version_id": "68035a1f-6eb4-4fa8-8a57-4908e515af7e",
+  "readiness_tier": "Ready",
+  "validation_summary": {
+    "validation_run": true,
+    "validation_status": "Pass",
+    "finding_count": 0,
+    "unresolved_block_count": 0,
+    "can_approve": true,
+    "can_handoff": true
+  },
+  "gate": {
+    "unresolved_block_count": 0,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 0,
+    "can_approve": true,
+    "can_handoff": true,
+    "block_reason": null,
+    "handoff_block_reason": null
+  },
+  "handoff_layer": {
+    "block_code": "HANDOFF_TARGET_REQUIRED",
+    "affected_field": "handoff_target",
+    "handoff_record_created": false,
+    "forward_handoff_blocked": true
+  },
+  "composite_operational_block": {
+    "manifest_expected_readiness": "Blocked",
+    "validation_content_acceptable_post_lock": true,
+    "handoff_blocks_incomplete_payload": true
+  },
+  "note": "Validation Ready post-lock; handoff layer blocks missing handoff_target."
+}

@@ -1,0 +1,29 @@
+{
+  "boq_version_id": "68035a1f-6eb4-4fa8-8a57-4908e515af7e",
+  "expected_outcome": "blocked_by_handoff_layer",
+  "expected_handoff_block_code": "HANDOFF_TARGET_REQUIRED",
+  "handoff_attempted": true,
+  "blocked_handoff_evidence": {
+    "attempt_1": {
+      "blocked": true,
+      "code": "HANDOFF_TARGET_REQUIRED",
+      "status": 403,
+      "message": "Handoff ต้องระบุ handoff_target (Procurement, Construction, ClientHandover)",
+      "timestamp": "2026-06-12T08:05:16.733Z"
+    },
+    "attempt_2": {
+      "blocked": true,
+      "code": "HANDOFF_TARGET_REQUIRED",
+      "status": 403,
+      "message": "Handoff ต้องระบุ handoff_target (Procurement, Construction, ClientHandover)",
+      "timestamp": "2026-06-12T08:05:17.559Z"
+    }
+  },
+  "affected_field": "handoff_target",
+  "handoff_records_before": [],
+  "handoff_records_after": [],
+  "handoff_created": false,
+  "proof_no_handoff_created": true,
+  "retry_remains_blocked": true,
+  "requestId_traceId_note": "Not supported on AppError — deferred M-07"
+}

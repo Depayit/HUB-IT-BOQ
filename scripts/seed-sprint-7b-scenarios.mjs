@@ -14,11 +14,13 @@
  *   node scripts/seed-sprint-7b-scenarios.mjs --scenario=SIM-001
  *   node scripts/seed-sprint-7b-scenarios.mjs --scenario=SIM-002
  *   node scripts/seed-sprint-7b-scenarios.mjs --scenario=SIM-003
+ *   node scripts/seed-sprint-7b-scenarios.mjs --scenario=SIM-005
  *
  * Constraints:
  * - Does NOT bypass any framework — uses Prisma writes that match the same
  *   shape services would produce.
- * - SIM-001 (Phase 1), SIM-002 (Phase 2 Warning Path), SIM-003 (Phase 3 Blocked Path) supported.
+ * - SIM-001 (Phase 1), SIM-002 (Phase 2 Warning Path), SIM-003 (Phase 3 Blocked Path),
+ *   SIM-005 (Phase 3B Discipline Block) supported.
  * - Idempotent for masters (discipline_master, cost_category_master) — uses upsert.
  *   For SIM-001 instance data, fails if the project already exists (caller can
  *   reset DB before re-running).
@@ -756,23 +758,142 @@ async function seedSim003() {
   };
 }
 
+/**
+ * SIM-005 Missing Discipline Block seed (discipline-block profile).
+ *
+ * Per scenario-seed-manifest.json:
+ *   { scenario_type: "Missing Discipline Block", seed_profile: "discipline-block",
+ *     extends: "SIM-001", discipline_lines: 0,
+ *     expected_rules: ["DISCIPLINE_NO_LINES"], expected_readiness: "Blocked" }
+ *
+ * Delta from SIM-001: approved design basis + full documents, but zero BOQ lines
+ * on included discipline(s).
+ */
+async function seedSim005() {
+  const project = await prisma.projects.create({
+    data: {
+      project_name: "SIM-005 Missing Discipline Block Project",
+      client_id: "SIM-005-CLIENT",
+      project_type: "Datacenter",
+      it_load_kw: new Prisma.Decimal(1500),
+      rack_count: 100,
+      rack_density_kw_per_rack: new Prisma.Decimal(15),
+      tier_target: "Tier III",
+      currency: "THB",
+      project_status: "Active",
+    },
+  });
+
+  await prisma.design_basis_versions.create({
+    data: {
+      project_id: project.project_id,
+      design_version_no: 1,
+      it_load_assumption_kw: new Prisma.Decimal(1500),
+      rack_count_assumption: 100,
+      rack_density_assumption: new Prisma.Decimal(15),
+      power_architecture: "2N redundant",
+      cooling_architecture: "N+1 chilled water",
+      fire_protection_assumption: "FM-200",
+      monitoring_assumption: "DCIM with BMS",
+      redundancy_assumption: "2N power, N+1 cooling",
+      technical_compliance_basis: "Uptime Institute Tier III",
+      customer_requirement_reference: "RFP-2026-005",
+      approval_status: "Approved",
+    },
+  });
+
+  const docs = await Promise.all(
+    [
+      { type: "TOR", name: "Terms of Reference v1.0" },
+      { type: "SLD", name: "Single Line Diagram v1.0" },
+      { type: "Specification", name: "Technical Specification v1.0" },
+    ].map((d) =>
+      prisma.documents.create({
+        data: {
+          project_id: project.project_id,
+          document_type: d.type,
+          document_name: d.name,
+          version_no: "1.0",
+          document_status: "Active",
+        },
+      }),
+    ),
+  );
+
+  const boqVersion = await prisma.boq_versions.create({
+    data: {
+      project_id: project.project_id,
+      version_no: 1,
+      status: "Draft",
+      lock_status: "Unlocked",
+    },
+  });
+
+  await Promise.all(
+    docs.map((doc) =>
+      prisma.boq_version_documents.create({
+        data: {
+          boq_version_id: boqVersion.boq_version_id,
+          document_id: doc.document_id,
+          dependency_type: doc.document_type === "Specification" ? "Handoff" : "Engineer Review",
+          is_required: true,
+          dependency_status: "Satisfied",
+        },
+      }),
+    ),
+  );
+
+  const pwrDiscipline = await prisma.discipline_master.findUniqueOrThrow({
+    where: { discipline_code: "PWR" },
+  });
+
+  const projectDiscipline = await prisma.project_disciplines.create({
+    data: {
+      project_id: project.project_id,
+      boq_version_id: boqVersion.boq_version_id,
+      discipline_id: pwrDiscipline.discipline_id,
+      included_flag: true,
+      scope_description:
+        "Electrical power distribution scope — UPS, PDU, switchgear, transformer for 1500kW IT load (2N).",
+      risk_level: "Medium",
+    },
+  });
+
+  // discipline_lines: 0 — no boq_lines created (DISCIPLINE_NO_LINES trigger)
+
+  return {
+    projectId: project.project_id,
+    boqVersionId: boqVersion.boq_version_id,
+    projectDisciplineId: projectDiscipline.project_discipline_id,
+    documentIds: docs.map((d) => d.document_id),
+    boqLineCount: 0,
+  };
+}
+
 async function main() {
   const args = parseArgs();
   const scenario = args.scenario ?? "SIM-001";
 
-  if (scenario !== "SIM-001" && scenario !== "SIM-002" && scenario !== "SIM-003") {
+  if (
+    scenario !== "SIM-001" &&
+    scenario !== "SIM-002" &&
+    scenario !== "SIM-003" &&
+    scenario !== "SIM-005"
+  ) {
     throw new Error(
-      `Only SIM-001, SIM-002, and SIM-003 are supported (got ${scenario})`,
+      `Only SIM-001, SIM-002, SIM-003, and SIM-005 are supported (got ${scenario})`,
     );
   }
 
   await ensureMasters();
   const result =
-    scenario === "SIM-003"
-      ? await seedSim003()
-      : scenario === "SIM-002"
-        ? await seedSim002()
-        : await seedSim001();
+    scenario === "SIM-005"
+      ? await seedSim005()
+      : scenario === "SIM-003"
+        ? await seedSim003()
+        : scenario === "SIM-002"
+          ? await seedSim002()
+          : await seedSim001();
   console.log(JSON.stringify({ scenario, ...result }, null, 2));
 }
 

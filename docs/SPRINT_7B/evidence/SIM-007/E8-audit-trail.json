@@ -1,0 +1,79 @@
+{
+  "object_type": "boq_version",
+  "object_id": "68035a1f-6eb4-4fa8-8a57-4908e515af7e",
+  "row_count": 6,
+  "rows": [
+    {
+      "audit_log_id": "7ad0b237-c9ec-4932-9746-74bbf4e7b14e",
+      "object_type": "boq_version",
+      "object_id": "68035a1f-6eb4-4fa8-8a57-4908e515af7e",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 1 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-12T08:04:53.029Z",
+      "change_reason": "Validation Engine re-run"
+    },
+    {
+      "audit_log_id": "472c3d3f-a5a6-4b05-81d5-7cb458428a49",
+      "object_type": "boq_version",
+      "object_id": "68035a1f-6eb4-4fa8-8a57-4908e515af7e",
+      "action_type": "approve",
+      "old_value": null,
+      "new_value": "Engineer Review",
+      "changed_by": "engineer-001@sim007",
+      "changed_at": "2026-06-12T08:04:58.348Z",
+      "change_reason": "Advance to Engineer Review by Engineer"
+    },
+    {
+      "audit_log_id": "ac9d6bad-ea3a-429c-a580-9012c560dd45",
+      "object_type": "boq_version",
+      "object_id": "68035a1f-6eb4-4fa8-8a57-4908e515af7e",
+      "action_type": "approve",
+      "old_value": "Engineer Review",
+      "new_value": "Manager Approval",
+      "changed_by": "engineer-001@sim007",
+      "changed_at": "2026-06-12T08:05:00.576Z",
+      "change_reason": "Advance to Manager Approval by Engineer"
+    },
+    {
+      "audit_log_id": "90c97668-21f3-4eeb-96c1-be4e45db5331",
+      "object_type": "boq_version",
+      "object_id": "68035a1f-6eb4-4fa8-8a57-4908e515af7e",
+      "action_type": "approve",
+      "old_value": "Manager Approval",
+      "new_value": "Director Approval",
+      "changed_by": "manager-001@sim007",
+      "changed_at": "2026-06-12T08:05:02.802Z",
+      "change_reason": "Advance to Director Approval by Manager"
+    },
+    {
+      "audit_log_id": "7dac97ed-34ef-4afe-91ea-a08253a06f33",
+      "object_type": "boq_version",
+      "object_id": "68035a1f-6eb4-4fa8-8a57-4908e515af7e",
+      "action_type": "lock",
+      "old_value": "Director Approval",
+      "new_value": "Final Lock",
+      "changed_by": "director-001@sim007",
+      "changed_at": "2026-06-12T08:05:05.857Z",
+      "change_reason": "Advance to Final Lock by Director"
+    },
+    {
+      "audit_log_id": "64a2ce04-779b-4c77-aa7d-52d6f7cf6b7e",
+      "object_type": "boq_version",
+      "object_id": "68035a1f-6eb4-4fa8-8a57-4908e515af7e",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 0 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-12T08:05:12.564Z",
+      "change_reason": "Validation Engine re-run"
+    }
+  ],
+  "block_evidence_summary": {
+    "validation_run_rows": 2,
+    "approve_rows": 3,
+    "handoff_rows": 0,
+    "note": "Rejected handoff attempts do not produce handoff audit rows (M-03)."
+  }
+}

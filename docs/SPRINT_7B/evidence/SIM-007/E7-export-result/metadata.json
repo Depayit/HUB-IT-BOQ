@@ -1,0 +1,39 @@
+{
+  "boq_version_id": "68035a1f-6eb4-4fa8-8a57-4908e515af7e",
+  "project_id": "a5c5ab42-2358-4ad2-8fde-b4f0e4a99972",
+  "expected_outcome": "no_official_export_artifacts",
+  "no_official_export_artifacts": true,
+  "xlsx_generated": false,
+  "pdf_generated": false,
+  "export_attempt": {
+    "excel": {
+      "blocked": false,
+      "allowed": true
+    },
+    "pdf": {
+      "blocked": false,
+      "allowed": true
+    }
+  },
+  "handoff_alignment_with_e5": {
+    "handoff_layer_blocked": true,
+    "handoff_block_code": "HANDOFF_TARGET_REQUIRED",
+    "handoff_records_count": 0,
+    "report_handoff_status": "Not handed off",
+    "report_does_not_show_false_completed_handoff": true
+  },
+  "report_validation_snapshot": {
+    "validation_status": "Pass",
+    "ready_status": "Ready",
+    "unresolved_blocks": 0,
+    "can_approve": true,
+    "can_handoff": true
+  },
+  "e2_consistency": {
+    "post_lock_validation_status": "Pass",
+    "e7_validation_status": "Pass",
+    "matches": true
+  },
+  "export_gate_note": "Export gate is validation-only; export technically allowed post-lock while handoff payload incomplete (handoff layer block documented in E5).",
+  "requestId_traceId_note": "Not supported on AppError — deferred M-07"
+}
