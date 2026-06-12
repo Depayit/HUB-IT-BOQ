@@ -1,7 +1,10 @@
 import { describe, it, expect } from "vitest";
 
+import { AppError } from "@/lib/utils/errors";
 import {
   HANDOFF_TARGETS,
+  HANDOFF_TARGET_REQUIRED_CODE,
+  assertHandoffTargetProvided,
   handoffPayloadSchema,
   handoffTargetSchema,
   handoffTargetOptionalSchema,
@@ -86,5 +89,34 @@ describe("handoff target schema (TD-7A-010 SSOT)", () => {
     expect(describeTarget("Procurement")).toBe("buy");
     expect(describeTarget("Construction")).toBe("build");
     expect(describeTarget("ClientHandover")).toBe("deliver");
+  });
+});
+
+describe("assertHandoffTargetProvided (M-06 / SIM-007 handoff guard)", () => {
+  it("throws AppError(HANDOFF_TARGET_REQUIRED, 403) for null, undefined, and invalid values", () => {
+    for (const value of [null, undefined, "", "invalid", "procurement"] as const) {
+      expect(() =>
+        assertHandoffTargetProvided(
+          value as "Procurement" | "Construction" | "ClientHandover" | null | undefined,
+        ),
+      ).toThrow(AppError);
+      try {
+        assertHandoffTargetProvided(
+          value as "Procurement" | "Construction" | "ClientHandover" | null | undefined,
+        );
+      } catch (err) {
+        expect(err).toBeInstanceOf(AppError);
+        const appErr = err as AppError;
+        expect(appErr.code).toBe(HANDOFF_TARGET_REQUIRED_CODE);
+        expect(appErr.status).toBe(403);
+        expect(appErr.message).toContain("handoff_target");
+      }
+    }
+  });
+
+  it("accepts each canonical handoff target", () => {
+    for (const target of HANDOFF_TARGETS) {
+      expect(() => assertHandoffTargetProvided(target)).not.toThrow();
+    }
   });
 });

@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { AppError } from "@/lib/utils/errors";
+
 /**
  * TD-7A-010 — Handoff target SSOT
  *
@@ -30,4 +32,20 @@ export type HandoffPayload = z.infer<typeof handoffPayloadSchema>;
 
 export function isHandoffTarget(value: unknown): value is HandoffTarget {
   return typeof value === "string" && (HANDOFF_TARGETS as readonly string[]).includes(value);
+}
+
+/** Error code when handoff is attempted without a required target (M-06 / SIM-007). */
+export const HANDOFF_TARGET_REQUIRED_CODE = "HANDOFF_TARGET_REQUIRED";
+
+/** Rejects null/undefined/invalid handoff_target before persisting a handoff record. */
+export function assertHandoffTargetProvided(
+  handoffTarget?: HandoffTarget | null,
+): asserts handoffTarget is HandoffTarget {
+  if (!isHandoffTarget(handoffTarget)) {
+    throw new AppError(
+      "Handoff ต้องระบุ handoff_target (Procurement, Construction, ClientHandover)",
+      HANDOFF_TARGET_REQUIRED_CODE,
+      403,
+    );
+  }
 }

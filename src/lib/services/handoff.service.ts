@@ -3,7 +3,10 @@ import { AppError } from "@/lib/utils/errors";
 import { validationService } from "@/lib/services/validation.service";
 import { boqVersionService } from "@/lib/services/boq-version.service";
 import { auditService } from "@/lib/services/audit.service";
-import type { HandoffTarget } from "@/lib/validations/handoff";
+import {
+  assertHandoffTargetProvided,
+  type HandoffTarget,
+} from "@/lib/validations/handoff";
 
 export const handoffService = {
   async getPageData(projectId: string, boqVersionId: string) {
@@ -66,6 +69,7 @@ export const handoffService = {
     handoffTarget?: HandoffTarget,
   ) {
     await this.assertCanHandoff(boqVersionId);
+    assertHandoffTargetProvided(handoffTarget);
 
     const record = await prisma.handoff_records.create({
       data: {
