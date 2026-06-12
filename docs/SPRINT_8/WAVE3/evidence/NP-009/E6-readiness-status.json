@@ -1,0 +1,43 @@
+{
+  "stale_window": {
+    "tier": "Blocked",
+    "validation_run": true,
+    "validation_status": "Blocked (2 unresolved)",
+    "finding_count": 1,
+    "unresolved_block_count": 2,
+    "open_warning_count": 0,
+    "can_approve": false,
+    "can_handoff": false,
+    "gate": {
+      "unresolved_block_count": 2,
+      "unresolved_approval_block_count": 1,
+      "unresolved_handoff_block_count": 2,
+      "can_approve": false,
+      "can_handoff": false,
+      "block_reason": "Stale validation — live BOQ data has 1 critical line failure(s); re-run validation before approval",
+      "handoff_block_reason": "Stale validation — live BOQ data has 1 critical line failure(s); re-run validation before handoff"
+    }
+  },
+  "post_recovery": {
+    "tier": "Blocked",
+    "validation_run": true,
+    "validation_status": "Blocked (3 unresolved)",
+    "finding_count": 3,
+    "unresolved_block_count": 3,
+    "open_warning_count": 0,
+    "can_approve": false,
+    "can_handoff": false,
+    "gate": {
+      "unresolved_block_count": 3,
+      "unresolved_approval_block_count": 2,
+      "unresolved_handoff_block_count": 3,
+      "can_approve": false,
+      "can_handoff": false,
+      "block_reason": "มี unresolved BLOCK (approval) 2 รายการ — ต้องแก้ไขหรือ resolve ก่อนอนุมัติ",
+      "handoff_block_reason": "มี unresolved BLOCK (handoff) 3 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+    }
+  },
+  "recalculation_required": true,
+  "recalculation_performed": true,
+  "tier_after_recovery": "Blocked"
+}

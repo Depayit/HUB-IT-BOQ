@@ -1,0 +1,32 @@
+{
+  "boq_version_id": "7cb912c9-33b8-465c-9163-4306a6300049",
+  "concurrent_export_attempt": {
+    "persona": "Procurement",
+    "action": "export",
+    "started_at": "2026-06-12T12:13:54.171Z",
+    "finished_at": "2026-06-12T12:13:54.228Z",
+    "succeeded": false,
+    "blocked": true,
+    "code": "EXPORT_BLOCKED",
+    "status": 400,
+    "message": "Export ถูกบล็อก — มี unresolved BLOCK 1 รายการ ต้อง resolve ก่อน export",
+    "timestamp": "2026-06-12T12:13:54.228Z"
+  },
+  "final_export": {
+    "export_blocked": false,
+    "export_succeeded": true,
+    "excel_block": null,
+    "pdf_block": null,
+    "artifacts": [
+      {
+        "type": "xlsx",
+        "bytes": 10720
+      }
+    ]
+  },
+  "e3_workflow_stage": "Final Lock",
+  "e7_report_workflow_status": "Locked",
+  "e7_report_approval_status": "Completed (Final Lock)",
+  "e6_readiness_tier": "Ready",
+  "e3_e7_workflow_aligned": true
+}

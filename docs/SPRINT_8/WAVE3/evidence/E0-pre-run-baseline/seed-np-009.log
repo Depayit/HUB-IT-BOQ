@@ -1,0 +1,16 @@
+{
+  "scenario": "NP-009",
+  "projectId": "20a4c533-3e8c-4365-8543-5744cc4dd7a7",
+  "boqVersionId": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+  "projectDisciplineId": "d93ae303-e203-4d49-a4a3-83d1caac1105",
+  "documentIds": [
+    "308f94ad-3290-45ee-b833-083ab26e1584",
+    "6c082b92-2e7d-4293-a3d6-5f335aa47acc",
+    "8b901e87-298a-424e-b3f7-9deed7d0d92c"
+  ],
+  "seed_profile": "stale-validation-snapshot",
+  "primary_personas": [
+    "Engineer",
+    "Admin/Ops"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "boq_version_id": "7cb912c9-33b8-465c-9163-4306a6300049",
+  "captured_at": "2026-06-12T12:13:54.163Z",
+  "validation_results": [
+    {
+      "validation_result_id": "10a4e0a0-7ecf-4fe2-b967-ebb3ff0c83d7",
+      "boq_version_id": "7cb912c9-33b8-465c-9163-4306a6300049",
+      "validation_rule_id": "946b0ab8-c753-4cf5-ad76-13966b49a1e8",
+      "rule_code": "HANDOFF_WITHOUT_LOCK",
+      "rule_group": "Governance",
+      "severity": "BLOCK",
+      "target_object_type": "boq_version",
+      "target_object_id": "7cb912c9-33b8-465c-9163-4306a6300049",
+      "message": "BOQ ต้อง Locked ก่อน handoff",
+      "result_status": "Fail",
+      "override_reason": null,
+      "resolved_flag": false,
+      "resolved_by": null,
+      "resolved_at": null,
+      "created_at": "2026-06-12T12:13:54.078Z",
+      "updated_at": "2026-06-12T12:13:54.078Z"
+    }
+  ],
+  "workflow_gate": {
+    "unresolved_block_count": 1,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 1,
+    "can_approve": true,
+    "can_handoff": false,
+    "block_reason": null,
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "validation_summary": {
+    "validation_run": true,
+    "validation_status": "Blocked (1 unresolved)",
+    "finding_count": 1,
+    "unresolved_block_count": 1,
+    "open_warning_count": 0,
+    "can_approve": true,
+    "can_handoff": false
+  },
+  "readiness_tier": "Blocked",
+  "note": "E2 captured before concurrent burst; timestamp <= approval/export decisions"
+}

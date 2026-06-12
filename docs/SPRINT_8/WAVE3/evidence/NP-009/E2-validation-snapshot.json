@@ -1,0 +1,211 @@
+{
+  "boq_version_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+  "pre_edit": {
+    "captured_at": "2026-06-12T12:13:50.791Z",
+    "validation_results": [
+      {
+        "validation_result_id": "e883d74a-55a2-40e6-b543-e2b9f4674b19",
+        "boq_version_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+        "validation_rule_id": "946b0ab8-c753-4cf5-ad76-13966b49a1e8",
+        "rule_code": "HANDOFF_WITHOUT_LOCK",
+        "rule_group": "Governance",
+        "severity": "BLOCK",
+        "target_object_type": "boq_version",
+        "target_object_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+        "message": "BOQ ต้อง Locked ก่อน handoff",
+        "result_status": "Fail",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-12T12:13:50.760Z",
+        "updated_at": "2026-06-12T12:13:50.760Z"
+      }
+    ],
+    "workflow_gate": {
+      "unresolved_block_count": 1,
+      "unresolved_approval_block_count": 0,
+      "unresolved_handoff_block_count": 1,
+      "can_approve": true,
+      "can_handoff": false,
+      "block_reason": null,
+      "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+    },
+    "validation_summary": {
+      "validation_run": true,
+      "validation_status": "Blocked (1 unresolved)",
+      "finding_count": 1,
+      "unresolved_block_count": 1,
+      "open_warning_count": 0,
+      "can_approve": true,
+      "can_handoff": false
+    },
+    "readiness_tier": "Blocked",
+    "e1_line_payload_hash": "a39d61abcf9885e141e581a2eec71a392c5a90e67e6ecffd7432d0220686b0cc"
+  },
+  "stale_window": {
+    "edit_started_at": "2026-06-12T12:13:50.796Z",
+    "engineer_edit": "Marked line critical + removed cost breakdowns",
+    "stale_assessment": {
+      "max_line_updated_at": "2026-06-12T12:13:50.797Z",
+      "max_validation_created_at": "2026-06-12T12:13:50.760Z",
+      "stale_by_timestamp": true,
+      "stale_by_live_mismatch": false,
+      "stale_detected": true,
+      "live_critical_failure_count": 1,
+      "live_critical_line_ids": [
+        "0cfa9c89-0230-4393-bcd6-ff4bd2cd0951"
+      ],
+      "persisted_approval_block_count": 1,
+      "e1_line_payload_hash": "32defa1470bf1e8affb414a0d80d67a219af83e20acde597b74dc09c069e50c1"
+    },
+    "stale_readiness": {
+      "tier": "Blocked",
+      "validation_run": true,
+      "validation_status": "Blocked (2 unresolved)",
+      "finding_count": 1,
+      "unresolved_block_count": 2,
+      "open_warning_count": 0,
+      "can_approve": false,
+      "can_handoff": false,
+      "gate": {
+        "unresolved_block_count": 2,
+        "unresolved_approval_block_count": 1,
+        "unresolved_handoff_block_count": 2,
+        "can_approve": false,
+        "can_handoff": false,
+        "block_reason": "Stale validation — live BOQ data has 1 critical line failure(s); re-run validation before approval",
+        "handoff_block_reason": "Stale validation — live BOQ data has 1 critical line failure(s); re-run validation before handoff"
+      }
+    },
+    "stale_probe": {
+      "approval": {
+        "succeeded": false,
+        "blocked": true,
+        "code": "VALIDATION_BLOCK",
+        "status": 403,
+        "message": "Stale validation — live BOQ data has 1 critical line failure(s); re-run validation before approval",
+        "timestamp": "2026-06-12T12:13:50.827Z",
+        "at": "2026-06-12T12:13:50.827Z"
+      },
+      "export": {
+        "export_blocked": true,
+        "export_succeeded": false,
+        "excel_block": {
+          "blocked": true,
+          "code": "EXPORT_BLOCKED",
+          "status": 400,
+          "message": "Export ถูกบล็อก — มี unresolved BLOCK 2 รายการ ต้อง resolve ก่อน export",
+          "timestamp": "2026-06-12T12:13:50.881Z"
+        },
+        "pdf_block": {
+          "blocked": true,
+          "code": "EXPORT_BLOCKED",
+          "status": 400,
+          "message": "Export ถูกบล็อก — มี unresolved BLOCK 2 รายการ ต้อง resolve ก่อน export",
+          "timestamp": "2026-06-12T12:13:50.912Z"
+        },
+        "artifacts": [],
+        "at": "2026-06-12T12:13:50.912Z"
+      },
+      "latent_risk": {
+        "persisted_gate_blocks": 2,
+        "live_critical_failures": 1,
+        "stale_readiness_tier": "Blocked",
+        "would_false_pass_if_acted": false
+      }
+    },
+    "payload_hash_after_edit": "32defa1470bf1e8affb414a0d80d67a219af83e20acde597b74dc09c069e50c1",
+    "payload_hash_changed": true
+  },
+  "post_edit": {
+    "captured_at": "2026-06-12T12:13:50.969Z",
+    "validation_results": [
+      {
+        "validation_result_id": "56ae5bd5-7dc0-4be1-b4ad-c17037331ced",
+        "boq_version_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+        "validation_rule_id": "285ddeab-a741-40ed-8cfe-c7a5c5afae9b",
+        "rule_code": "CRITICAL_LINE_ZERO_COST",
+        "rule_group": "Cost",
+        "severity": "BLOCK",
+        "target_object_type": "boq_line",
+        "target_object_id": "0cfa9c89-0230-4393-bcd6-ff4bd2cd0951",
+        "message": "Line 1: Critical line ต้องมี cost layer รวมมากกว่า 0",
+        "result_status": "Fail",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-12T12:13:50.940Z",
+        "updated_at": "2026-06-12T12:13:50.940Z"
+      },
+      {
+        "validation_result_id": "d4c09d67-fae6-4bff-a873-6a0f6bfb50ca",
+        "boq_version_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+        "validation_rule_id": "18ca576f-f295-479a-a83e-217ed38818da",
+        "rule_code": "COST_LAYER_MISSING",
+        "rule_group": "Cost",
+        "severity": "BLOCK",
+        "target_object_type": "boq_line",
+        "target_object_id": "0cfa9c89-0230-4393-bcd6-ff4bd2cd0951",
+        "message": "Line 1: BOQ line has no cost layer breakdowns",
+        "result_status": "Fail",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-12T12:13:50.940Z",
+        "updated_at": "2026-06-12T12:13:50.940Z"
+      },
+      {
+        "validation_result_id": "bf244eac-6dfa-47cb-9c16-97e8eedc7ca2",
+        "boq_version_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+        "validation_rule_id": "946b0ab8-c753-4cf5-ad76-13966b49a1e8",
+        "rule_code": "HANDOFF_WITHOUT_LOCK",
+        "rule_group": "Governance",
+        "severity": "BLOCK",
+        "target_object_type": "boq_version",
+        "target_object_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+        "message": "BOQ ต้อง Locked ก่อน handoff",
+        "result_status": "Fail",
+        "override_reason": null,
+        "resolved_flag": false,
+        "resolved_by": null,
+        "resolved_at": null,
+        "created_at": "2026-06-12T12:13:50.940Z",
+        "updated_at": "2026-06-12T12:13:50.940Z"
+      }
+    ],
+    "workflow_gate": {
+      "unresolved_block_count": 3,
+      "unresolved_approval_block_count": 2,
+      "unresolved_handoff_block_count": 3,
+      "can_approve": false,
+      "can_handoff": false,
+      "block_reason": "มี unresolved BLOCK (approval) 2 รายการ — ต้องแก้ไขหรือ resolve ก่อนอนุมัติ",
+      "handoff_block_reason": "มี unresolved BLOCK (handoff) 3 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+    },
+    "validation_summary": {
+      "validation_run": true,
+      "validation_status": "Blocked (3 unresolved)",
+      "finding_count": 3,
+      "unresolved_block_count": 3,
+      "open_warning_count": 0,
+      "can_approve": false,
+      "can_handoff": false
+    },
+    "readiness_tier": "Blocked",
+    "open_block_rule_codes": [
+      "CRITICAL_LINE_ZERO_COST",
+      "COST_LAYER_MISSING",
+      "HANDOFF_WITHOUT_LOCK"
+    ],
+    "e2_timestamp_after_last_edit": true
+  },
+  "validation_timing": {
+    "pre_edit_at": "2026-06-12T12:13:50.791Z",
+    "edit_at": "2026-06-12T12:13:50.796Z",
+    "post_edit_at": "2026-06-12T12:13:50.969Z",
+    "post_edit_after_edit": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "workflow": null,
+  "note": "Workflow unchanged during stale window; approval probe did not advance on stale BLOCK",
+  "stale_probe_approval": {
+    "succeeded": false,
+    "blocked": true,
+    "code": "VALIDATION_BLOCK",
+    "status": 403,
+    "message": "Stale validation — live BOQ data has 1 critical line failure(s); re-run validation before approval",
+    "timestamp": "2026-06-12T12:13:50.827Z",
+    "at": "2026-06-12T12:13:50.827Z"
+  }
+}

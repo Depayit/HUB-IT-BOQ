@@ -1,0 +1,72 @@
+{
+  "before_concurrent": {
+    "approval_workflow_id": "4eaeddf5-177c-4678-9471-9c7408c4b645",
+    "boq_version_id": "7cb912c9-33b8-465c-9163-4306a6300049",
+    "current_stage": "Manager Approval",
+    "workflow_status": "InProgress",
+    "engineer_reviewed_by": "engineer-001@wave3",
+    "engineer_reviewed_at": "2026-06-12T12:13:54.150Z",
+    "manager_approved_by": null,
+    "manager_approved_at": null,
+    "director_approved_by": null,
+    "director_approved_at": null,
+    "final_locked_by": null,
+    "final_locked_at": null,
+    "rejection_reason": null,
+    "created_at": "2026-06-12T12:13:54.129Z",
+    "updated_at": "2026-06-12T12:13:54.152Z"
+  },
+  "after_concurrent": {
+    "approval_workflow_id": "4eaeddf5-177c-4678-9471-9c7408c4b645",
+    "boq_version_id": "7cb912c9-33b8-465c-9163-4306a6300049",
+    "current_stage": "Director Approval",
+    "workflow_status": "InProgress",
+    "engineer_reviewed_by": "engineer-001@wave3",
+    "engineer_reviewed_at": "2026-06-12T12:13:54.150Z",
+    "manager_approved_by": "manager-001@wave3",
+    "manager_approved_at": "2026-06-12T12:13:54.197Z",
+    "director_approved_by": null,
+    "director_approved_at": null,
+    "final_locked_by": null,
+    "final_locked_at": null,
+    "rejection_reason": null,
+    "created_at": "2026-06-12T12:13:54.129Z",
+    "updated_at": "2026-06-12T12:13:54.199Z"
+  },
+  "transitions": {
+    "from": "Manager Approval",
+    "to": "Director Approval",
+    "concurrent_start": "2026-06-12T12:13:54.170Z",
+    "double_progression": false,
+    "single_advance_max": true
+  },
+  "concurrency_outcomes": [
+    {
+      "persona": "Engineer",
+      "action": "edit_quantity",
+      "started_at": "2026-06-12T12:13:54.170Z",
+      "finished_at": "2026-06-12T12:13:54.207Z",
+      "result": "360c6d88-b464-45e4-9462-100a07dbdb90"
+    },
+    {
+      "persona": "Manager",
+      "action": "approve",
+      "started_at": "2026-06-12T12:13:54.171Z",
+      "finished_at": "2026-06-12T12:13:54.219Z",
+      "succeeded": true,
+      "stage": "Director Approval"
+    },
+    {
+      "persona": "Procurement",
+      "action": "export",
+      "started_at": "2026-06-12T12:13:54.171Z",
+      "finished_at": "2026-06-12T12:13:54.228Z",
+      "succeeded": false,
+      "blocked": true,
+      "code": "EXPORT_BLOCKED",
+      "status": 400,
+      "message": "Export ถูกบล็อก — มี unresolved BLOCK 1 รายการ ต้อง resolve ก่อน export",
+      "timestamp": "2026-06-12T12:13:54.228Z"
+    }
+  ]
+}

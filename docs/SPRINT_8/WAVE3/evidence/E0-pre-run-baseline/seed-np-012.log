@@ -1,0 +1,19 @@
+{
+  "scenario": "NP-012",
+  "projectId": "2b83f811-2c53-4027-9761-f6be8c1423ad",
+  "boqVersionId": "7cb912c9-33b8-465c-9163-4306a6300049",
+  "projectDisciplineId": "3bea6ff8-6048-4288-8d3d-cc4c014a13a8",
+  "documentIds": [
+    "f19856c2-fa70-489c-be2f-c445b40b538f",
+    "919d7eb8-0736-4c70-8c20-01695e3f6965",
+    "d85c5b27-25c5-435c-af4b-757007facb76"
+  ],
+  "seed_profile": "cross-user-workflow-conflict",
+  "primary_personas": [
+    "Engineer",
+    "Manager"
+  ],
+  "secondary_personas": [
+    "Procurement"
+  ]
+}

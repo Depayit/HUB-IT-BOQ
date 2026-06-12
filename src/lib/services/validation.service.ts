@@ -83,6 +83,33 @@ function isUnresolvedBlockForRules(
   return isUnresolvedBlock(row) && rules.includes(row.rule_code as ValidationRuleCode);
 }
 
+/** Block forward actions when persisted validation is stale vs live critical line state (FP-001). */
+async function applyLiveStaleGateGuard(
+  boqVersionId: string,
+  rows: ValidationResultGateRow[],
+  gate: WorkflowGate,
+): Promise<WorkflowGate> {
+  const liveCriticalFailures =
+    await boqLineService.findCriticalLineValidationFailures(boqVersionId);
+  if (liveCriticalFailures.length === 0) return gate;
+
+  const hasPersistedCriticalBlock = rows.some(
+    (row) => row.rule_code === "CRITICAL_LINE_ZERO_COST" && isUnresolvedBlock(row),
+  );
+  if (hasPersistedCriticalBlock) return gate;
+
+  const staleCount = liveCriticalFailures.length;
+  return {
+    unresolved_block_count: gate.unresolved_block_count + staleCount,
+    unresolved_approval_block_count: gate.unresolved_approval_block_count + staleCount,
+    unresolved_handoff_block_count: gate.unresolved_handoff_block_count + staleCount,
+    can_approve: false,
+    can_handoff: false,
+    block_reason: `Stale validation — live BOQ data has ${staleCount} critical line failure(s); re-run validation before approval`,
+    handoff_block_reason: `Stale validation — live BOQ data has ${staleCount} critical line failure(s); re-run validation before handoff`,
+  };
+}
+
 function formatResult(
   row: validation_results & {
     validation_rule: { message: string };
@@ -168,7 +195,7 @@ export const validationService = {
     const approvalBlocked = unresolved_approval_block_count > 0;
     const handoffBlocked = unresolved_handoff_block_count > 0;
 
-    return {
+    return applyLiveStaleGateGuard(boqVersionId, rows, {
       unresolved_block_count,
       unresolved_approval_block_count,
       unresolved_handoff_block_count,
@@ -180,7 +207,7 @@ export const validationService = {
       handoff_block_reason: handoffBlocked
         ? `มี unresolved BLOCK (handoff) ${unresolved_handoff_block_count} รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff`
         : null,
-    };
+    });
   },
 
   async assertNoUnresolvedBlocks(boqVersionId: string) {

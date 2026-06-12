@@ -1,0 +1,30 @@
+{
+  "object_type": "boq_version",
+  "object_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+  "row_count": 2,
+  "rows": [
+    {
+      "audit_log_id": "5fad001d-1b96-4d09-8b53-04f5a0d54947",
+      "object_type": "boq_version",
+      "object_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 1 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-12T12:13:50.767Z",
+      "change_reason": "Validation Engine re-run"
+    },
+    {
+      "audit_log_id": "fe34073a-e3e2-4238-8547-31980d9e6010",
+      "object_type": "boq_version",
+      "object_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 3 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-12T12:13:50.948Z",
+      "change_reason": "Validation Engine re-run"
+    }
+  ],
+  "ordering_check": true
+}

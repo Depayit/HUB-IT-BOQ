@@ -1,0 +1,20 @@
+{
+  "manager_concurrent_attempt": {
+    "persona": "Manager",
+    "action": "approve",
+    "started_at": "2026-06-12T12:13:54.171Z",
+    "finished_at": "2026-06-12T12:13:54.219Z",
+    "succeeded": true,
+    "stage": "Director Approval"
+  },
+  "post_concurrent_gate": {
+    "unresolved_block_count": 1,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 1,
+    "can_approve": true,
+    "can_handoff": false,
+    "block_reason": null,
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "approval_on_obsolete_state": true
+}

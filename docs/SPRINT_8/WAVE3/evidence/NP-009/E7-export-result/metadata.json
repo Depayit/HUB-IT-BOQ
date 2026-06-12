@@ -1,0 +1,47 @@
+{
+  "boq_version_id": "24533b31-da9e-4bf9-864b-4ed7f9ff8c47",
+  "stale_window_export": {
+    "export_blocked": true,
+    "export_succeeded": false,
+    "excel_block": {
+      "blocked": true,
+      "code": "EXPORT_BLOCKED",
+      "status": 400,
+      "message": "Export ถูกบล็อก — มี unresolved BLOCK 2 รายการ ต้อง resolve ก่อน export",
+      "timestamp": "2026-06-12T12:13:50.881Z"
+    },
+    "pdf_block": {
+      "blocked": true,
+      "code": "EXPORT_BLOCKED",
+      "status": 400,
+      "message": "Export ถูกบล็อก — มี unresolved BLOCK 2 รายการ ต้อง resolve ก่อน export",
+      "timestamp": "2026-06-12T12:13:50.912Z"
+    },
+    "artifacts": [],
+    "at": "2026-06-12T12:13:50.912Z"
+  },
+  "post_recovery_export": {
+    "export_blocked": true,
+    "export_succeeded": false,
+    "excel_block": {
+      "blocked": true,
+      "code": "EXPORT_BLOCKED",
+      "status": 400,
+      "message": "Export ถูกบล็อก — มี unresolved BLOCK 3 รายการ ต้อง resolve ก่อน export",
+      "timestamp": "2026-06-12T12:13:51.011Z"
+    },
+    "pdf_block": {
+      "blocked": true,
+      "code": "EXPORT_BLOCKED",
+      "status": 400,
+      "message": "Export ถูกบล็อก — มี unresolved BLOCK 3 รายการ ต้อง resolve ก่อน export",
+      "timestamp": "2026-06-12T12:13:51.036Z"
+    },
+    "artifacts": []
+  },
+  "export_blocked": true,
+  "e6_readiness_tier": "Blocked",
+  "report_validation_blocks": 3,
+  "e3_workflow_status": null,
+  "e7_workflow_status": "Draft"
+}

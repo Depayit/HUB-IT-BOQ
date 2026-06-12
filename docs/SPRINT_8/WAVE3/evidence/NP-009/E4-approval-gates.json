@@ -1,0 +1,21 @@
+{
+  "stale_probe": {
+    "succeeded": false,
+    "blocked": true,
+    "code": "VALIDATION_BLOCK",
+    "status": 403,
+    "message": "Stale validation — live BOQ data has 1 critical line failure(s); re-run validation before approval",
+    "timestamp": "2026-06-12T12:13:50.827Z",
+    "at": "2026-06-12T12:13:50.827Z"
+  },
+  "post_recovery_gate": {
+    "unresolved_block_count": 3,
+    "unresolved_approval_block_count": 2,
+    "unresolved_handoff_block_count": 3,
+    "can_approve": false,
+    "can_handoff": false,
+    "block_reason": "มี unresolved BLOCK (approval) 2 รายการ — ต้องแก้ไขหรือ resolve ก่อนอนุมัติ",
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 3 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "can_approve_after_recovery": false
+}
