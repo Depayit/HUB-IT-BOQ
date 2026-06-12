@@ -1,0 +1,66 @@
+{
+  "section": "GOVERNANCE_INTEGRITY_MATRIX",
+  "scenario": "NP-010",
+  "boq_version_id": "a137e6a5-bfd6-47bd-b41d-ec7dd088438e",
+  "closure_allowed": true,
+  "checks": [
+    {
+      "check": "E1/E7 BOQ Version match",
+      "result": "PASS",
+      "detail": "E1=a137e6a5-bfd6-47bd-b41d-ec7dd088438e E7=a137e6a5-bfd6-47bd-b41d-ec7dd088438e canonical=a137e6a5-bfd6-47bd-b41d-ec7dd088438e"
+    },
+    {
+      "check": "E2/E7 consistency",
+      "result": "PASS",
+      "detail": "E2=a137e6a5-bfd6-47bd-b41d-ec7dd088438e E7=a137e6a5-bfd6-47bd-b41d-ec7dd088438e"
+    },
+    {
+      "check": "E4/E8 consistency",
+      "result": "PASS",
+      "detail": "E8 chronological"
+    },
+    {
+      "check": "E9 narrative consistency",
+      "result": "PASS",
+      "detail": "E9 documents block/mismatch"
+    },
+    {
+      "check": "audit chronology",
+      "result": "PASS",
+      "detail": "rows=4"
+    },
+    {
+      "check": "workflow state integrity",
+      "result": "PASS",
+      "detail": "E3 stage=n/a unchanged=true"
+    },
+    {
+      "check": "retry idempotency",
+      "result": "PASS",
+      "detail": "workflow_unchanged=true; handoffs=0; export_blocked=true"
+    }
+  ],
+  "mismatches": [],
+  "overall": "PASS",
+  "retry_sequence": {
+    "approval": [
+      "UNAUTHORIZED_ROLE",
+      "UNAUTHORIZED_ROLE"
+    ],
+    "export": [
+      "EXPORT_BLOCKED",
+      "EXPORT_BLOCKED"
+    ],
+    "handoff": [
+      "BOQ_NOT_LOCKED",
+      "BOQ_NOT_LOCKED"
+    ]
+  },
+  "retryAssessment": {
+    "idempotent": true,
+    "duplicate_success_rows": false,
+    "audit_rows_before": 4,
+    "audit_rows_after": 4,
+    "summary": "workflow_unchanged=true; handoffs=0; export_blocked=true"
+  }
+}

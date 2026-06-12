@@ -1,0 +1,21 @@
+{
+  "boq_version_id": "a137e6a5-bfd6-47bd-b41d-ec7dd088438e",
+  "export_blocked": true,
+  "export_succeeded": false,
+  "export_attempt_1": {
+    "blocked": true,
+    "code": "EXPORT_BLOCKED",
+    "status": 400,
+    "message": "Export ถูกบล็อก — มี unresolved BLOCK 1 รายการ ต้อง resolve ก่อน export",
+    "timestamp": "2026-06-12T12:27:51.216Z"
+  },
+  "export_attempt_2": {
+    "blocked": true,
+    "code": "EXPORT_BLOCKED",
+    "status": 400,
+    "message": "Export ถูกบล็อก — มี unresolved BLOCK 1 รายการ ต้อง resolve ก่อน export",
+    "timestamp": "2026-06-12T12:27:51.240Z"
+  },
+  "artifacts": [],
+  "e6_readiness_tier": "Blocked"
+}

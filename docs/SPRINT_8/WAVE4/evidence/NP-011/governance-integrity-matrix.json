@@ -1,0 +1,82 @@
+{
+  "clean_bundle": {
+    "section": "GOVERNANCE_INTEGRITY_MATRIX",
+    "scenario": "NP-011",
+    "boq_version_id": "d977aaf5-8a3c-45d4-8f91-0473e4f52987",
+    "closure_allowed": true,
+    "checks": [
+      {
+        "check": "E1/E7 BOQ Version match",
+        "result": "PASS",
+        "detail": "E1=d977aaf5-8a3c-45d4-8f91-0473e4f52987 E7=d977aaf5-8a3c-45d4-8f91-0473e4f52987 canonical=d977aaf5-8a3c-45d4-8f91-0473e4f52987"
+      },
+      {
+        "check": "E2/E7 consistency",
+        "result": "PASS",
+        "detail": "E2=d977aaf5-8a3c-45d4-8f91-0473e4f52987 E7=d977aaf5-8a3c-45d4-8f91-0473e4f52987"
+      },
+      {
+        "check": "E4/E8 consistency",
+        "result": "PASS",
+        "detail": "E8 chronological"
+      },
+      {
+        "check": "E9 narrative consistency",
+        "result": "PASS",
+        "detail": "E9 documents block/mismatch"
+      },
+      {
+        "check": "audit chronology",
+        "result": "PASS",
+        "detail": "rows=4"
+      },
+      {
+        "check": "workflow state integrity",
+        "result": "PASS",
+        "detail": "E3 stage=Director Approval unchanged=true"
+      },
+      {
+        "check": "retry idempotency",
+        "result": "PASS",
+        "detail": "N/A for NP-011"
+      }
+    ],
+    "mismatches": [],
+    "overall": "PASS"
+  },
+  "mismatch_probes": [
+    {
+      "probe": "E1 BOQ Version ID differs from E7",
+      "detected": true,
+      "mismatches": [
+        "E1/E7 BOQ Version match: E1=d977aaf5-8a3c-45d4-8f91-0473e4f52987 E7=00000000-0000-4000-8000-000000000099 canonical=d977aaf5-8a3c-45d4-8f91-0473e4f52987",
+        "E2/E7 consistency: E2=d977aaf5-8a3c-45d4-8f91-0473e4f52987 E7=00000000-0000-4000-8000-000000000099"
+      ]
+    },
+    {
+      "probe": "E2 and E7 reference different BOQ snapshots",
+      "detected": true,
+      "mismatches": [
+        "E2/E7 consistency: E2=00000000-0000-4000-8000-000000000099 E7=d977aaf5-8a3c-45d4-8f91-0473e4f52987"
+      ]
+    },
+    {
+      "probe": "E4 rejection exists but E9 claims PASS",
+      "detected": true,
+      "mismatches": [
+        "E9 narrative consistency: E4 documents rejection but E9 claims PASS"
+      ]
+    },
+    {
+      "probe": "E8 audit trail conflicts with chronology",
+      "detected": true,
+      "mismatches": [
+        "E4/E8 consistency: E8 ordering invalid",
+        "audit chronology: rows=2"
+      ]
+    }
+  ],
+  "scenario_closure_attempted_with_contamination": true,
+  "scenario_closure_allowed": false,
+  "auditor_verdict": "BLOCKED — evidence mismatch cannot silently pass review"
+}

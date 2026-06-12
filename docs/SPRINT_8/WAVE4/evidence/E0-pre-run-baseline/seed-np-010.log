@@ -1,0 +1,15 @@
+{
+  "scenario": "NP-010",
+  "projectId": "f2284347-2de6-4d00-8c34-fc721f774480",
+  "boqVersionId": "a137e6a5-bfd6-47bd-b41d-ec7dd088438e",
+  "projectDisciplineId": "48429fa7-6e9f-41ee-8506-223922747ca4",
+  "documentIds": [
+    "2386f0fd-d768-4c2d-9b7c-7a9eb500eb79",
+    "f20112e5-ab9a-43ce-a1b8-656b662362ce",
+    "17008321-373d-4d6f-a349-507620ca09ce"
+  ],
+  "seed_profile": "retry-rejected-action",
+  "primary_personas": [
+    "Admin/Ops"
+  ]
+}

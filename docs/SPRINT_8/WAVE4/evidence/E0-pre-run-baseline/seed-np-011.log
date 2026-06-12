@@ -1,0 +1,18 @@
+{
+  "scenario": "NP-011",
+  "projectId": "cc583df0-6896-49b1-b84f-09d4ef867d96",
+  "boqVersionId": "d977aaf5-8a3c-45d4-8f91-0473e4f52987",
+  "projectDisciplineId": "1bc5d91b-eb52-4298-a827-96be0bab9467",
+  "documentIds": [
+    "ddaa25ef-60e9-4b0a-b81b-da5b3665cab6",
+    "3b8711be-1829-4d85-aa1a-59edcef0493c",
+    "8c3bea78-3b90-4ecc-85ed-e20bd07af8b7"
+  ],
+  "seed_profile": "evidence-mismatch-governance",
+  "primary_personas": [
+    "Auditor"
+  ],
+  "secondary_personas": [
+    "Manager"
+  ]
+}

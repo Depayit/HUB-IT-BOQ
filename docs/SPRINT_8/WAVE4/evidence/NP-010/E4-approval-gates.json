@@ -1,0 +1,62 @@
+{
+  "boq_version_id": "a137e6a5-bfd6-47bd-b41d-ec7dd088438e",
+  "persona": "Admin/Ops",
+  "approval_attempt_1": {
+    "blocked": true,
+    "code": "UNAUTHORIZED_ROLE",
+    "status": 403,
+    "message": "Role Manager ไม่มีสิทธิ์ดำเนินการขั้น Director Approval — ต้องใช้ Director",
+    "timestamp": "2026-06-12T12:27:51.179Z"
+  },
+  "approval_attempt_2": {
+    "blocked": true,
+    "code": "UNAUTHORIZED_ROLE",
+    "status": 403,
+    "message": "Role Manager ไม่มีสิทธิ์ดำเนินการขั้น Director Approval — ต้องใช้ Director",
+    "timestamp": "2026-06-12T12:27:51.186Z"
+  },
+  "approval_retry": {
+    "blocked": true,
+    "code": "UNAUTHORIZED_ROLE",
+    "status": 403,
+    "message": "Role Manager ไม่มีสิทธิ์ดำเนินการขั้น Director Approval — ต้องใช้ Director",
+    "timestamp": "2026-06-12T12:27:51.186Z"
+  },
+  "export_attempt_1": {
+    "blocked": true,
+    "code": "EXPORT_BLOCKED",
+    "status": 400,
+    "message": "Export ถูกบล็อก — มี unresolved BLOCK 1 รายการ ต้อง resolve ก่อน export",
+    "timestamp": "2026-06-12T12:27:51.216Z"
+  },
+  "export_attempt_2": {
+    "blocked": true,
+    "code": "EXPORT_BLOCKED",
+    "status": 400,
+    "message": "Export ถูกบล็อก — มี unresolved BLOCK 1 รายการ ต้อง resolve ก่อน export",
+    "timestamp": "2026-06-12T12:27:51.240Z"
+  },
+  "export_retry": {
+    "blocked": true,
+    "code": "EXPORT_BLOCKED",
+    "status": 400,
+    "message": "Export ถูกบล็อก — มี unresolved BLOCK 1 รายการ ต้อง resolve ก่อน export",
+    "timestamp": "2026-06-12T12:27:51.240Z"
+  },
+  "handoff_attempt_1": {
+    "blocked": true,
+    "code": "BOQ_NOT_LOCKED",
+    "status": 403,
+    "message": "Handoff ต้องการ BOQ ที่ Locked แล้ว",
+    "timestamp": "2026-06-12T12:27:51.244Z"
+  },
+  "handoff_attempt_2": {
+    "blocked": true,
+    "code": "BOQ_NOT_LOCKED",
+    "status": 403,
+    "message": "Handoff ต้องการ BOQ ที่ Locked แล้ว",
+    "timestamp": "2026-06-12T12:27:51.247Z"
+  },
+  "all_retries_blocked": true,
+  "retry_codes_consistent": true
+}
