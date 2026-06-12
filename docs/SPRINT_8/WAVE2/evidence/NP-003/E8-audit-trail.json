@@ -1,0 +1,19 @@
+{
+  "object_type": "boq_version",
+  "object_id": "f6564fbc-d0c6-4707-b685-ccc5dec6c9c8",
+  "row_count": 1,
+  "rows": [
+    {
+      "audit_log_id": "2acfbe60-d5f2-485d-8e4b-61d909f11702",
+      "object_type": "boq_version",
+      "object_id": "f6564fbc-d0c6-4707-b685-ccc5dec6c9c8",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 2 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-12T11:26:56.835Z",
+      "change_reason": "Validation Engine re-run"
+    }
+  ],
+  "m03_note": "Rejected API attempts may not appear in audit_logs — compare E4 vs E8 in E9."
+}

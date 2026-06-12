@@ -1,0 +1,38 @@
+{
+  "boq_version_id": "290e2839-2b0e-46f6-8af4-20a128bd48ac",
+  "export_blocked": false,
+  "export_succeeded": true,
+  "excel_block": null,
+  "pdf_block": null,
+  "e6_readiness_tier": "Ready",
+  "td_7b_003": {
+    "debt_id": "TD-7B-003",
+    "title": "Handoff readiness / export gate alignment",
+    "scenario": "NP-004",
+    "expected_behavior": "Readiness/export gates should reflect handoff completeness OR layer separation must be documented",
+    "actual_behavior": {
+      "e6_readiness_tier": "Ready",
+      "e6_unresolved_blocks": 0,
+      "handoff_blocked": true,
+      "handoff_block_code": "HANDOFF_TARGET_REQUIRED",
+      "handoff_record_count": 0,
+      "export_blocked": false,
+      "export_block_code": null,
+      "export_succeeded": true
+    },
+    "matches_current_architecture": "Yes — reproduces SIM-007 layer separation (validation-only export gate post-lock)",
+    "confirms_or_contradicts_td_7b_003": "CONFIRMS — export may proceed while handoff layer blocks (TD-7B-003 remains open)",
+    "td_7b_003_closed": false,
+    "note": "Evidence only — TD-7B-003 must not be silently closed in Wave 2"
+  },
+  "artifacts": [
+    {
+      "type": "xlsx",
+      "bytes": 10716
+    },
+    {
+      "type": "pdf",
+      "bytes": 2412
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "blocked_attempt": {
+    "blocked": true,
+    "code": "DESIGN_BASIS_NOT_APPROVED",
+    "status": 403,
+    "message": "ไม่สามารถอนุมัติ BOQ ได้ — Design Basis ล่าสุดต้องมีสถานะ Approved ก่อน",
+    "timestamp": "2026-06-12T11:27:38.812Z"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "handoff_records": [],
+  "blocked_attempt": {
+    "blocked": true,
+    "code": "BOQ_NOT_LOCKED",
+    "status": 403,
+    "message": "Handoff ต้องการ BOQ ที่ Locked แล้ว",
+    "timestamp": "2026-06-12T11:26:56.886Z"
+  },
+  "record_count": 0
+}

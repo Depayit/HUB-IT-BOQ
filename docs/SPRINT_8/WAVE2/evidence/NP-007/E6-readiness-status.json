@@ -1,0 +1,20 @@
+{
+  "tier": "Blocked",
+  "validation_run": true,
+  "validation_status": "Blocked (2 unresolved)",
+  "finding_count": 3,
+  "unresolved_block_count": 2,
+  "open_warning_count": 1,
+  "can_approve": false,
+  "can_handoff": false,
+  "gate": {
+    "unresolved_block_count": 2,
+    "unresolved_approval_block_count": 1,
+    "unresolved_handoff_block_count": 2,
+    "can_approve": false,
+    "can_handoff": false,
+    "block_reason": "มี unresolved BLOCK (approval) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อนอนุมัติ",
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 2 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "block_dominates": true
+}

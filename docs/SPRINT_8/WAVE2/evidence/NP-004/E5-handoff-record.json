@@ -1,0 +1,11 @@
+{
+  "record_count": 0,
+  "blocked_attempt": {
+    "blocked": true,
+    "code": "HANDOFF_TARGET_REQUIRED",
+    "status": 403,
+    "message": "Handoff ต้องระบุ handoff_target (Procurement, Construction, ClientHandover)",
+    "timestamp": "2026-06-12T11:27:01.692Z"
+  },
+  "retry_remains_blocked": true
+}

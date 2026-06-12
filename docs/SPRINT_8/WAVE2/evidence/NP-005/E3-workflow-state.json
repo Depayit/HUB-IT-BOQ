@@ -1,0 +1,20 @@
+{
+  "after_reopen_attempt": {
+    "approval_workflow_id": "9ae1bd2f-69ae-4a3e-af49-c614fcc84687",
+    "boq_version_id": "e922f1f5-f8f5-40e4-805f-6c9e03a11006",
+    "current_stage": "Final Lock",
+    "workflow_status": "Completed",
+    "engineer_reviewed_by": "engineer-001@wave2",
+    "engineer_reviewed_at": "2026-06-12T11:27:08.841Z",
+    "manager_approved_by": "manager-001@wave2",
+    "manager_approved_at": "2026-06-12T11:27:08.859Z",
+    "director_approved_by": "director-001@wave2",
+    "director_approved_at": "2026-06-12T11:27:08.879Z",
+    "final_locked_by": "director-001@wave2",
+    "final_locked_at": "2026-06-12T11:27:08.879Z",
+    "rejection_reason": null,
+    "created_at": "2026-06-12T11:27:08.821Z",
+    "updated_at": "2026-06-12T11:27:08.885Z"
+  },
+  "lock_preserved": true
+}

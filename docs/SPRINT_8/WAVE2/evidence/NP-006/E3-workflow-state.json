@@ -1,0 +1,37 @@
+{
+  "before_revoke": {
+    "approval_workflow_id": "f17e610c-20e4-4ebf-b3c2-8e4b2588231a",
+    "boq_version_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+    "current_stage": "Final Lock",
+    "workflow_status": "Completed",
+    "engineer_reviewed_by": "engineer-001@wave2",
+    "engineer_reviewed_at": "2026-06-12T11:27:12.782Z",
+    "manager_approved_by": "manager-001@wave2",
+    "manager_approved_at": "2026-06-12T11:27:12.818Z",
+    "director_approved_by": "director-001@wave2",
+    "director_approved_at": "2026-06-12T11:27:12.837Z",
+    "final_locked_by": "director-001@wave2",
+    "final_locked_at": "2026-06-12T11:27:12.837Z",
+    "rejection_reason": null,
+    "created_at": "2026-06-12T11:27:12.762Z",
+    "updated_at": "2026-06-12T11:27:12.846Z"
+  },
+  "after_revoke": {
+    "approval_workflow_id": "f17e610c-20e4-4ebf-b3c2-8e4b2588231a",
+    "boq_version_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+    "current_stage": "Director Approval",
+    "workflow_status": "InProgress",
+    "engineer_reviewed_by": "engineer-001@wave2",
+    "engineer_reviewed_at": "2026-06-12T11:27:12.782Z",
+    "manager_approved_by": "manager-001@wave2",
+    "manager_approved_at": "2026-06-12T11:27:12.818Z",
+    "director_approved_by": "director-001@wave2",
+    "director_approved_at": "2026-06-12T11:27:12.837Z",
+    "final_locked_by": null,
+    "final_locked_at": null,
+    "rejection_reason": null,
+    "created_at": "2026-06-12T11:27:12.762Z",
+    "updated_at": "2026-06-12T11:27:12.924Z"
+  },
+  "revoke_at": "2026-06-12T11:27:12.916Z"
+}

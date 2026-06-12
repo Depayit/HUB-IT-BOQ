@@ -1,0 +1,96 @@
+{
+  "object_type": "boq_version",
+  "object_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+  "row_count": 8,
+  "rows": [
+    {
+      "audit_log_id": "dd311405-d031-45d7-8f56-3fa86266b62e",
+      "object_type": "boq_version",
+      "object_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 1 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-12T11:27:12.551Z",
+      "change_reason": "Validation Engine re-run"
+    },
+    {
+      "audit_log_id": "66d0b752-8cf2-46d7-bf1c-3575a5bd07f6",
+      "object_type": "boq_version",
+      "object_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 1 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-12T11:27:12.613Z",
+      "change_reason": "Validation Engine re-run"
+    },
+    {
+      "audit_log_id": "90a8d1a2-d888-4289-97e9-a8b2c261addb",
+      "object_type": "boq_version",
+      "object_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+      "action_type": "approve",
+      "old_value": null,
+      "new_value": "Engineer Review",
+      "changed_by": "engineer-001@wave2",
+      "changed_at": "2026-06-12T11:27:12.768Z",
+      "change_reason": "Advance to Engineer Review by Engineer"
+    },
+    {
+      "audit_log_id": "b7c315ef-4d45-431d-b5a2-49cf2976768a",
+      "object_type": "boq_version",
+      "object_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+      "action_type": "approve",
+      "old_value": "Engineer Review",
+      "new_value": "Manager Approval",
+      "changed_by": "engineer-001@wave2",
+      "changed_at": "2026-06-12T11:27:12.792Z",
+      "change_reason": "Advance to Manager Approval by Engineer"
+    },
+    {
+      "audit_log_id": "6ebe59ad-b0a7-4f42-be8f-696e0794ca2d",
+      "object_type": "boq_version",
+      "object_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+      "action_type": "approve",
+      "old_value": "Manager Approval",
+      "new_value": "Director Approval",
+      "changed_by": "manager-001@wave2",
+      "changed_at": "2026-06-12T11:27:12.827Z",
+      "change_reason": "Advance to Director Approval by Manager"
+    },
+    {
+      "audit_log_id": "5ae5806a-f880-42b6-ab4e-77c16f254285",
+      "object_type": "boq_version",
+      "object_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+      "action_type": "lock",
+      "old_value": "Director Approval",
+      "new_value": "Final Lock",
+      "changed_by": "director-001@wave2",
+      "changed_at": "2026-06-12T11:27:12.851Z",
+      "change_reason": "Advance to Final Lock by Director"
+    },
+    {
+      "audit_log_id": "a05e86b4-fe65-498c-876a-9a6c6d69647c",
+      "object_type": "boq_version",
+      "object_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 0 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-12T11:27:12.899Z",
+      "change_reason": "Validation Engine re-run"
+    },
+    {
+      "audit_log_id": "e0d050ee-619e-413d-9b60-7992ab01981e",
+      "object_type": "boq_version",
+      "object_id": "4d11f417-747e-4745-8ec9-6918ed6738cb",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 2 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-12T11:27:12.974Z",
+      "change_reason": "Validation Engine re-run"
+    }
+  ],
+  "m03_note": "Rejected API attempts may not appear in audit_logs — compare E4 vs E8 in E9."
+}

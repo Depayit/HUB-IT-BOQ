@@ -1,0 +1,15 @@
+{
+  "post_edit_attempt": {
+    "validation_results": [],
+    "workflow_gate": {
+      "unresolved_block_count": 0,
+      "unresolved_approval_block_count": 0,
+      "unresolved_handoff_block_count": 0,
+      "can_approve": true,
+      "can_handoff": true,
+      "block_reason": null,
+      "handoff_block_reason": null
+    },
+    "edit_block_code": "BOQ_LOCKED"
+  }
+}

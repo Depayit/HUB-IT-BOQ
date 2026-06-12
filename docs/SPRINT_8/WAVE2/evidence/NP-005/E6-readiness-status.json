@@ -1,0 +1,19 @@
+{
+  "tier": "Ready",
+  "validation_run": true,
+  "validation_status": "Pass",
+  "finding_count": 0,
+  "unresolved_block_count": 0,
+  "open_warning_count": 0,
+  "can_approve": true,
+  "can_handoff": true,
+  "gate": {
+    "unresolved_block_count": 0,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 0,
+    "can_approve": true,
+    "can_handoff": true,
+    "block_reason": null,
+    "handoff_block_reason": null
+  }
+}

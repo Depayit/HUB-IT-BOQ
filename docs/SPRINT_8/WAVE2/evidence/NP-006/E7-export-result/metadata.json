@@ -1,0 +1,20 @@
+{
+  "export_blocked": true,
+  "revoke_timestamp": "2026-06-12T11:27:12.916Z",
+  "excel_block": {
+    "blocked": true,
+    "code": "EXPORT_BLOCKED",
+    "status": 400,
+    "message": "Export ถูกบล็อก — มี unresolved BLOCK 2 รายการ ต้อง resolve ก่อน export",
+    "timestamp": "2026-06-12T11:27:13.044Z"
+  },
+  "pdf_block": {
+    "blocked": true,
+    "code": "EXPORT_BLOCKED",
+    "status": 400,
+    "message": "Export ถูกบล็อก — มี unresolved BLOCK 2 รายการ ต้อง resolve ก่อน export",
+    "timestamp": "2026-06-12T11:27:13.103Z"
+  },
+  "e6_readiness_tier": "Blocked",
+  "artifacts": []
+}

@@ -96,3 +96,16 @@ Backend enforces approval role via `advanceApprovalSchema` → `approvalService.
 | `DOC_SPEC_HANDOFF` | Procurement handoff เท่านั้น |
 | `DISCIPLINE_NO_LINES` | BOQ approval |
 | `CRITICAL_LINE_ZERO_COST` | BOQ approval + handoff |
+
+---
+
+## 5. Sprint 8 Wave 2 simulation
+
+Local PostgreSQL required (`DATABASE_URL` in `.env`). Run:
+
+```bash
+node scripts/run-s8-wave2-official.mjs
+node scripts/verify-s8-wave2-artifacts.mjs
+```
+
+Evidence: `docs/SPRINT_8/WAVE2/`

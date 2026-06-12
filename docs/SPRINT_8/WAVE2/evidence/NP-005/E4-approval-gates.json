@@ -1,0 +1,9 @@
+{
+  "edit_attempt": {
+    "blocked": true,
+    "code": "BOQ_LOCKED",
+    "status": 403,
+    "message": "BOQ ถูกล็อก — ไม่สามารถแก้ไขได้",
+    "timestamp": "2026-06-12T11:27:08.971Z"
+  }
+}

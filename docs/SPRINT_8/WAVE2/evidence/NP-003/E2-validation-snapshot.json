@@ -1,0 +1,54 @@
+{
+  "boq_version_id": "f6564fbc-d0c6-4707-b685-ccc5dec6c9c8",
+  "validation_results": [
+    {
+      "validation_result_id": "c9f792a8-df44-4488-af5b-7283a221bee0",
+      "boq_version_id": "f6564fbc-d0c6-4707-b685-ccc5dec6c9c8",
+      "validation_rule_id": "3ee0d8b4-df5d-4f92-ac8b-4acc8d4daf38",
+      "rule_code": "DESIGN_BASIS_NOT_APPROVED",
+      "rule_group": "Governance",
+      "severity": "BLOCK",
+      "target_object_type": "design_basis_version",
+      "target_object_id": "f7d9d8c1-fa27-4c26-9108-6338c7c0a219",
+      "message": "Design Basis v1: Design Basis สถานะ Draft — ต้อง Approved ก่อนอนุมัติ BOQ",
+      "result_status": "Fail",
+      "override_reason": null,
+      "resolved_flag": false,
+      "resolved_by": null,
+      "resolved_at": null,
+      "created_at": "2026-06-12T11:26:56.812Z",
+      "updated_at": "2026-06-12T11:26:56.812Z"
+    },
+    {
+      "validation_result_id": "99482cd5-371b-421c-8ca9-4984874a57bc",
+      "boq_version_id": "f6564fbc-d0c6-4707-b685-ccc5dec6c9c8",
+      "validation_rule_id": "946b0ab8-c753-4cf5-ad76-13966b49a1e8",
+      "rule_code": "HANDOFF_WITHOUT_LOCK",
+      "rule_group": "Governance",
+      "severity": "BLOCK",
+      "target_object_type": "boq_version",
+      "target_object_id": "f6564fbc-d0c6-4707-b685-ccc5dec6c9c8",
+      "message": "BOQ ต้อง Locked ก่อน handoff",
+      "result_status": "Fail",
+      "override_reason": null,
+      "resolved_flag": false,
+      "resolved_by": null,
+      "resolved_at": null,
+      "created_at": "2026-06-12T11:26:56.812Z",
+      "updated_at": "2026-06-12T11:26:56.812Z"
+    }
+  ],
+  "workflow_gate": {
+    "unresolved_block_count": 2,
+    "unresolved_approval_block_count": 1,
+    "unresolved_handoff_block_count": 2,
+    "can_approve": false,
+    "can_handoff": false,
+    "block_reason": "มี unresolved BLOCK (approval) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อนอนุมัติ",
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 2 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "open_block_rule_codes": [
+    "DESIGN_BASIS_NOT_APPROVED",
+    "HANDOFF_WITHOUT_LOCK"
+  ]
+}

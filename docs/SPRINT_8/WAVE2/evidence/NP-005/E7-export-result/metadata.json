@@ -1,0 +1,15 @@
+{
+  "export_blocked": false,
+  "export_succeeded": true,
+  "edit_block_code": "BOQ_LOCKED",
+  "artifacts": [
+    {
+      "type": "xlsx",
+      "bytes": 10711
+    },
+    {
+      "type": "pdf",
+      "bytes": 2399
+    }
+  ]
+}
