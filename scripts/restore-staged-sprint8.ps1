@@ -4,13 +4,10 @@
 # Usage (from repo root):
 #   powershell -File scripts/restore-staged-sprint8.ps1
 
-$ErrorActionPreference = "Stop"
-Set-Location (Split-Path (Split-Path $PSScriptRoot -Parent) -Leaf) 2>$null
+$repoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
+Set-Location $repoRoot
 if (-not (Test-Path ".git")) {
-  Set-Location $PSScriptRoot\..
-}
-if (-not (Test-Path ".git")) {
-  throw "Run from HUB IT BOQ repo root"
+  throw "Run from HUB IT BOQ repo root (expected .git at $repoRoot)"
 }
 
 $paths = @(
