@@ -1,0 +1,153 @@
+{
+  "boq_version_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+  "project_id": "79f64f5a-d48a-40fc-9615-5f80adf13bef",
+  "scenario": "SIM-005",
+  "seed_profile": "discipline-block",
+  "manifest_source": "docs/SPRINT_7A/scenario-seed-manifest.json",
+  "project": {
+    "project_id": "79f64f5a-d48a-40fc-9615-5f80adf13bef",
+    "client_id": "SIM-005-CLIENT",
+    "opportunity_id": null,
+    "project_name": "SIM-005 Missing Discipline Block Project",
+    "location": null,
+    "project_type": "Datacenter",
+    "it_load_kw": "1500",
+    "rack_count": 100,
+    "rack_density_kw_per_rack": "15",
+    "tier_target": "Tier III",
+    "sla_target": null,
+    "currency": "THB",
+    "vat_option": null,
+    "project_status": "Active",
+    "created_at": "2026-06-11T18:13:14.667Z",
+    "updated_at": "2026-06-11T18:13:14.667Z"
+  },
+  "boqVersion": {
+    "boq_version_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+    "project_id": "79f64f5a-d48a-40fc-9615-5f80adf13bef",
+    "version_no": 1,
+    "status": "Draft",
+    "lock_status": "Unlocked",
+    "previous_boq_version_id": null,
+    "change_reason": null,
+    "delta_cost": null,
+    "delta_selling_price": null,
+    "created_at": "2026-06-11T18:13:18.513Z",
+    "updated_at": "2026-06-11T18:13:18.513Z"
+  },
+  "designBasis": [
+    {
+      "design_basis_version_id": "1aea5691-9ad5-4822-bf09-7bf195dc7bb5",
+      "project_id": "79f64f5a-d48a-40fc-9615-5f80adf13bef",
+      "design_version_no": 1,
+      "it_load_assumption_kw": "1500",
+      "rack_count_assumption": 100,
+      "rack_density_assumption": "15",
+      "power_architecture": "2N redundant",
+      "cooling_architecture": "N+1 chilled water",
+      "fire_protection_assumption": "FM-200",
+      "monitoring_assumption": "DCIM with BMS",
+      "redundancy_assumption": "2N power, N+1 cooling",
+      "technical_compliance_basis": "Uptime Institute Tier III",
+      "customer_requirement_reference": "RFP-2026-005",
+      "approval_status": "Approved",
+      "created_at": "2026-06-11T18:13:15.271Z",
+      "updated_at": "2026-06-11T18:13:15.271Z"
+    }
+  ],
+  "documents": [
+    {
+      "document_id": "b3364323-b15f-41f4-b86f-d879bdf81f79",
+      "project_id": "79f64f5a-d48a-40fc-9615-5f80adf13bef",
+      "document_type": "TOR",
+      "document_name": "Terms of Reference v1.0",
+      "file_link": null,
+      "version_no": "1.0",
+      "document_status": "Active",
+      "related_workflow_stage": null,
+      "created_at": "2026-06-11T18:13:15.867Z",
+      "updated_at": "2026-06-11T18:13:15.867Z"
+    },
+    {
+      "document_id": "9984585f-50fb-4469-82f4-65e80b2a4bc3",
+      "project_id": "79f64f5a-d48a-40fc-9615-5f80adf13bef",
+      "document_type": "SLD",
+      "document_name": "Single Line Diagram v1.0",
+      "file_link": null,
+      "version_no": "1.0",
+      "document_status": "Active",
+      "related_workflow_stage": null,
+      "created_at": "2026-06-11T18:13:15.867Z",
+      "updated_at": "2026-06-11T18:13:15.867Z"
+    },
+    {
+      "document_id": "804927d9-b214-4837-8df7-65c8335434b2",
+      "project_id": "79f64f5a-d48a-40fc-9615-5f80adf13bef",
+      "document_type": "Specification",
+      "document_name": "Technical Specification v1.0",
+      "file_link": null,
+      "version_no": "1.0",
+      "document_status": "Active",
+      "related_workflow_stage": null,
+      "created_at": "2026-06-11T18:13:15.867Z",
+      "updated_at": "2026-06-11T18:13:15.867Z"
+    }
+  ],
+  "boqDocLinks": [
+    {
+      "boq_version_document_id": "9d084d70-589c-4678-8bdd-fa19ac221a68",
+      "boq_version_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+      "document_id": "b3364323-b15f-41f4-b86f-d879bdf81f79",
+      "dependency_type": "Engineer Review",
+      "is_required": true,
+      "dependency_status": "Satisfied",
+      "created_at": "2026-06-11T18:13:19.170Z",
+      "updated_at": "2026-06-11T18:13:19.170Z"
+    },
+    {
+      "boq_version_document_id": "baf8347d-a2ab-4956-af87-6050e0a8a892",
+      "boq_version_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+      "document_id": "9984585f-50fb-4469-82f4-65e80b2a4bc3",
+      "dependency_type": "Engineer Review",
+      "is_required": true,
+      "dependency_status": "Satisfied",
+      "created_at": "2026-06-11T18:13:19.170Z",
+      "updated_at": "2026-06-11T18:13:19.170Z"
+    },
+    {
+      "boq_version_document_id": "38d71078-a143-449a-ad89-4c180a24dfae",
+      "boq_version_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+      "document_id": "804927d9-b214-4837-8df7-65c8335434b2",
+      "dependency_type": "Handoff",
+      "is_required": true,
+      "dependency_status": "Satisfied",
+      "created_at": "2026-06-11T18:13:19.170Z",
+      "updated_at": "2026-06-11T18:13:19.170Z"
+    }
+  ],
+  "projectDisciplines": [
+    {
+      "project_discipline_id": "409b41ff-e3f1-4947-bbdf-0d47c5cc3b5b",
+      "project_id": "79f64f5a-d48a-40fc-9615-5f80adf13bef",
+      "boq_version_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+      "discipline_id": "6788dca2-b9be-4745-8010-63292f6e7b5b",
+      "included_flag": true,
+      "scope_description": "Electrical power distribution scope — UPS, PDU, switchgear, transformer for 1500kW IT load (2N).",
+      "exclusion_note": null,
+      "risk_level": "Medium",
+      "created_at": "2026-06-11T18:13:20.706Z",
+      "updated_at": "2026-06-11T18:13:20.706Z",
+      "discipline": {
+        "discipline_id": "6788dca2-b9be-4745-8010-63292f6e7b5b",
+        "discipline_code": "PWR",
+        "discipline_name": "Power",
+        "description": "Electrical power distribution, UPS, PDU, and grounding",
+        "is_active": true,
+        "created_at": "2026-06-03T16:15:42.213Z",
+        "updated_at": "2026-06-11T18:13:09.655Z"
+      }
+    }
+  ],
+  "boqLines": [],
+  "boqSummary": null
+}

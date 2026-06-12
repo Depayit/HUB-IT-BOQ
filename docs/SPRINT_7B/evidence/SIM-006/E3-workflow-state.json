@@ -1,0 +1,71 @@
+{
+  "boq_version_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+  "workflow": {
+    "approval_workflow_id": "0f4a6c14-59ee-4d56-b6ab-9c3488918093",
+    "boq_version_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+    "current_stage": "Manager Approval",
+    "workflow_status": "InProgress",
+    "engineer_reviewed_by": "engineer-001@sim006",
+    "engineer_reviewed_at": "2026-06-12T07:43:52.769Z",
+    "manager_approved_by": null,
+    "manager_approved_at": null,
+    "director_approved_by": null,
+    "director_approved_at": null,
+    "final_locked_by": null,
+    "final_locked_at": null,
+    "rejection_reason": null,
+    "created_at": "2026-06-12T07:43:50.538Z",
+    "updated_at": "2026-06-12T07:43:52.771Z"
+  },
+  "setup_results": [
+    {
+      "step": 1,
+      "actor": "engineer-001@sim006",
+      "role": "Engineer",
+      "expectedNext": "Engineer Review",
+      "result": {
+        "approval_workflow_id": "0f4a6c14-59ee-4d56-b6ab-9c3488918093",
+        "boq_version_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+        "current_stage": "Engineer Review",
+        "workflow_status": "InProgress",
+        "engineer_reviewed_by": "engineer-001@sim006",
+        "engineer_reviewed_at": "2026-06-12T07:43:50.536Z",
+        "manager_approved_by": null,
+        "manager_approved_at": null,
+        "director_approved_by": null,
+        "director_approved_at": null,
+        "final_locked_by": null,
+        "final_locked_at": null,
+        "rejection_reason": null,
+        "created_at": "2026-06-12T07:43:50.538Z",
+        "updated_at": "2026-06-12T07:43:50.538Z"
+      }
+    },
+    {
+      "step": 2,
+      "actor": "engineer-001@sim006",
+      "role": "Engineer",
+      "expectedNext": "Manager Approval",
+      "result": {
+        "approval_workflow_id": "0f4a6c14-59ee-4d56-b6ab-9c3488918093",
+        "boq_version_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+        "current_stage": "Manager Approval",
+        "workflow_status": "InProgress",
+        "engineer_reviewed_by": "engineer-001@sim006",
+        "engineer_reviewed_at": "2026-06-12T07:43:52.769Z",
+        "manager_approved_by": null,
+        "manager_approved_at": null,
+        "director_approved_by": null,
+        "director_approved_at": null,
+        "final_locked_by": null,
+        "final_locked_at": null,
+        "rejection_reason": null,
+        "created_at": "2026-06-12T07:43:50.538Z",
+        "updated_at": "2026-06-12T07:43:52.771Z"
+      }
+    }
+  ],
+  "note": "Workflow remains at Manager Approval after unauthorized Engineer advance attempts.",
+  "boq_status": "Draft",
+  "boq_lock_status": "Unlocked"
+}

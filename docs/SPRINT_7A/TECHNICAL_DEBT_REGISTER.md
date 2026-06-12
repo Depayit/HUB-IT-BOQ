@@ -1,6 +1,6 @@
 # Technical Debt Register — HUB IT BOQ V3
 
-Last updated: Sprint 7A Rev.1 / S7B-0 Baseline Reconciliation
+Last updated: Sprint 7 Closure (S7B) / 2026-06-12
 Principle: **No Evidence = Not Done** · **Governance before Automation**
 
 Status legend: `OPEN` · `IN PROGRESS` · `CLOSED` · `ACCEPTED (carry to S7B)`
@@ -42,3 +42,13 @@ Status legend: `OPEN` · `IN PROGRESS` · `CLOSED` · `ACCEPTED (carry to S7B)`
 ## Register summary (TD-7A-001..011)
 
 → **10 CLOSED + 1 ACCEPTED + 0 OPEN / IN PROGRESS**
+
+## Sprint 7B Closure Addendum (2026-06-12)
+
+| TD ID | Title | Owner | Action | Evidence to Close | Status |
+|-------|-------|-------|--------|-------------------|--------|
+| TD-7B-003 | Handoff readiness / export gate alignment | Architecture / Handoff | Align readiness/export gate with handoff completeness OR document explicit layer separation as SSOT | SIM-007 re-run or alignment contract tests + E7 evidence showing consistent tier | **ACCEPTED (carry to S8–S9 or before S10)** |
+
+Closure evidence: `docs/SPRINT_7B/CLOSURE/TECHNICAL_DEBT_AND_CARRYOVER_SUMMARY.md` · SIM-007 E1–E9 · M-06 micro-fix (131 tests)
+
+**Not closed at Sprint 7:** TD-7B-003, M-03, M-07, TD-7A-009, AI-01, AI-04, ERP-V2

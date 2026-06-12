@@ -1,0 +1,45 @@
+{
+  "boq_version_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+  "project_id": "e474a78b-1537-4285-af11-26a03cec1afc",
+  "expected_outcome": "blocked",
+  "no_official_export_artifacts": true,
+  "xlsx_generated": false,
+  "pdf_generated": false,
+  "blocked_export_response": {
+    "excel": {
+      "blocked": true,
+      "code": "EXPORT_BLOCKED",
+      "status": 400,
+      "message": "Export ถูกบล็อก — มี unresolved BLOCK 1 รายการ ต้อง resolve ก่อน export",
+      "timestamp": "2026-06-12T07:44:10.132Z"
+    },
+    "pdf": {
+      "blocked": true,
+      "code": "EXPORT_BLOCKED",
+      "status": 400,
+      "message": "Export ถูกบล็อก — มี unresolved BLOCK 1 รายการ ต้อง resolve ก่อน export",
+      "timestamp": "2026-06-12T07:44:15.194Z"
+    }
+  },
+  "authority_alignment_with_e2": {
+    "e2_can_approve": true,
+    "e2_unresolved_block_count": 1,
+    "export_blocked_despite_clean_approval_validation": true,
+    "note": "Export gate uses unresolved BLOCK count (e.g. HANDOFF_WITHOUT_LOCK pre-lock); authority block is separate (E4)."
+  },
+  "report_validation_snapshot": {
+    "validation_status": "Blocked (1 unresolved)",
+    "ready_status": "Blocked",
+    "unresolved_blocks": 1,
+    "can_approve": true,
+    "can_handoff": false
+  },
+  "e2_consistency": {
+    "e2_unresolved_block_count": 1,
+    "e7_unresolved_blocks": 1,
+    "export_message_block_count": 1,
+    "matches": true
+  },
+  "requestId_traceId_note": "Not supported on AppError — deferred M-07 (S9/S10/V2)",
+  "note": "No xlsx/pdf files generated; EXPORT_BLOCKED 400 captured."
+}

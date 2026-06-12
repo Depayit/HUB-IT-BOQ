@@ -1,0 +1,47 @@
+{
+  "object_type": "boq_version",
+  "object_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+  "row_count": 3,
+  "rows": [
+    {
+      "audit_log_id": "779458c6-7f33-45af-abbc-4dd75005bde8",
+      "object_type": "boq_version",
+      "object_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+      "action_type": "update",
+      "old_value": null,
+      "new_value": "validation_run: 1 findings",
+      "changed_by": "system",
+      "changed_at": "2026-06-12T07:43:45.799Z",
+      "change_reason": "Validation Engine re-run"
+    },
+    {
+      "audit_log_id": "ab12651f-8752-4b33-b6e4-69a8b0224c84",
+      "object_type": "boq_version",
+      "object_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+      "action_type": "approve",
+      "old_value": null,
+      "new_value": "Engineer Review",
+      "changed_by": "engineer-001@sim006",
+      "changed_at": "2026-06-12T07:43:51.099Z",
+      "change_reason": "Advance to Engineer Review by Engineer"
+    },
+    {
+      "audit_log_id": "c3f3b16b-5773-4cb3-8a26-89173a92b345",
+      "object_type": "boq_version",
+      "object_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+      "action_type": "approve",
+      "old_value": "Engineer Review",
+      "new_value": "Manager Approval",
+      "changed_by": "engineer-001@sim006",
+      "changed_at": "2026-06-12T07:43:53.342Z",
+      "change_reason": "Advance to Manager Approval by Engineer"
+    }
+  ],
+  "authority_rejection_audit_note": "Rejected unauthorized approval attempts do not produce additional approve rows (M-03).",
+  "block_evidence_summary": {
+    "validation_run_rows": 1,
+    "authorize_setup_approve_rows": 2,
+    "handoff_rows": 0,
+    "unauthorized_attempt_audit_rows": 0
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "boq_version_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+  "validation_results": [
+    {
+      "validation_result_id": "8cdfd630-7c70-4198-927a-7a70fe9a3eb4",
+      "boq_version_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+      "validation_rule_id": "d40b49cd-b933-473a-8096-6651e794189c",
+      "rule_code": "DISCIPLINE_NO_LINES",
+      "rule_group": "Discipline",
+      "severity": "BLOCK",
+      "target_object_type": "project_discipline",
+      "target_object_id": "409b41ff-e3f1-4947-bbdf-0d47c5cc3b5b",
+      "message": "PWR (Power): included discipline must have at least one BOQ line",
+      "result_status": "Fail",
+      "override_reason": null,
+      "resolved_flag": false,
+      "resolved_by": null,
+      "resolved_at": null,
+      "created_at": "2026-06-11T18:13:44.617Z",
+      "updated_at": "2026-06-11T18:13:44.617Z"
+    },
+    {
+      "validation_result_id": "3b12c0c7-7041-4dfd-a184-696aaf1b9953",
+      "boq_version_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+      "validation_rule_id": "25780a96-381f-4319-ac92-e6336b9e0bde",
+      "rule_code": "HANDOFF_WITHOUT_LOCK",
+      "rule_group": "Governance",
+      "severity": "BLOCK",
+      "target_object_type": "boq_version",
+      "target_object_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+      "message": "BOQ ต้อง Locked ก่อน handoff",
+      "result_status": "Fail",
+      "override_reason": null,
+      "resolved_flag": false,
+      "resolved_by": null,
+      "resolved_at": null,
+      "created_at": "2026-06-11T18:13:44.617Z",
+      "updated_at": "2026-06-11T18:13:44.617Z"
+    }
+  ],
+  "workflow_gate": {
+    "unresolved_block_count": 2,
+    "unresolved_approval_block_count": 1,
+    "unresolved_handoff_block_count": 2,
+    "can_approve": false,
+    "can_handoff": false,
+    "block_reason": "มี unresolved BLOCK (approval) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อนอนุมัติ",
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 2 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "validation_summary": {
+    "validation_run": true,
+    "validation_status": "Blocked (2 unresolved)",
+    "finding_count": 2,
+    "unresolved_block_count": 2,
+    "can_approve": false,
+    "can_handoff": false
+  },
+  "expected_block_rules": [
+    "DISCIPLINE_NO_LINES"
+  ],
+  "open_block_rules": [
+    "DISCIPLINE_NO_LINES",
+    "HANDOFF_WITHOUT_LOCK"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "boq_version_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+  "validation_results": [
+    {
+      "validation_result_id": "5bad91af-92c0-41a5-9482-d2a2773ceaf3",
+      "boq_version_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+      "validation_rule_id": "25780a96-381f-4319-ac92-e6336b9e0bde",
+      "rule_code": "HANDOFF_WITHOUT_LOCK",
+      "rule_group": "Governance",
+      "severity": "BLOCK",
+      "target_object_type": "boq_version",
+      "target_object_id": "5de7fdf4-0a1e-424c-9415-799cc6e03fa6",
+      "message": "BOQ ต้อง Locked ก่อน handoff",
+      "result_status": "Fail",
+      "override_reason": null,
+      "resolved_flag": false,
+      "resolved_by": null,
+      "resolved_at": null,
+      "created_at": "2026-06-12T07:43:44.956Z",
+      "updated_at": "2026-06-12T07:43:44.956Z"
+    }
+  ],
+  "workflow_gate": {
+    "unresolved_block_count": 1,
+    "unresolved_approval_block_count": 0,
+    "unresolved_handoff_block_count": 1,
+    "can_approve": true,
+    "can_handoff": false,
+    "block_reason": null,
+    "handoff_block_reason": "มี unresolved BLOCK (handoff) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อน handoff"
+  },
+  "validation_summary": {
+    "validation_run": true,
+    "validation_status": "Blocked (1 unresolved)",
+    "finding_count": 1,
+    "unresolved_block_count": 1,
+    "can_approve": true,
+    "can_handoff": false
+  },
+  "expected_authority_rule": "UNAUTHORIZED_ROLE",
+  "open_block_rules": [
+    "HANDOFF_WITHOUT_LOCK"
+  ],
+  "approval_blocking_rules_present": [],
+  "note": "Authority conflict is not a validation rule — E4 captures UNAUTHORIZED_ROLE."
+}

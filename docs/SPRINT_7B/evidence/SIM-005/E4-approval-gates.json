@@ -1,0 +1,27 @@
+{
+  "boq_version_id": "95893441-3c00-4fb1-80eb-cea0a27ecf9e",
+  "expected_outcome": "blocked",
+  "no_false_approval": true,
+  "approval_rejection_evidence": {
+    "attempt_1": {
+      "blocked": true,
+      "code": "VALIDATION_BLOCK",
+      "status": 403,
+      "message": "มี unresolved BLOCK (approval) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อนอนุมัติ",
+      "timestamp": "2026-06-11T18:13:49.243Z"
+    },
+    "attempt_2": {
+      "blocked": true,
+      "code": "VALIDATION_BLOCK",
+      "status": 403,
+      "message": "มี unresolved BLOCK (approval) 1 รายการ — ต้องแก้ไขหรือ resolve ก่อนอนุมัติ",
+      "timestamp": "2026-06-11T18:13:49.815Z"
+    }
+  },
+  "acceptable_codes": [
+    "VALIDATION_BLOCK"
+  ],
+  "workflow_after_attempts": null,
+  "can_approve_from_page": false,
+  "requestId_traceId_note": "Not supported on AppError — deferred M-07 (S9/S10/V2)"
+}
