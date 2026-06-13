@@ -10,8 +10,10 @@
 | Generated | 2026-06-13 |
 | TD ID | **TD-7B-003** |
 | TD status | **OPEN** (unchanged) |
-| WS-01A status | **READY FOR PRODUCT SIGN-OFF** |
-| WS-01B status | **BLOCKED** — pending Product / Governance sign-off |
+| WS-01A status | **COMPLETE** — Product sign-off recorded |
+| WS-01B-0 status | **BOUNDARY PREPARED** — no implementation executed |
+| WS-01B status | **BLOCKED** — pending Engineering / Governance / Ops §10 sign-off |
+| Selected option | **Option B WITH CONDITIONS** — Product Owner 2026-06-13 |
 | Recommended option | **Option B** — Signed Layer-Separation SSOT + mandatory visibility enhancements |
 
 ---
@@ -39,6 +41,8 @@
 | 4 | Evidence test plan | [TD_7B_003_EVIDENCE_TEST_PLAN.md](TD_7B_003_EVIDENCE_TEST_PLAN.md) | **Complete** |
 | 5 | Sign-off request | [TD_7B_003_SIGNOFF_REQUEST.md](TD_7B_003_SIGNOFF_REQUEST.md) | **Complete** |
 | 6 | WS-01A closure | [WS01A_DISPOSITION_CLOSURE.md](WS01A_DISPOSITION_CLOSURE.md) | **This document** |
+| 7 | WS-01B implementation boundary | [WS01B_OPTION_B_IMPLEMENTATION_BOUNDARY.md](WS01B_OPTION_B_IMPLEMENTATION_BOUNDARY.md) | **Complete** (WS-01B-0) |
+| 8 | WS-01B acceptance criteria | [WS01B_OPTION_B_ACCEPTANCE_CRITERIA.md](WS01B_OPTION_B_ACCEPTANCE_CRITERIA.md) | **Complete** (WS-01B-0) |
 
 ---
 
@@ -121,27 +125,41 @@
 
 ---
 
-## 9. Governance Statements
+## 9. Product Owner Decision (WS-01B-0)
+
+| Field | Value |
+|-------|-------|
+| Decision | **APPROVE OPTION B WITH CONDITIONS** |
+| Date | 2026-06-13 |
+| Selected path | Option B — Signed Layer-Separation SSOT + Mandatory Visibility Enhancements |
+| Mandatory conditions | Three visible states before TD closure: **Validation Ready**, **Export Eligible**, **Handoff Ready** |
+| Pending sign-off | Engineering Lead, Governance Reviewer, Operations / Support |
+
+---
+
+## 10. Governance Statements
 
 | Claim | Status |
 |-------|--------|
 | WS-01A complete | **YES** |
-| WS-01B authorized | **NO** — pending sign-off |
-| TD-7B-003 closed | **NOT CLAIMED** |
+| Product Owner sign-off | **RECORDED** |
+| WS-01B implementation executed | **NO** — boundary docs only |
+| WS-01B code authorized | **NO** — pending remaining §10 roles |
+| TD-7B-003 closed | **NOT CLAIMED** — **OPEN** |
 | Production Readiness | **NOT CLAIMED** |
 | MVP Freeze | **NOT CLAIMED** |
-| Code changes | **NONE** |
+| Code changes (WS-01B-0) | **NONE** |
 
 ---
 
-## 10. Final Recommendation
+## 11. Final Recommendation
 
-### **READY FOR PRODUCT SIGN-OFF**
+### **READY FOR ENGINEERING / GOVERNANCE SIGN-OFF**
 
-Disposition package complete. Product / Governance may decide via [TD_7B_003_SIGNOFF_REQUEST.md](TD_7B_003_SIGNOFF_REQUEST.md) §10.
+Product Owner decision recorded. Implementation boundary and acceptance criteria prepared. Remaining §10 roles must sign before WS-01B code work begins.
 
-**Next:** Sign-off → WS-01B per signed option.
+**Next:** Engineering Lead + Governance Reviewer + Operations / Support sign-off → WS-01B implementation prompt.
 
-> WS-01A does **not** fix TD-7B-003. Decision package only.
+> WS-01A / WS-01B-0 do **not** fix TD-7B-003. TD remains **OPEN** until WS-01B evidence passes acceptance criteria.
 
-End of WS-01A Disposition Closure. End of Sprint 9-1B Work Package WS-01A.
+End of WS-01A Disposition Closure. WS-01B-0 boundary recorded.

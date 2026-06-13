@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | System | HUB IT BOQ V3 — ERP-ready BOQ Cost Intelligence System |
-| Sprint | 9-1B-1 — WS-01A Sign-off Capture |
+| Sprint | 9-1B-2 — WS-01B-0 Sign-off Recording |
 | Deliverable | Sign-Off Request |
 | Document type | **GOVERNANCE / DECISION REQUEST** |
 | Generated | 2026-06-13 |
@@ -23,9 +23,9 @@ Product Owner and Governance must select **one** disposition path:
 | **B** | Signed layer-separation SSOT + mandatory visibility enhancements |
 | **C** | Hybrid export mode split (summary vs handoff export) |
 
-**WS-01B is blocked until §10 is completed.**
+**WS-01B implementation is blocked until Engineering Lead, Governance Reviewer, and Operations / Support complete §10.**
 
-**No option (A, B, or C) is implemented in WS-01A.** Product / Governance sign-off is required before WS-01B implementation begins.
+**Product Owner decision recorded (2026-06-13): APPROVE OPTION B WITH CONDITIONS.** Code implementation has **not** started — boundary and acceptance criteria only ([WS01B_OPTION_B_IMPLEMENTATION_BOUNDARY.md](WS01B_OPTION_B_IMPLEMENTATION_BOUNDARY.md), [WS01B_OPTION_B_ACCEPTANCE_CRITERIA.md](WS01B_OPTION_B_ACCEPTANCE_CRITERIA.md)).
 
 Allowed: Approve A / B / C · Approve with Conditions · Hold · Reject
 
@@ -135,7 +135,7 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 
 | Role | Name | Decision | Date | Notes |
 |------|------|----------|------|-------|
-| Product Owner | | PENDING | | |
+| Product Owner | Product Owner | APPROVE OPTION B WITH CONDITIONS | 2026-06-13 | Requires visible states: Validation Ready / Export Eligible / Handoff Ready before TD closure |
 | Engineering Lead | | PENDING | | |
 | Governance Reviewer | | PENDING | | |
 | Operations / Support | | PENDING | | |
@@ -143,9 +143,9 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 ### Allowed decisions
 
 - [ ] **Approve Option A**
-- [ ] **Approve Option B** (recommended)
+- [x] **Approve Option B** (recommended) — **Product Owner: with conditions (2026-06-13)**
 - [ ] **Approve Option C**
-- [ ] **Approve with Conditions** — specify: _______________
+- [x] **Approve with Conditions** — see §10 Conditions table
 - [ ] **Hold** — reason: _______________
 - [ ] **Reject** — reason: _______________
 
@@ -153,7 +153,10 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 
 | Condition | Owner | Due |
 |-----------|-------|-----|
-| | | |
+| WS-01B must define and expose three separate visible states: **Validation Ready**, **Export Eligible**, **Handoff Ready** | Engineering Lead (WS-01B) | Before TD-7B-003 closure |
+| TD-7B-003 must **not** be closed until evidence proves states are visible, consistent, and do not mislead users into interpreting "Export Eligible" as "Handoff Ready" | Governance Reviewer | Before TD closure |
+| Preserve NP-004 layer-separation behavior (`export_succeeded: true` while handoff blocked) unless Product re-decides | Product Owner | WS-01B scope |
+| Ops runbook must document export ≠ handoff-ready semantics | Operations / Support | Before production use of new labels |
 
 ---
 
@@ -176,6 +179,8 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 | Option matrix | [TD_7B_003_OPTION_MATRIX.md](TD_7B_003_OPTION_MATRIX.md) |
 | Impact map | [TD_7B_003_IMPACT_MAP.md](TD_7B_003_IMPACT_MAP.md) |
 | Evidence test plan | [TD_7B_003_EVIDENCE_TEST_PLAN.md](TD_7B_003_EVIDENCE_TEST_PLAN.md) |
+| WS-01B implementation boundary | [WS01B_OPTION_B_IMPLEMENTATION_BOUNDARY.md](WS01B_OPTION_B_IMPLEMENTATION_BOUNDARY.md) |
+| WS-01B acceptance criteria | [WS01B_OPTION_B_ACCEPTANCE_CRITERIA.md](WS01B_OPTION_B_ACCEPTANCE_CRITERIA.md) |
 | Production safety policy | [PRODUCTION_SAFETY_POLICY.md](../WS07/PRODUCTION_SAFETY_POLICY.md) |
 
 ---
@@ -184,12 +189,14 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 
 | Claim | Status |
 |-------|--------|
-| Decision recorded | **PENDING** |
-| WS-01B authorized | **NO** |
-| TD-7B-003 closed | **NOT CLAIMED** |
+| Product Owner decision | **RECORDED** — APPROVE OPTION B WITH CONDITIONS (2026-06-13) |
+| Engineering / Governance / Ops sign-off | **PENDING** |
+| WS-01B implementation authorized | **NO** — pending remaining §10 signatures |
+| WS-01B boundary prepared | **YES** — WS-01B-0 documentation only |
+| TD-7B-003 closed | **NOT CLAIMED** — remains **OPEN** |
 | Production Readiness | **NOT CLAIMED** |
 | MVP Freeze | **NOT CLAIMED** |
 
-> **No WS-01B code work until §10 sign-off table is completed.**
+> **No WS-01B code work until Engineering Lead, Governance Reviewer, and Operations / Support complete §10. Implementation requires a separate WS-01B prompt.**
 
 End of TD-7B-003 Sign-Off Request.
