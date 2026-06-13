@@ -3,13 +3,14 @@
 | Field | Value |
 |-------|-------|
 | System | HUB IT BOQ V3 — ERP-ready BOQ Cost Intelligence System |
-| Sprint | 9-1B-4 — WS-01B-0B |
+| Sprint | 9-1B-4 — WS-01B-0B / Human Sign-off Request issued |
 | Workstream | WS-01 — TD-7B-003 Resolution (Option B) |
 | Document type | **COMBINED SIGN-OFF STATUS** |
 | TD ID | **TD-7B-003** |
 | TD status | **OPEN** |
 | Generated | 2026-06-13 |
 | Master sign-off | [TD_7B_003_SIGNOFF_REQUEST.md](../TD_7B_003_SIGNOFF_REQUEST.md) §10 |
+| Human sign-off request | [HUMAN_SIGNOFF_REQUEST.md](HUMAN_SIGNOFF_REQUEST.md) |
 
 ---
 
@@ -143,6 +144,7 @@ When a role holder provides explicit sign-off:
 | Claim | Status |
 |-------|--------|
 | WS-01B-0B sign-off forms prepared | **YES** |
+| Human sign-off request issued | **YES** — [HUMAN_SIGNOFF_REQUEST.md](HUMAN_SIGNOFF_REQUEST.md) |
 | Human sign-offs complete | **NO** — Product Owner only (1 of 4) |
 | WS-01B implementation authorized | **NO** |
 | TD-7B-003 closed | **NOT CLAIMED** — **OPEN** |
@@ -158,7 +160,7 @@ When a role holder provides explicit sign-off:
 | Field | Value |
 |-------|-------|
 | **Final recommendation** | **READY FOR HUMAN SIGN-OFF** |
-| Rationale | Sign-off forms prepared; no explicit Engineering / Governance / Operations human decisions recorded in WS-01B-0B |
-| Next step | Role holders complete individual sign-off forms; re-run status evaluation |
+| Rationale | Sign-off request issued; no explicit Engineering / Governance / Operations decisions recorded |
+| Next step | Role holders submit decision via [HUMAN_SIGNOFF_REQUEST.md](HUMAN_SIGNOFF_REQUEST.md) §6–§8 |
 
 End of WS-01B Combined Human Sign-Off Status.

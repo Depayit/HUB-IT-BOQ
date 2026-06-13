@@ -190,6 +190,7 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 | WS-01B operations review | [WS01B_OPERATIONS_REVIEW.md](WS01B_OPERATIONS_REVIEW.md) |
 | WS-01B sign-off gate review | [WS01B_SIGNOFF_GATE_REVIEW.md](WS01B_SIGNOFF_GATE_REVIEW.md) |
 | Combined human sign-off status | [SIGNOFF/WS01B_HUMAN_SIGNOFF_STATUS.md](SIGNOFF/WS01B_HUMAN_SIGNOFF_STATUS.md) |
+| Human sign-off request | [SIGNOFF/HUMAN_SIGNOFF_REQUEST.md](SIGNOFF/HUMAN_SIGNOFF_REQUEST.md) |
 | Engineering sign-off form | [SIGNOFF/ENGINEERING_SIGNOFF.md](SIGNOFF/ENGINEERING_SIGNOFF.md) |
 | Governance sign-off form | [SIGNOFF/GOVERNANCE_SIGNOFF.md](SIGNOFF/GOVERNANCE_SIGNOFF.md) |
 | Operations sign-off form | [SIGNOFF/OPERATIONS_SIGNOFF.md](SIGNOFF/OPERATIONS_SIGNOFF.md) |

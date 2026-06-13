@@ -89,6 +89,7 @@ The review package confirms:
 | Field | Value |
 |-------|-------|
 | Combined status document | [SIGNOFF/WS01B_HUMAN_SIGNOFF_STATUS.md](SIGNOFF/WS01B_HUMAN_SIGNOFF_STATUS.md) |
+| Human sign-off request | [SIGNOFF/HUMAN_SIGNOFF_REQUEST.md](SIGNOFF/HUMAN_SIGNOFF_REQUEST.md) |
 | Engineering form | [SIGNOFF/ENGINEERING_SIGNOFF.md](SIGNOFF/ENGINEERING_SIGNOFF.md) |
 | Governance form | [SIGNOFF/GOVERNANCE_SIGNOFF.md](SIGNOFF/GOVERNANCE_SIGNOFF.md) |
 | Operations form | [SIGNOFF/OPERATIONS_SIGNOFF.md](SIGNOFF/OPERATIONS_SIGNOFF.md) |
