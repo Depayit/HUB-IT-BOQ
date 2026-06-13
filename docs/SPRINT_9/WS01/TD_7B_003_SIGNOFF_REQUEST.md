@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | System | HUB IT BOQ V3 — ERP-ready BOQ Cost Intelligence System |
-| Sprint | 9-1B-3 — WS-01B-0A Review Gate |
+| Sprint | 9-1B-4 — WS-01B-0B Human Sign-off Capture |
 | Deliverable | Sign-Off Request |
 | Document type | **GOVERNANCE / DECISION REQUEST** |
 | Generated | 2026-06-13 |
@@ -27,7 +27,9 @@ Product Owner and Governance must select **one** disposition path:
 
 **Product Owner decision recorded (2026-06-13): APPROVE OPTION B WITH CONDITIONS.** Code implementation has **not** started — boundary, acceptance criteria, and review gate only ([WS01B_OPTION_B_IMPLEMENTATION_BOUNDARY.md](WS01B_OPTION_B_IMPLEMENTATION_BOUNDARY.md), [WS01B_OPTION_B_ACCEPTANCE_CRITERIA.md](WS01B_OPTION_B_ACCEPTANCE_CRITERIA.md), [WS01B_SIGNOFF_GATE_REVIEW.md](WS01B_SIGNOFF_GATE_REVIEW.md)).
 
-**WS-01B-0A review gate (2026-06-13):** Engineering, Governance, and Operations reviews complete — all recommend **READY FOR SIGN-OFF**; human §10 signatures remain **PENDING**. Implementation is **not authorized** until all three roles sign §10 and a separate WS-01B implementation prompt is issued.
+**WS-01B-0A review gate (2026-06-13):** Engineering, Governance, and Operations reviews complete — all recommend **READY FOR SIGN-OFF**.
+
+**WS-01B-0B human sign-off capture (2026-06-13):** Role-specific sign-off forms prepared in [SIGNOFF/](SIGNOFF/); combined status in [WS01B_HUMAN_SIGNOFF_STATUS.md](SIGNOFF/WS01B_HUMAN_SIGNOFF_STATUS.md). Engineering Lead, Governance Reviewer, and Operations / Support remain **PENDING** — no explicit human signature evidence provided. Implementation is **not authorized** until all three roles sign §10 and a separate WS-01B implementation prompt is issued.
 
 Allowed: Approve A / B / C · Approve with Conditions · Hold · Reject
 
@@ -138,9 +140,9 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 | Role | Name | Decision | Date | Notes |
 |------|------|----------|------|-------|
 | Product Owner | Product Owner | APPROVE OPTION B WITH CONDITIONS | 2026-06-13 | Requires visible states: Validation Ready / Export Eligible / Handoff Ready before TD closure |
-| Engineering Lead | | PENDING | | |
-| Governance Reviewer | | PENDING | | |
-| Operations / Support | | PENDING | | |
+| Engineering Lead | | PENDING | | Form: [ENGINEERING_SIGNOFF.md](SIGNOFF/ENGINEERING_SIGNOFF.md) — no signature evidence |
+| Governance Reviewer | | PENDING | | Form: [GOVERNANCE_SIGNOFF.md](SIGNOFF/GOVERNANCE_SIGNOFF.md) — no signature evidence |
+| Operations / Support | | PENDING | | Form: [OPERATIONS_SIGNOFF.md](SIGNOFF/OPERATIONS_SIGNOFF.md) — no signature evidence |
 
 ### Allowed decisions
 
@@ -187,6 +189,10 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 | WS-01B governance review | [WS01B_GOVERNANCE_REVIEW.md](WS01B_GOVERNANCE_REVIEW.md) |
 | WS-01B operations review | [WS01B_OPERATIONS_REVIEW.md](WS01B_OPERATIONS_REVIEW.md) |
 | WS-01B sign-off gate review | [WS01B_SIGNOFF_GATE_REVIEW.md](WS01B_SIGNOFF_GATE_REVIEW.md) |
+| Combined human sign-off status | [SIGNOFF/WS01B_HUMAN_SIGNOFF_STATUS.md](SIGNOFF/WS01B_HUMAN_SIGNOFF_STATUS.md) |
+| Engineering sign-off form | [SIGNOFF/ENGINEERING_SIGNOFF.md](SIGNOFF/ENGINEERING_SIGNOFF.md) |
+| Governance sign-off form | [SIGNOFF/GOVERNANCE_SIGNOFF.md](SIGNOFF/GOVERNANCE_SIGNOFF.md) |
+| Operations sign-off form | [SIGNOFF/OPERATIONS_SIGNOFF.md](SIGNOFF/OPERATIONS_SIGNOFF.md) |
 | Production safety policy | [PRODUCTION_SAFETY_POLICY.md](../WS07/PRODUCTION_SAFETY_POLICY.md) |
 
 ---
@@ -196,8 +202,9 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 | Claim | Status |
 |-------|--------|
 | Product Owner decision | **RECORDED** — APPROVE OPTION B WITH CONDITIONS (2026-06-13) |
-| Engineering / Governance / Ops sign-off | **PENDING** — reviews complete; human signatures not recorded |
-| WS-01B review gate | **COMPLETE** — [WS01B_SIGNOFF_GATE_REVIEW.md](WS01B_SIGNOFF_GATE_REVIEW.md): READY FOR HUMAN SIGN-OFF |
+| Engineering / Governance / Ops sign-off | **PENDING** — forms prepared; no explicit human signature evidence |
+| WS-01B review gate | **COMPLETE** — [WS01B_SIGNOFF_GATE_REVIEW.md](WS01B_SIGNOFF_GATE_REVIEW.md) |
+| WS-01B-0B sign-off capture | **COMPLETE** — [SIGNOFF/WS01B_HUMAN_SIGNOFF_STATUS.md](SIGNOFF/WS01B_HUMAN_SIGNOFF_STATUS.md): READY FOR HUMAN SIGN-OFF |
 | WS-01B implementation authorized | **NO** — pending remaining §10 signatures + implementation prompt |
 | WS-01B boundary prepared | **YES** — WS-01B-0/0A documentation only |
 | TD-7B-003 closed | **NOT CLAIMED** — remains **OPEN** |
