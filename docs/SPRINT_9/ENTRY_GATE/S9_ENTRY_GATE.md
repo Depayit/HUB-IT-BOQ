@@ -5,7 +5,7 @@
 | System | HUB IT BOQ V3 — ERP-ready BOQ Cost Intelligence System |
 | Sprint | 9-0 — Production Hardening Entry Gate & Planning Package |
 | Branch | `main` |
-| HEAD at gate | `d80a5ee2bf6172be8b22cb86cfe3123eb16723ce` |
+| HEAD at gate | `e86093226cb37e62b407a2187f15c7e38cef7ac5` |
 | Generated | 2026-06-13 |
 | Gate type | **PLAN / GOVERNANCE / DOCUMENTATION ONLY** |
 | Prerequisite | Sprint 7 = **CLOSED / PASS**; Sprint 8 = **CLOSED / PASS WITH WARNING** |
