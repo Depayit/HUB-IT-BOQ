@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | System | HUB IT BOQ V3 — ERP-ready BOQ Cost Intelligence System |
-| Sprint | 9-1B — WS-01A |
+| Sprint | 9-1B-1 — WS-01A Sign-off Capture |
 | Deliverable | Sign-Off Request |
 | Document type | **GOVERNANCE / DECISION REQUEST** |
 | Generated | 2026-06-13 |
@@ -24,6 +24,8 @@ Product Owner and Governance must select **one** disposition path:
 | **C** | Hybrid export mode split (summary vs handoff export) |
 
 **WS-01B is blocked until §10 is completed.**
+
+**No option (A, B, or C) is implemented in WS-01A.** Product / Governance sign-off is required before WS-01B implementation begins.
 
 Allowed: Approve A / B / C · Approve with Conditions · Hold · Reject
 
@@ -51,6 +53,7 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 | Code scope | CC-HR |
 | NP-004 | Behavior **changes** |
 | Best for | Maximum safety |
+| Trade-off | **Maximum safety** — export blocked until handoff complete — but **higher procurement / behavior impact** (pre-handoff BOQ summary export blocked; NP-004 re-baseline required) |
 
 ---
 
@@ -88,7 +91,9 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 | Field | Value |
 |-------|-------|
 | Recommendation | **Option B** — Layer-Separation SSOT + mandatory visibility |
-| Alternative | Option C if Product requires export taxonomy in S9 |
+| Alternative | **Option C** — acceptable alternative if Product wants formal export taxonomy |
+| Option A note | Valid on safety grounds; not primary recommendation due to procurement / behavior impact |
+| Implementation status | **No option implemented yet** — WS-01A is decision package only |
 
 ---
 
@@ -130,10 +135,10 @@ Post-lock BOQ with clean validation (0 unresolved BLOCK):
 
 | Role | Name | Decision | Date | Notes |
 |------|------|----------|------|-------|
-| Product Owner | | | | |
-| Engineering Lead | | | | |
-| Governance Reviewer | | | | |
-| Operations / Support | | | | |
+| Product Owner | | PENDING | | |
+| Engineering Lead | | PENDING | | |
+| Governance Reviewer | | PENDING | | |
+| Operations / Support | | PENDING | | |
 
 ### Allowed decisions
 

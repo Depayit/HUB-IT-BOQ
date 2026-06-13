@@ -3,13 +3,16 @@
 | Field | Value |
 |-------|-------|
 | System | HUB IT BOQ V3 |
-| Sprint | 9-1B — WS-01A |
+| Sprint | 9-1B-1 — WS-01A Sign-off Capture |
 | Workstream | WS-01 — TD-7B-003 Resolution (Analysis phase) |
 | Document type | **GOVERNANCE / CLOSURE NOTE** |
 | Branch | `main` |
 | Generated | 2026-06-13 |
 | TD ID | **TD-7B-003** |
 | TD status | **OPEN** (unchanged) |
+| WS-01A status | **READY FOR PRODUCT SIGN-OFF** |
+| WS-01B status | **BLOCKED** — pending Product / Governance sign-off |
+| Recommended option | **Option B** — Signed Layer-Separation SSOT + mandatory visibility enhancements |
 
 ---
 
@@ -89,7 +92,11 @@
 
 **Option B — Layer-Separation SSOT (Recommended):** Export = validation-ready; handoff separate. SSOT + visibility. NP-004 preserved.
 
-**Option C — Hybrid:** Summary + handoff export modes. CC-HR. Acceptable alternative.
+**Option C — Hybrid Export Mode Split:** Summary + handoff export modes. CC-HR. **Acceptable alternative** if Product wants formal export taxonomy.
+
+**Option A — procurement note:** Maximum safety; higher procurement / behavior impact. Not primary recommendation.
+
+**No option is implemented yet.** Product / Governance sign-off required before WS-01B.
 
 ---
 
