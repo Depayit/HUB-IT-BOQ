@@ -3,12 +3,13 @@
 | Field | Value |
 |-------|-------|
 | System | HUB IT BOQ V3 — ERP-ready BOQ Cost Intelligence System |
-| Sprint | 9-1B-4 — WS-01B-0B / Human Sign-off Request issued |
+| Sprint | 9-1B-5 — WS-01B-0C Human Decision Recording |
 | Workstream | WS-01 — TD-7B-003 Resolution (Option B) |
 | Document type | **COMBINED SIGN-OFF STATUS** |
 | TD ID | **TD-7B-003** |
 | TD status | **OPEN** |
 | Generated | 2026-06-13 |
+| Last recording pass | **2026-06-14** — WS-01B-0C |
 | Master sign-off | [TD_7B_003_SIGNOFF_REQUEST.md](../TD_7B_003_SIGNOFF_REQUEST.md) §10 |
 | Human sign-off request | [HUMAN_SIGNOFF_REQUEST.md](HUMAN_SIGNOFF_REQUEST.md) |
 
@@ -37,9 +38,9 @@ Consolidated status of all required human sign-offs for WS-01B Option B implemen
 
 | Role | Form path | Decision | Date | Signature evidence |
 |------|-----------|----------|------|-------------------|
-| Engineering Lead | [ENGINEERING_SIGNOFF.md](ENGINEERING_SIGNOFF.md) | **PENDING** | — | None recorded |
-| Governance Reviewer | [GOVERNANCE_SIGNOFF.md](GOVERNANCE_SIGNOFF.md) | **PENDING** | — | None recorded |
-| Operations / Support | [OPERATIONS_SIGNOFF.md](OPERATIONS_SIGNOFF.md) | **PENDING** | — | None recorded |
+| Engineering Lead | [ENGINEERING_SIGNOFF.md](ENGINEERING_SIGNOFF.md) | **PENDING** | — | None recorded — checked WS-01B-0C (2026-06-14) |
+| Governance Reviewer | [GOVERNANCE_SIGNOFF.md](GOVERNANCE_SIGNOFF.md) | **PENDING** | — | None recorded — checked WS-01B-0C (2026-06-14) |
+| Operations / Support | [OPERATIONS_SIGNOFF.md](OPERATIONS_SIGNOFF.md) | **PENDING** | — | None recorded — checked WS-01B-0C (2026-06-14) |
 
 ---
 
@@ -144,6 +145,7 @@ When a role holder provides explicit sign-off:
 | Claim | Status |
 |-------|--------|
 | WS-01B-0B sign-off forms prepared | **YES** |
+| WS-01B-0C decision recording pass | **COMPLETE** — no new explicit human decisions received (2026-06-14) |
 | Human sign-off request issued | **YES** — [HUMAN_SIGNOFF_REQUEST.md](HUMAN_SIGNOFF_REQUEST.md) |
 | Human sign-offs complete | **NO** — Product Owner only (1 of 4) |
 | WS-01B implementation authorized | **NO** |
@@ -151,16 +153,31 @@ When a role holder provides explicit sign-off:
 | Production Readiness | **NOT CLAIMED** |
 | MVP Freeze | **NOT CLAIMED** |
 | Sprint 10 started | **NO** |
-| Code changed in WS-01B-0B | **NO** |
+| Code changed in WS-01B-0C | **NO** |
 
 ---
 
-## 10. Final Recommendation
+## 10. WS-01B-0C Recording Pass
+
+| Field | Value |
+|-------|-------|
+| Recording pass | **WS-01B-0C** — Human Decision Recording |
+| Date | 2026-06-14 |
+| New human decisions received | **None** |
+| Engineering Lead | **PENDING** — unchanged |
+| Governance Reviewer | **PENDING** — unchanged |
+| Operations / Support | **PENDING** — unchanged |
+| AI signed on behalf of humans | **NO** |
+| Status change | **None** |
+
+---
+
+## 11. Final Recommendation
 
 | Field | Value |
 |-------|-------|
 | **Final recommendation** | **READY FOR HUMAN SIGN-OFF** |
-| Rationale | Sign-off request issued; no explicit Engineering / Governance / Operations decisions recorded |
+| Rationale | WS-01B-0C recording pass complete; no explicit Engineering / Governance / Operations decisions received |
 | Next step | Role holders submit decision via [HUMAN_SIGNOFF_REQUEST.md](HUMAN_SIGNOFF_REQUEST.md) §6–§8 |
 
 End of WS-01B Combined Human Sign-Off Status.

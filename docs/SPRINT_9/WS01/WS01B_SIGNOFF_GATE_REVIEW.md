@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | System | HUB IT BOQ V3 — ERP-ready BOQ Cost Intelligence System |
-| Sprint | 9-1B-4 — WS-01B-0B (updated from 9-1B-3 — WS-01B-0A) |
+| Sprint | 9-1B-5 — WS-01B-0C (updated from 9-1B-4 — WS-01B-0B) |
 | Workstream | WS-01 — TD-7B-003 Resolution (Option B) |
 | Document type | **SIGN-OFF GATE SUMMARY** |
 | Branch | `main` |
@@ -98,6 +98,20 @@ The review package confirms:
 
 ---
 
+## 5B. WS-01B-0C Human Decision Recording
+
+| Field | Value |
+|-------|-------|
+| Recording pass date | 2026-06-14 |
+| New explicit human decisions | **None** |
+| Engineering Lead | **PENDING** — unchanged |
+| Governance Reviewer | **PENDING** — unchanged |
+| Operations / Support | **PENDING** — unchanged |
+| Signatures recorded in WS-01B-0C | **0 of 3** |
+| AI/Cursor signed on behalf of humans | **NO** |
+
+---
+
 ## 6. RED / YELLOW Items
 
 ### 6.1 RED Items
@@ -171,14 +185,14 @@ The review package confirms:
 
 - All three role reviews are **complete** with READY FOR SIGN-OFF recommendations.
 - WS-01B-0B sign-off **forms prepared**; combined status captured.
-- **No explicit human signature evidence** provided for Engineering, Governance, or Operations.
+- WS-01B-0C decision recording pass (2026-06-14): **no new explicit human signature evidence** provided.
 - **No RED blockers** identified.
-- Therefore: **READY FOR HUMAN SIGN-OFF** — not READY FOR WS-01B IMPLEMENTATION PROMPT.
+- Therefore: **READY FOR HUMAN SIGN-OFF** — not READY FOR WS-01B IMPLEMENTATION.
 
 ### Path to Implementation Authorization
 
 ```
-READY FOR HUMAN SIGN-OFF (current — WS-01B-0B)
+READY FOR HUMAN SIGN-OFF (current — WS-01B-0C)
         ↓
 Role holders complete SIGNOFF/*.md forms with explicit decisions
         ↓
@@ -222,7 +236,8 @@ TD-7B-003 closure prompt (separate)
 |-------|--------|
 | WS-01B-0A review gate complete | **YES** |
 | WS-01B-0B sign-off forms prepared | **YES** |
-| Code changed in WS-01B-0A/0B | **NO** |
+| WS-01B-0C decision recording pass | **COMPLETE** (2026-06-14) — no new signatures |
+| Code changed in WS-01B-0A/0B/0C | **NO** |
 | Human sign-offs complete | **NO** — Product Owner only (1 of 4) |
 | AI signed on behalf of humans | **NO** |
 | WS-01B implementation authorized | **NO** |

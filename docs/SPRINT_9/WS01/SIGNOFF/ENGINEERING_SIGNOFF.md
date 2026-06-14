@@ -3,7 +3,7 @@
 | Field | Value |
 |-------|-------|
 | System | HUB IT BOQ V3 — ERP-ready BOQ Cost Intelligence System |
-| Sprint | 9-1B-4 — WS-01B-0B |
+| Sprint | 9-1B-5 — WS-01B-0C |
 | Workstream | WS-01 — TD-7B-003 Resolution (Option B) |
 | Document type | **HUMAN SIGN-OFF FORM** |
 | Role | Engineering Lead |
@@ -47,7 +47,7 @@ The Engineering Lead must confirm each item before signing:
 
 | Role | Decision | Date | Conditions | Signature Evidence |
 |------|----------|------|------------|-------------------|
-| Engineering Lead | **PENDING** | — | — | No explicit human sign-off text provided as of WS-01B-0B |
+| Engineering Lead | **PENDING** | — | — | No explicit human sign-off text provided as of WS-01B-0C (2026-06-14) |
 
 ### Allowed decisions
 
@@ -90,7 +90,7 @@ _________________________________________________
 _________________________________________________
 ```
 
-**No signature evidence recorded in WS-01B-0B.**
+**No signature evidence recorded in WS-01B-0C.**
 
 ---
 
@@ -115,6 +115,7 @@ Per [CHANGE_CLASSIFICATION_MATRIX.md](../../WS07/CHANGE_CLASSIFICATION_MATRIX.md
 | Engineering Lead human sign-off | **PENDING** |
 | WS-01B implementation authorized | **NO** |
 | TD-7B-003 closed | **NOT CLAIMED** — **OPEN** |
-| Code changed in WS-01B-0B | **NO** |
+| Code changed in WS-01B-0C | **NO** |
+| WS-01B-0C decision recording pass | **COMPLETE** — no new signature evidence received |
 
 End of Engineering Lead Human Sign-Off Form.
